@@ -7,7 +7,7 @@ module.exports = {
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 8, // to enable features such as async/await
+    ecmaVersion: 2020, // to enable features such as async/await
     project: './tsconfig.json',
   },
   ignorePatterns: ['node_modules/*', '.next/*'],

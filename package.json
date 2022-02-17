@@ -40,6 +40,7 @@
     "react-icons": "4.3.1",
     "react-markdown": "8.0.0",
     "stripe": "8.205.0",
+    "react-qr-reader": "^3.0.0-beta-1",
     "typescript": "4.5.5"
   },
   "devDependencies": {

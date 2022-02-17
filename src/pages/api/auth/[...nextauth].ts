@@ -9,4 +9,13 @@ export default NextAuth({
       tenantId: process.env.AZURE_AD_TENANT_ID,
     }),
   ],
+  callbacks: {
+    async signIn() {
+      const isAllowedToSignIn = true;
+      if (isAllowedToSignIn) {
+        return true;
+      }
+      return false;
+    },
+  },
 });

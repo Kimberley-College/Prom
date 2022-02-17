@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import {
-  Box, Button, Text, useToast,
+  Box, Button, Text, Spacer, useToast,
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import supabase from '../util/supabaseClient';
@@ -36,33 +36,30 @@ const Home: NextPage = () => {
   };
 
   return (
-    <>
-      <Box bg="#1A365D" w="100%" p={4} color="white" display="flex" alignItems="center">
-        <Image src="/kimberley_logo.png" height={110} width={110} alt="boioioing" />
-        <Text fontSize="35">
-          Kimberley College Prom 2022
-        </Text>
-        {user
-          ? (
-            <>
-              <Text fontSize="35" mx={2}>
-                Signed In As {user?.user_metadata.full_name}
-              </Text>
-              <Button onClick={signout}>Log out</Button>
-            </>
-          )
-          : (
-            <>
-              <Text fontSize="35" mx={2}>
-                Not Signed In
-              </Text>
-              <Button onClick={signin}>Log In</Button>
-            </>
-          )}
-      </Box>
-      {JSON.stringify(user)}
-      {JSON.stringify(session)}
-    </>
+    <Box bg="#1A365D" w="100%" p={4} color="white" display="flex" alignItems="center">
+      <Image src="/kimberley_logo.png" height={110} width={110} alt="boioioing" />
+      <Text fontSize="35">
+        Kimberley College Prom 2022
+      </Text>
+      <Spacer />
+      {session
+        ? (
+          <>
+            <Text fontSize="35" mx={2}>
+              Signed In As {session.user.name}
+            </Text>
+            <Button onClick={() => signOut()}>Log out</Button>
+          </>
+        )
+        : (
+          <>
+            <Text fontSize="35" mx={2}>
+              Not Signed In
+            </Text>
+            <Button onClick={() => signIn('azure-ad')}>Log In</Button>
+          </>
+        )}
+    </Box>
   );
 };
 

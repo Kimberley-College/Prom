@@ -3,9 +3,9 @@ import {
 } from '@chakra-ui/react';
 
 const NavBar: React.FC = () => (
-  <Flex w="100%" p={4} color="black" alignItems="center" h="125px">
+  <Flex direction="row" justify="center" align="center" w="100%" p="5vw" color="black" h="125px">
     <Image src="/kimberley_logo.png" height={110} width={110} alt="boioioing" />
-    <Text fontSize="35">
+    <Text fontSize="35" m={2}>
       Prom
     </Text>
     <Spacer />

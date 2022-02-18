@@ -1,15 +1,16 @@
 import type { AppProps } from 'next/app';
 import type { NextPage } from 'next';
 import { ChakraProvider } from '@chakra-ui/react';
-import { SessionProvider } from 'next-auth/react';
+import supabase from '../util/supabaseClient';
 import theme from '../util/theme';
+import { UserContextProvider } from '../util/useUser';
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => (
-  <SessionProvider>
+  <UserContextProvider supabaseClient={supabase}>
     <ChakraProvider theme={theme}>
       <Component {...pageProps} />
     </ChakraProvider>
-  </SessionProvider>
+  </UserContextProvider>
 );
 
 export default App;

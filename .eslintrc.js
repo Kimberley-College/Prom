@@ -10,7 +10,7 @@ module.exports = {
     ecmaVersion: 2020, // to enable features such as async/await
     project: './tsconfig.json',
   },
-  ignorePatterns: ['node_modules/*', '.next/*'],
+  ignorePatterns: ['node_modules/*', '.next/*', 'setup/*'],
   settings: { react: { version: 'detect' } },
   plugins: [
     '@typescript-eslint',

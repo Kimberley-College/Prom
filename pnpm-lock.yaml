@@ -2,7 +2,9 @@ lockfileVersion: 5.3
 
 specifiers:
   '@babel/core': 7.17.5
+  '@chakra-ui/icons': ^1.1.5
   '@chakra-ui/react': 1.8.3
+  '@chakra-ui/system': ^1.10.3
   '@emotion/react': 11.7.1
   '@emotion/styled': 11.6.0
   '@fast-csv/parse': ^4.3.6
@@ -23,11 +25,14 @@ specifiers:
   next: 12.1.0
   react: 17.0.2
   react-dom: 17.0.2
+  react-icons: ^4.3.1
   typescript: 4.5.5
 
 dependencies:
   '@babel/core': 7.17.5
+  '@chakra-ui/icons': 1.1.5_d5de66fc214059f645050e36d066c00a
   '@chakra-ui/react': 1.8.3_62a1f0adae34171ee3d250394ea52770
+  '@chakra-ui/system': 1.10.3_922a85da57e3646a57465b7970b0de85
   '@emotion/react': 11.7.1_7c3ecd89bd75b61b41f2029715ea2305
   '@emotion/styled': 11.6.0_9b9ae732b3b2d88f2c185c94e7019fd1
   '@supabase/supabase-js': 1.30.3
@@ -35,6 +40,7 @@ dependencies:
   next: 12.1.0_33bdac975a6e334c49640fab91e2abb4
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
+  react-icons: 4.3.1_react@17.0.2
   typescript: 4.5.5
 
 devDependencies:
@@ -512,6 +518,18 @@ packages:
     dependencies:
       '@chakra-ui/system': 1.10.3_922a85da57e3646a57465b7970b0de85
       '@chakra-ui/utils': 1.10.2
+      react: 17.0.2
+    dev: false
+
+  /@chakra-ui/icons/1.1.5_d5de66fc214059f645050e36d066c00a:
+    resolution: {integrity: sha512-UjTexT3SXCNu6XbAjyHFTkYAMSq5MFTf1b5WSmvI6Bt4PZ5hYXGKGeFVaZi4jH58WCWD/HKsEq+MrHBDaaeUnA==}
+    peerDependencies:
+      '@chakra-ui/system': '>=1.0.0'
+      react: '>=16.8.6'
+    dependencies:
+      '@chakra-ui/icon': 2.0.3_d5de66fc214059f645050e36d066c00a
+      '@chakra-ui/system': 1.10.3_922a85da57e3646a57465b7970b0de85
+      '@types/react': 17.0.39
       react: 17.0.2
     dev: false
 
@@ -1505,7 +1523,6 @@ packages:
 
   /@types/prop-types/15.7.4:
     resolution: {integrity: sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==}
-    dev: true
 
   /@types/react-dom/17.0.11:
     resolution: {integrity: sha512-f96K3k+24RaLGVu/Y2Ng3e1EbZ8/cVJvypZWd7cy0ofCBaf2lcM46xNhycMZ2xGwbBjRql7hOlZ+e2WlJ5MH3Q==}
@@ -1519,11 +1536,9 @@ packages:
       '@types/prop-types': 15.7.4
       '@types/scheduler': 0.16.2
       csstype: 3.0.10
-    dev: true
 
   /@types/scheduler/0.16.2:
     resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
-    dev: true
 
   /@types/warning/3.0.0:
     resolution: {integrity: sha1-DSUBJorY+ZYrdA04fEZU9fjiPlI=}
@@ -3187,6 +3202,14 @@ packages:
       use-sidecar: 1.0.5_react@17.0.2
     transitivePeerDependencies:
       - '@types/react'
+    dev: false
+
+  /react-icons/4.3.1_react@17.0.2:
+    resolution: {integrity: sha512-cB10MXLTs3gVuXimblAdI71jrJx8njrJZmNMEMC+sQu5B/BIOmlsAjskdqpn81y8UBVEGuHODd7/ci5DvoSzTQ==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 17.0.2
     dev: false
 
   /react-is/16.13.1:

@@ -9,7 +9,7 @@ const Footer: React.FC = () => (
     </Box>
     <Spacer />
     <Text>
-      <Link>Terms and Conditions</Link> |  <Link>Privacy Policy</Link>
+      <Link>Terms and Conditions</Link> | <Link>Privacy Policy</Link>
     </Text>
   </Flex>
 );

@@ -14,9 +14,7 @@ interface ReturnBody {
 }
 
 export default async (req: NextApiRequest, res: NextApiResponse<ReturnBody | string>): Promise<void> => {
-
   const { email } = (req.body as RequestBody | null);
-  
 
   if (!email) return res.status(400).send('No email provided');
 

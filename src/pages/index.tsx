@@ -46,7 +46,7 @@ const Home: NextPage = () => {
           ? (
             <>
               <Text fontSize="35" mx={2}>
-                Signed In As {user?.user_metadata.name}
+                Signed In As {user?.user_metadata.full_name}
               </Text>
               <Button onClick={signout}>Log out</Button>
             </>

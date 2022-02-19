@@ -6,9 +6,9 @@ import React, { useState } from "react";
 import axios from 'axios';
 
 
-const stripePromise = loadStripe("pk_test_51KUpuSJAEOKNbsrg4gJTURtFsG3zvIpf6qIx9dBy5ASyMCnZw2iG5t6KzOJ1I2VMdRQqVaU3JA0EkwjtznfRXjM500ejoy12xp");
+const STRIPE_PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
 
-
+const stripePromise = loadStripe(STRIPE_PUBLISHABLE_KEY);
 
 const Field = ({ id, placeholder, required, onChange, label, value, type}) => {
   return (
@@ -64,23 +64,18 @@ const SubmitButton = ({ onclick }) => (
 );
 
 
-
-
 const CheckoutForm: NextPage = () => {
-
-const handleFormSubmit = async e =>{
-  e.preventDefault();
-  const {data: clientSecret} = await axios.post("/api/create-paymentinents")
-  console.log(clientSecret);
-  
-}
-
+  const handleFormSubmit = async e =>{
+    //Need to get client secret from api
+    e.preventDefault();
+  }
 
   const options = {
     // passing the client secret obtained from the server
     clientSecret: '{{CLIENT_SECRET}}',
   };
 
+  //To be added
   const [cardComplete, setCardComplete] = useState(false);
   const [processing, setProcessing] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState(null)

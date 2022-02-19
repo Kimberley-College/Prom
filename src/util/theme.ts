@@ -19,9 +19,9 @@ const theme = extendTheme({
     outline: '0 0 0 3px #610358',
   },
   fonts: {
-    heading: 'cursive, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-    body: 'cursive, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-    mono: 'cursive,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace',
+    heading: 'Open Sans, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    body: 'Open Sans, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    mono: 'Open Sans,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace',
   },
 });
 

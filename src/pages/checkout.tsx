@@ -5,7 +5,7 @@ import { Box, Flex } from '@chakra-ui/react';
 const Checkout = () => (
   <BaseLayout>
     <Flex flexFlow="column nowrap" justify="center" align="center">
-      <Box w="500px">
+      <Box minW="300px" maxW="500px" w="70%">
         <CheckoutWrapper />
       </Box>
 

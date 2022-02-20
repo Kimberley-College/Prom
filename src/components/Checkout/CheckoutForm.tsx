@@ -32,7 +32,7 @@ const CheckoutForm: React.FC = () => {
     });
   }, [stripe, toast]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e): Promise<void> => {
     e.preventDefault();
 
     if (!stripe || !elements) return;
@@ -49,12 +49,14 @@ const CheckoutForm: React.FC = () => {
     if (error) {
       toast({ status: 'error', title: error.message });
     }
+
+    setLoading(false);
   };
 
   return (
     <Flex flexFlow="column nowrap">
       <PaymentElement />
-      <Button disabled={!stripe || !elements} isLoading={loading} onClick={handleSubmit}>Pay now</Button>
+      <Button disabled={!stripe || !elements || loading} isLoading={loading} onClick={handleSubmit} mt={5}>Pay now</Button>
     </Flex>
   );
 };

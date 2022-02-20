@@ -1,12 +1,16 @@
 import type { NextPage } from 'next';
-import HasTicket from 'components/UserPanel/hasTicket';
-import NoTicket from 'components/UserPanel/noTicket';
+import HasTicket from 'components/UserPanel/HasTicket';
+import NoTicket from 'components/UserPanel/NoTicket';
+import BaseLayout from 'components/Layouts/Base';
 
 const Panel: NextPage = () => {
-  const hasTicket = true; // = Math.random() > 0.5
+  const hasTicket = false; // = Math.random() > 0.5
 
-  if (hasTicket) return <HasTicket />;
-  return <NoTicket />;
+  return (
+    <BaseLayout>
+      {hasTicket ? <HasTicket /> : <NoTicket />}
+    </BaseLayout>
+  );
 };
 
 export default Panel;

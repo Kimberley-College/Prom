@@ -64,7 +64,7 @@ const CheckoutForm: React.FC<Props> = ({ updateTicket }) => {
   };
 
   return (
-    <Flex flexFlow="column nowrap">
+    <Flex flexFlow="column nowrap" w="100%">
       <PaymentElement />
       <Text mt={3}>By clicking &apos;Pay now&apos; you hereby agree to our <NextLink href="/terms" passHref><Link href="/terms">Terms and Conditions</Link></NextLink> and <NextLink href="/privacy" passHref><Link href="/privacy">Privacy Policy</Link></NextLink></Text>
       <Button disabled={!stripe || !elements || loading} isLoading={loading} onClick={handleSubmit} mt={3}>Pay now</Button>

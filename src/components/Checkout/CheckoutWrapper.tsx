@@ -1,30 +1,51 @@
-import { useToast } from '@chakra-ui/react';
-import type { PaymentIntent } from '@stripe/stripe-js';
+import { useToast, Spinner } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
-import getStripe from '../../util/getStripe';
+import { Elements } from '@stripe/react-stripe-js';
+import getStripe from 'util/getStripe';
+import CheckoutForm from './CheckoutForm';
 
-const CheckoutForm: React.FC = () => {
+const CheckoutWrapper: React.FC = () => {
   const stripe = getStripe();
-  const [paymentIntentSecret, setPaymentIntentSecret] = useState<PaymentIntent | null>(null);
+  const [clientSecret, setClientSecret] = useState<string | null>(null);
   const toast = useToast();
   useEffect(() => {
-    fetch('/api/create-paymentintent')
-      .then((res) => res.json())
-      .then((data) => setPaymentIntentSecret(data.clientSecret))
-      .catch((err) => toast({
-        title: err,
-        status: 'error',
-      }));
-  }, [setPaymentIntentSecret, toast]);
+    const getIntent = async (): Promise<void> => {
+      const res = await fetch('/api/stripe/create-paymentintent');
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        toast({
+          title: data.error,
+          status: 'error',
+        });
+        return;
+      }
+
+      setClientSecret(data.clientSecret);
+    };
+
+    getIntent();
+  }, [setClientSecret, toast]);
 
   const appearance = {
-    theme: stripe,
-  };
+    theme: 'stripe',
+  } as const;
 
   const options = {
-    paymentIntentSecret,
+    clientSecret,
     appearance,
   };
+
+  if (clientSecret) {
+    return (
+      <Elements stripe={stripe} options={options}>
+        <CheckoutForm />
+      </Elements>
+    );
+  }
+
+  return <Spinner />;
 };
 
-export default CheckoutForm;
+export default CheckoutWrapper;

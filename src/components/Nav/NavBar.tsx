@@ -7,7 +7,7 @@ import { signin, signout } from 'util/authHelpers';
 
 const NavBar: React.FC = () => {
   const { user } = useUser();
-  const fullName = user?.user_metadata.full_name;
+  const fullName = user?.user_metadata.proper_name;
   return (
     <Flex direction="row" justify="center" align="center" w="100%" p="5vw" color="black" h="125px">
       <Image src="/kimberley_logo.png" height={110} width={110} alt="boioioing" />

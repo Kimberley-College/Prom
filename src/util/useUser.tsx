@@ -1,7 +1,9 @@
 import {
   useEffect, useState, createContext, useContext, useMemo,
 } from 'react';
-import type { SupabaseClient, Session, User } from '@supabase/supabase-js';
+import type {
+  SupabaseClient, Session, User, AuthChangeEvent,
+} from '@supabase/supabase-js';
 
 export interface AuthSession {
   user: User | null
@@ -23,11 +25,21 @@ export const UserContextProvider = (props: Props): JSX.Element => {
   );
   const [user, setUser] = useState<User | null>(session?.user ?? null);
 
+  const updateSupabaseCookie = async (event: AuthChangeEvent, newSession: Session | null): Promise<void> => {
+    await fetch('/api/auth', {
+      method: 'POST',
+      headers: new Headers({ 'Content-Type': 'application/json' }),
+      credentials: 'same-origin',
+      body: JSON.stringify({ event, session: newSession }),
+    });
+  };
+
   useEffect(() => {
     const { data: authListener } = supabaseClient.auth.onAuthStateChange(
       async (event, newSession) => {
         setSession(newSession);
         setUser(newSession?.user ?? null);
+        updateSupabaseCookie(event, newSession);
       },
     );
 

@@ -1,6 +1,6 @@
 import Stripe from 'stripe';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import supabase from 'util/supabaseClient';
+import { supabaseClient as supabase } from '@supabase/supabase-auth-helpers/nextjs';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2020-08-27',

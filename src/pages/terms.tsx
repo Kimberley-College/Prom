@@ -5,8 +5,7 @@ import {
 
 const Terms: NextPage = () => (
   <>
-    <Box h="125px" />
-    <Heading> Terms and Conditions </Heading>
+    <Heading as="h1" size="2xl">Terms and Conditions</Heading>
   </>
 );
 

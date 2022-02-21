@@ -2,12 +2,22 @@ import type { AppProps } from 'next/app';
 import type { NextPage } from 'next';
 import { ChakraProvider } from '@chakra-ui/react';
 import { DefaultSeo } from 'next-seo';
-import supabase from '../util/supabaseClient';
+import { supabaseClient, SupabaseClient } from '@supabase/supabase-auth-helpers/nextjs';
+import { UserProvider } from '@supabase/supabase-auth-helpers/react';
 import theme from '../util/theme';
-import { UserContextProvider } from '../util/useUser';
+
+interface Tickets {
+  id: number;
+  created_at: string;
+  email: string;
+  checked_in: boolean;
+  customer_id: string;
+}
+
+const loadTicket = async (supabase: SupabaseClient): Promise<Tickets> => (await supabase.from<Tickets>('tickets').select('*').single()).data;
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => (
-  <UserContextProvider supabaseClient={supabase}>
+  <UserProvider supabaseClient={supabaseClient} onUserLoaded={async (supabase) => loadTicket(supabase)}>
     <ChakraProvider theme={theme}>
       <DefaultSeo
         title="Kimberley College Prom"
@@ -61,7 +71,7 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => (
       />
       <Component {...pageProps} />
     </ChakraProvider>
-  </UserContextProvider>
+  </UserProvider>
 );
 
 export default App;

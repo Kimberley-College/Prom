@@ -2,7 +2,7 @@ import {
   Flex, Image, Text, Spacer, Button, Icon,
 } from '@chakra-ui/react';
 import { FiLogIn, FiLogOut } from 'react-icons/fi';
-import { useUser } from 'util/useUser';
+import { useUser } from '@supabase/supabase-auth-helpers/react';
 import { signin, signout } from 'util/authHelpers';
 
 const NavBar: React.FC = () => {

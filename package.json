@@ -25,6 +25,7 @@
     "@emotion/styled": "11.8.1",
     "@stripe/react-stripe-js": "1.7.0",
     "@stripe/stripe-js": "1.23.0",
+    "@supabase/supabase-auth-helpers": "^1.1.0",
     "@supabase/supabase-js": "1.30.6",
     "framer-motion": "6.2.8",
     "micro": "9.3.4",

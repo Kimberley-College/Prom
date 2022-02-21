@@ -3,7 +3,7 @@ import {
   Icon,
 } from '@chakra-ui/react';
 import { SiMicrosoftoffice } from 'react-icons/si';
-import { useUser } from 'util/useUser';
+import { useUser } from '@supabase/supabase-auth-helpers/react';
 import { signin } from 'util/authHelpers';
 
 const Header: React.FC = () => {

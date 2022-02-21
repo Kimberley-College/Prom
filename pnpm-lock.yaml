@@ -10,6 +10,7 @@ specifiers:
   '@fast-csv/parse': 4.3.6
   '@stripe/react-stripe-js': 1.7.0
   '@stripe/stripe-js': 1.23.0
+  '@supabase/supabase-auth-helpers': ^1.1.0
   '@supabase/supabase-js': 1.30.6
   '@types/micro': 7.3.6
   '@types/micro-cors': 0.1.2
@@ -47,6 +48,7 @@ dependencies:
   '@emotion/styled': 11.8.1_c697ad3c4ddb0545c7a1d619984abba5
   '@stripe/react-stripe-js': 1.7.0_1b954f2c9c5cfe84010f888a128cd11e
   '@stripe/stripe-js': 1.23.0
+  '@supabase/supabase-auth-helpers': 1.1.3_react-dom@17.0.2+react@17.0.2
   '@supabase/supabase-js': 1.30.6
   framer-motion: 6.2.8_react-dom@17.0.2+react@17.0.2
   micro: 9.3.4
@@ -2505,6 +2507,18 @@ packages:
       - encoding
     dev: false
 
+  /@supabase/supabase-auth-helpers/1.1.3_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-Y8fBT7MmP0nIoOISa3x8nnPsFxCZFWU9obyTdTkdfVBNbF2BI/NN4dkoNe4Nm0zmSYi1x+3HdzSDlinnBmRQBw==}
+    dependencies:
+      '@supabase/supabase-js': 1.30.6
+      '@supabase/ui': 0.36.4_react-dom@17.0.2+react@17.0.2
+      tslib: 2.3.1
+    transitivePeerDependencies:
+      - encoding
+      - react
+      - react-dom
+    dev: false
+
   /@supabase/supabase-js/1.30.6:
     resolution: {integrity: sha512-OHPKyvmv7Y5mkuRK1PbHqYUwy+NxbHhovKnI6/BrjmosJVV919Mu4gtSSHa7ZIbXbWZBqo53zYa3uqd4jXsxYQ==}
     dependencies:
@@ -2514,6 +2528,20 @@ packages:
       '@supabase/storage-js': 1.6.2
     transitivePeerDependencies:
       - encoding
+    dev: false
+
+  /@supabase/ui/0.36.4_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-7Wq4D/5269q1wpmSo8V57hhWEXB83eKKEW9NHBdSS7wnsAb9hK+m6D/DN8ImpSdybDheHOdT/C4xjc2W6luOxg==}
+    peerDependencies:
+      react: ^16.13.1 || ^17.0.1
+      react-dom: ^16.13.1 || ^17.0.1
+    dependencies:
+      lodash: 4.17.21
+      prop-types: 15.8.1
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    optionalDependencies:
+      fsevents: 2.3.2
     dev: false
 
   /@surma/rollup-plugin-off-main-thread/2.2.3:

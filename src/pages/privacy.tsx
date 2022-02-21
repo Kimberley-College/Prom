@@ -1,8 +1,9 @@
 import type { NextPage } from 'next';
 import { Heading, Text, Link } from '@chakra-ui/react';
 import BaseLayout from 'components/Layouts/Base';
-import MarkdownRenderer from 'react-markdown'
+import MarkdownRenderer from 'react-markdown';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
+import { useCallback } from 'react';
 
 const text = `"Us", "We", and "Our Organisation" all refer to Kimberley College Prom 2022 - an Unincorporated Association.
       
@@ -95,16 +96,19 @@ Should you wish to report a complaint or if you feel that Kimberley College Prom
 
 Phone: 0303 123 1113
 
-Address: Information Commissioner's Office, Wycliffe House, Water Lane, Wilmslow, Cheshire, SK9 5AF`
+Address: Information Commissioner's Office, Wycliffe House, Water Lane, Wilmslow, Cheshire, SK9 5AF`;
 
 const Privacy: NextPage = () => (
   <BaseLayout>
     <Heading textAlign="center" size="2xl" m={3}>Privacy Policy</Heading>
     <Text whiteSpace="pre-wrap" display="block">
-      <MarkdownRenderer children={text} components={{
-        h2: ({node, ...props}) => <Heading as="h3" size="lg" {...props} />,
-        a: ({node, ...props}) => <><Link isExternal {...props as any} /> <ExternalLinkIcon mx='2px' mt='-3px' /></>,
-      }} />
+      <MarkdownRenderer
+        components={{
+          h2: ({ node, ...props }) => useCallback(() => <Heading as="h3" size="lg" {...props} />, [props])(), /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+          a: ({ node, ...props }) => useCallback(() => <><Link isExternal {...props as any} /> <ExternalLinkIcon mx="2px" mt="-3px" /></>, [props])(),
+        }}
+      >{text}
+      </MarkdownRenderer>
     </Text>
 
   </BaseLayout>

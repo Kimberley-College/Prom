@@ -30,6 +30,7 @@ specifiers:
   micro-cors: 0.1.1
   next: 12.1.0
   next-pwa: ^5.4.4
+  next-seo: ^5.1.0
   react: 17.0.2
   react-dom: 17.0.2
   react-icons: 4.3.1
@@ -51,6 +52,7 @@ dependencies:
   micro-cors: 0.1.1
   next: 12.1.0_33bdac975a6e334c49640fab91e2abb4
   next-pwa: 5.4.4_@babel+core@7.17.5+next@12.1.0
+  next-seo: 5.1.0_caa633a00319350dbda42996613fe26c
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
   react-icons: 4.3.1_react@17.0.2
@@ -4424,6 +4426,18 @@ packages:
       - supports-color
       - uglify-js
       - webpack
+    dev: false
+
+  /next-seo/5.1.0_caa633a00319350dbda42996613fe26c:
+    resolution: {integrity: sha512-ampuQfNTOi1x+xtRIb6CZGunIo6rQXtMo2Tyu861d5GjJFIwfOXsA4lzCa4+e2rLkyXDyVpavNNUZWa3US9ELw==}
+    peerDependencies:
+      next: ^8.1.1-canary.54 || >=9.0.0
+      react: '>=16.0.0'
+      react-dom: '>=16.0.0'
+    dependencies:
+      next: 12.1.0_33bdac975a6e334c49640fab91e2abb4
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
     dev: false
 
   /next-tick/1.0.0:

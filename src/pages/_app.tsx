@@ -22,9 +22,40 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => (
         }}
         additionalLinkTags={[
           {
-            rel: 'icon',
+            rel: 'shortcut icon',
             type: 'image/png',
             href: '/favicon.ico',
+          },
+          {
+            rel: 'manifest',
+            href: '/manifest.json',
+          },
+          {
+            rel: 'apple-touch-icon',
+            sizes: '180x180',
+            href: '/icons/apple-touch-icon.png',
+          },
+        ]}
+        additionalMetaTags={[
+          {
+            name: 'application-name',
+            content: 'Kimberley College Prom',
+          },
+          {
+            name: 'apple-mobile-web-app-title',
+            content: 'Kiberley College Prom',
+          },
+          {
+            name: 'apple-mobile-web-app-capable',
+            content: 'yes',
+          },
+          {
+            name: 'apple-mobile-web-app-status-bar-style',
+            content: 'default',
+          },
+          {
+            name: 'mobile-web-app-capable',
+            content: 'yes',
           },
         ]}
       />

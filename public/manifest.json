@@ -1,6 +1,7 @@
 {
   "name": "Kimberley Prom",
   "short_name": "Prom",
+  "description": "Purchase and view your ticket for the Kimberley College Prom 2022",
   "icons": [
     {
       "src": "/icons/android-chrome-192x192.png",
@@ -9,18 +10,13 @@
       "purpose": "any maskable"
     },
     {
-      "src": "/icons/android-chrome-384x384.png",
-      "sizes": "384x384",
-      "type": "image/png"
-    },
-    {
       "src": "/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
-  "theme_color": "#FFFFFF",
-  "background_color": "#FFFFFF",
+  "theme_color": "#711368",
+  "background_color": "#edf2f7",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait"

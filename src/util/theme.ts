@@ -12,6 +12,12 @@ const theme = extendTheme({
           _hover: { bg: '#913388' },
           _active: { bg: '#610358' },
         }),
+        disabled: () => ({
+          bg: '#711368',
+          color: 'white',
+          _hover: { bg: '#711368' },
+          _active: { bg: '#610358' },
+        }),
       },
     },
   },

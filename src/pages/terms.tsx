@@ -140,9 +140,27 @@ This website is owned and operated by Kimberley College Prom 2022.
 
 You can contact us by email at [nick@prom.kim](mailto:nick@prom.kim)
 
-# Appendix 1: Terms of Sale
+## Appendix 1: Terms of Sale
+When buying any goods on our website you agree to be bound by the following terms and conditions governing the purchase of goods and services.
 
+All tickets are offered subject to availability and these terms and conditions.
+A valid ticket must be produced to enter our event. Altering or defacing the ticket may invalidate your ticket.
 
+If we discover an error in the ticket that you have ordered, be this apropos its price or otherwise, we will inform you as soon as possible to allow you to reconfirm with the correct details or cancel your order for a refund.
+
+Ownership or possession of a ticket does not confer any rights unto you to use any intellectual property appearing on it.
+
+No orders will be accepted until we have received full payment.
+
+We reserve the right to make alterations to the event at any time without notice.
+
+All tickets are sold with no exchange, resale or refund facility. Once you have purchased a ticket you can not obtain a refund except at our absolute discretion.
+
+Where an event is cancelled or rescheduled, we will endeavour to support you in any way but this is discretionary and cannot be guaranteed. Any refund may not be in full if at all.
+
+You may not resell or transfer any tickets that we issue.
+
+You may only purchase one (1) ticket.
 `;
 
 const Terms: NextPage = () => (

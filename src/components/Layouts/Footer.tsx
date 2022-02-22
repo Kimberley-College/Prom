@@ -11,7 +11,7 @@ const Footer: React.FC = () => (
     <Spacer />
     <Flex justify="right" w="40vw">
       <Text>
-        <NextLink href="/terms"><Link>Terms and Conditions</Link></NextLink>  |  <NextLink href="/privacy"><Link>Privacy Policy</Link></NextLink>
+        <NextLink href="/terms" passHref><Link>Terms and Conditions</Link></NextLink>  |  <NextLink href="/privacy" passHref><Link>Privacy Policy</Link></NextLink>
       </Text>
     </Flex>
   </Flex>

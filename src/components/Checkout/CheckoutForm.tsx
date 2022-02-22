@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import { useToast, Flex, Button } from '@chakra-ui/react';
+import {
+  useToast, Flex, Button, Text, Link,
+} from '@chakra-ui/react';
+import NextLink from 'next/link';
 
 const CheckoutForm: React.FC = () => {
   const stripe = useStripe();
@@ -56,7 +59,8 @@ const CheckoutForm: React.FC = () => {
   return (
     <Flex flexFlow="column nowrap">
       <PaymentElement />
-      <Button disabled={!stripe || !elements || loading} isLoading={loading} onClick={handleSubmit} mt={5}>Pay now</Button>
+      <Text mt={3}>By clicking &apos;Pay now&apos; you hereby agree to our <NextLink href="/terms" passHref><Link href="/terms">Terms and Conditions</Link></NextLink> and <NextLink href="/privacy" passHref><Link href="/privacy">Privacy Policy</Link></NextLink></Text>
+      <Button disabled={!stripe || !elements || loading} isLoading={loading} onClick={handleSubmit} mt={3}>Pay now</Button>
     </Flex>
   );
 };

@@ -5,7 +5,11 @@ import {
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
-const CheckoutForm: React.FC = () => {
+interface Props {
+  updateTicket: () => Promise<void>;
+}
+
+const CheckoutForm: React.FC<Props> = ({ updateTicket }) => {
   const stripe = useStripe();
   const elements = useElements();
   const toast = useToast();
@@ -47,10 +51,13 @@ const CheckoutForm: React.FC = () => {
       confirmParams: {
         return_url: `${process.env.NEXT_PUBLIC_BASE_URL}/panel`,
       },
+      redirect: 'if_required',
     });
 
     if (error) {
       toast({ status: 'error', title: error.message });
+    } else {
+      await updateTicket();
     }
 
     setLoading(false);

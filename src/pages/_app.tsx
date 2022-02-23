@@ -14,10 +14,8 @@ interface Tickets {
   customer_id: string;
 }
 
-const loadTicket = async (supabase: SupabaseClient): Promise<Tickets> => (await supabase.from<Tickets>('tickets').select('*').single()).data;
-
 const App: NextPage<AppProps> = ({ Component, pageProps }) => (
-  <UserProvider supabaseClient={supabaseClient} onUserLoaded={async (supabase) => loadTicket(supabase)}>
+  <UserProvider supabaseClient={supabaseClient}>
     <ChakraProvider theme={theme}>
       <DefaultSeo
         title="Kimberley College Prom"

@@ -2,17 +2,9 @@ import type { AppProps } from 'next/app';
 import type { NextPage } from 'next';
 import { ChakraProvider } from '@chakra-ui/react';
 import { DefaultSeo } from 'next-seo';
-import { supabaseClient, SupabaseClient } from '@supabase/supabase-auth-helpers/nextjs';
+import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs';
 import { UserProvider } from '@supabase/supabase-auth-helpers/react';
 import theme from '../util/theme';
-
-interface Tickets {
-  id: number;
-  created_at: string;
-  email: string;
-  checked_in: boolean;
-  customer_id: string;
-}
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => (
   <UserProvider supabaseClient={supabaseClient}>

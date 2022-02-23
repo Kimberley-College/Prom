@@ -24,7 +24,7 @@ const Cards: React.FC = () => (
       <Flex direction="column" align="center">
         <Icon as={GrCafeteria} boxSize={10} />
         <Text fontSize="24" align="center">
-          Log in using your school email and password below to buy a ticket for £30.
+          Log in using your school email and password above to buy a ticket for £30.
         </Text>
       </Flex>
     </Box>

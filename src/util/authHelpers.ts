@@ -7,6 +7,7 @@ export const signin = async (): Promise<void> => {
     provider: 'azure',
   }, {
     scopes: 'email',
+    redirectTo: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
   });
 
   if (error) {

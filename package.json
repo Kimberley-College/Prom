@@ -24,7 +24,7 @@
     "@chakra-ui/system": "1.11.1",
     "@emotion/react": "11.8.1",
     "@emotion/styled": "11.8.1",
-    "@happykit/analytics": "^1.0.1",
+    "@happykit/analytics": "1.0.1",
     "@stripe/react-stripe-js": "1.7.0",
     "@stripe/stripe-js": "1.23.0",
     "@supabase/supabase-auth-helpers": "1.1.3",

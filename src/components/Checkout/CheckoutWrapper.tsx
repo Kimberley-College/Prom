@@ -4,7 +4,11 @@ import { Elements } from '@stripe/react-stripe-js';
 import getStripe from 'util/getStripe';
 import CheckoutForm from './CheckoutForm';
 
-const CheckoutWrapper: React.FC = () => {
+interface Props {
+  updateTicket: () => Promise<void>;
+}
+
+const CheckoutWrapper: React.FC<Props> = ({ updateTicket }) => {
   const stripe = getStripe();
   const [clientSecret, setClientSecret] = useState<string | null>(null);
   const toast = useToast();
@@ -40,7 +44,7 @@ const CheckoutWrapper: React.FC = () => {
   if (clientSecret) {
     return (
       <Elements stripe={stripe} options={options}>
-        <CheckoutForm />
+        <CheckoutForm updateTicket={updateTicket} />
       </Elements>
     );
   }

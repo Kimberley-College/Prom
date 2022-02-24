@@ -1,5 +1,5 @@
 import { createStandaloneToast } from '@chakra-ui/react';
-import supabase from './supabaseClient';
+import { supabaseClient as supabase } from '@supabase/supabase-auth-helpers/nextjs';
 
 export const signin = async (): Promise<void> => {
   const toast = createStandaloneToast();
@@ -7,16 +7,17 @@ export const signin = async (): Promise<void> => {
     provider: 'azure',
   }, {
     scopes: 'email',
+    redirectTo: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
   });
 
   if (error) {
     toast({
-      variant: 'error',
+      status: 'error',
       title: error?.message ?? 'Sign in failed',
     });
   } else if (user) {
     toast({
-      variant: 'success',
+      status: 'success',
       title: 'Sign in successful',
     });
   }
@@ -27,12 +28,12 @@ export const signout = async (): Promise<void> => {
   const { error } = await supabase.auth.signOut();
   if (error) {
     toast({
-      variant: 'error',
+      status: 'error',
       title: error?.message ?? 'Sign out failed',
     });
   } else {
     toast({
-      variant: 'success',
+      status: 'success',
       title: 'Sign out successful',
     });
   }

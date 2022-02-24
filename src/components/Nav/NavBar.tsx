@@ -1,12 +1,12 @@
 import {
-  Flex, Image, Text, Spacer, Button, Icon,
+  Flex, Image, Text, Spacer, Button, Icon, Spinner,
 } from '@chakra-ui/react';
 import { FiLogIn, FiLogOut } from 'react-icons/fi';
-import { useUser } from 'util/useUser';
+import { useUser } from '@supabase/supabase-auth-helpers/react';
 import { signin, signout } from 'util/authHelpers';
 
 const NavBar: React.FC = () => {
-  const { user } = useUser();
+  const { user, isLoading } = useUser();
   const fullName = user?.user_metadata.proper_name;
   return (
     <Flex direction="row" justify="center" align="center" w="100%" p="5vw" color="black" h="125px">
@@ -15,23 +15,25 @@ const NavBar: React.FC = () => {
         Prom
       </Text>
       <Spacer />
-      {user
-        ? (
-          <>
-            <Text fontSize="18" mx={2}>
-              Signed in as {fullName}
-            </Text>
-            <Button onClick={signout} leftIcon={<Icon as={FiLogOut} boxSize={6} />}>  Log Out </Button>
-          </>
-        )
-        : (
-          <>
-            <Text fontSize="18" mx={2}>
-              Not Signed In
-            </Text>
-            <Button onClick={signin} leftIcon={<Icon as={FiLogIn} boxSize={6} />}>  Log In </Button>
-          </>
-        )}
+      {/* eslint-disable-next-line no-nested-ternary */}
+      {isLoading ? <Spinner />
+        : user
+          ? (
+            <>
+              <Text fontSize="18" mx={2}>
+                Signed in as {fullName}
+              </Text>
+              <Button onClick={signout} leftIcon={<Icon as={FiLogOut} boxSize={6} />}>  Log Out </Button>
+            </>
+          )
+          : (
+            <>
+              <Text fontSize="18" mx={2}>
+                Not Signed In
+              </Text>
+              <Button onClick={signin} leftIcon={<Icon as={FiLogIn} boxSize={6} />}>  Log In </Button>
+            </>
+          )}
     </Flex>
   );
 };

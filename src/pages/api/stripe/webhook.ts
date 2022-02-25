@@ -1,7 +1,7 @@
 import { buffer } from 'micro';
 import Cors from 'micro-cors';
 import { NextApiRequest, NextApiResponse } from 'next';
-
+import { createClient } from '@supabase/supabase-js';
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
@@ -20,6 +20,8 @@ export const config = {
 const cors = Cors({
   allowMethods: ['POST', 'HEAD'],
 });
+
+const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE);
 
 const webhookHandler = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
   if (req.method !== 'POST') {
@@ -49,9 +51,6 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse): Promis
     case 'payment_intent.succeeded':
       paymentIntent = event.data.object as Stripe.PaymentIntent;
       break;
-    case 'payment_intent.payment_failed':
-      paymentIntent = event.data.object as Stripe.PaymentIntent;
-      break;
     default:
       console.warn(`Unhandled event type: ${event.type}`);
       return;
@@ -65,6 +64,8 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse): Promis
   await stripe.paymentIntents.update(paymentIntent.id, {
     customer: customer.id,
   });
+
+  await supabase.from('tickets').insert({ email: paymentIntent.metadata.email, checked_in: false, customer_id: customer.id });
 
   // Acknowledge code
   res.json({ received: true });

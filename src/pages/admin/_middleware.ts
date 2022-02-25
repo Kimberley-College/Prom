@@ -11,11 +11,11 @@ export const middleware = async (req: NextRequest): Promise<NextResponse | Respo
     },
   }).then((res) => res.json());
 
-  if (user?.user_metadata.admin) {
+  if (user?.user_metadata?.admin) {
     return NextResponse.next();
   }
 
-  return new Response('Unauthorized', {
-    status: 403,
-  });
+  const url = req.nextUrl.clone();
+  url.pathname = '/';
+  return NextResponse.redirect(url);
 };

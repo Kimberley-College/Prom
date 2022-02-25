@@ -40,5 +40,6 @@ module.exports = {
     'react/function-component-definition': 'off',
     'react/jsx-one-expression-per-line': 'off',
     'no-console': 'off',
+    'no-nested-ternary': 'off',
   },
 };

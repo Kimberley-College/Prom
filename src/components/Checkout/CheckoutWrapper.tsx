@@ -1,32 +1,12 @@
-import { useToast, Spinner } from '@chakra-ui/react';
-import { useState, useEffect } from 'react';
+import { Spinner } from '@chakra-ui/react';
+import { usePaymentIntent } from 'util/stripeHelpers';
 import { Elements } from '@stripe/react-stripe-js';
-import getStripe from 'util/getStripe';
+import { getStripe } from 'util/getStripe';
 import CheckoutForm from './CheckoutForm';
 
 const CheckoutWrapper: React.FC = () => {
   const stripe = getStripe();
-  const [clientSecret, setClientSecret] = useState<string | null>(null);
-  const toast = useToast();
-  useEffect(() => {
-    const getIntent = async (): Promise<void> => {
-      const res = await fetch('/api/stripe/create-paymentintent');
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        toast({
-          title: data.error,
-          status: 'error',
-        });
-        return;
-      }
-
-      setClientSecret(data.clientSecret);
-    };
-
-    getIntent();
-  }, [setClientSecret, toast]);
+  const clientSecret = usePaymentIntent();
 
   const appearance = {
     theme: 'stripe',

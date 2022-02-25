@@ -6,6 +6,7 @@ import BaseLayout from 'components/Layouts/Base';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useUser } from '@supabase/supabase-auth-helpers/react';
+import NextLink from 'next/link';
 
 interface ManagedUser {
   id: string;
@@ -16,34 +17,35 @@ interface ManagedUser {
   checkedIn: boolean;
 }
 
-const Home: NextPage = () => {
+const ManageSpecificUser: NextPage = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [managedUser, setManagedUser] = useState(null);
+  const { user } = useUser();
 
   useEffect(() => {
-    if (!router) return;
+    if (!router || !user) return;
     const getUser = async (): Promise<void> => {
-      const { data } = await fetch(`/api/getUser/${router.query.id}`).then((res) => res.json());
+      const { data }: { data: ManagedUser } = await fetch(`/api/getUser/${router.query.id}`).then((res) => res.json());
       setManagedUser(data);
     };
     getUser();
     setIsLoading(false);
+    console.log(managedUser);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router]);
 
   // Just want to try getting Stripe Terminal working, the getting another user stuff needs a lot more work.
-
-  const { user } = useUser();
 
   return (
     <BaseLayout isLoading={isLoading}>
       <Heading as="h1" size="3xl">
         {/* Managing {managedUser?.name} */}
-        Managing {user.user_metadata.proper_name}
+        Managing {user?.user_metadata.proper_name}
       </Heading>
-      <Button>Launch Terminal</Button>
+      <NextLink href={`/admin/${router.query.id}/terminal`}><Button>Launch Terminal</Button></NextLink>
     </BaseLayout>
   );
 };
 
-export default Home;
+export default ManageSpecificUser;

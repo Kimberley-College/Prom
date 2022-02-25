@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { QrReader } from 'react-qr-reader';
 
-const Test = () => {
+const Test: React.FC = () => {
   const [data, setData] = useState('No result');
 
   return (
     <>
       <QrReader
-        style={{ width: '100%' }}
+        containerStyle={{ width: '100%' }}
+        constraints={{}}
         onResult={(result) => {
           if (result) {
-            setData(result.text);
+            setData(result.getText());
           }
         }}
       />

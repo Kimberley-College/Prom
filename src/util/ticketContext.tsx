@@ -33,7 +33,7 @@ export const TicketContextProvider: React.FC = ({ children }) => {
   const updateTicket = async (): Promise<void> => supabase.from<Ticket>('tickets').select('*').single().then(({ data }) => setTicket(data));
 
   useEffect(() => {
-    const runUpdate = async () => {
+    const runUpdate = async (): Promise<void> => {
       updateTicket().then(() => setIsLoading(false));
     };
 

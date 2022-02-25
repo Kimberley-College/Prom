@@ -38,7 +38,7 @@ export const TicketContextProvider: React.FC = ({ children }) => {
       updateTicket().then(() => setIsLoading(false));
     };
 
-    if (!userIsLoading) runUpdate();
+    if (!userIsLoading && user) runUpdate();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userIsLoading]);
 

@@ -25,7 +25,7 @@ specifiers:
   eslint-config-airbnb-typescript: 16.1.0
   eslint-plugin-import: 2.25.4
   eslint-plugin-jsx-a11y: 6.5.1
-  eslint-plugin-react: 7.29.0
+  eslint-plugin-react: 7.29.1
   eslint-plugin-react-hooks: 4.3.0
   framer-motion: 6.2.8
   micro: 9.3.4
@@ -75,11 +75,11 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 5.12.1_aa3af6382115a42a71cc388b7b2c30b3
   '@typescript-eslint/parser': 5.12.1_eslint@8.9.0+typescript@4.5.5
   eslint: 8.9.0
-  eslint-config-airbnb: 19.0.4_57971f5b4e7df9c1ee313bd190fa14d6
+  eslint-config-airbnb: 19.0.4_8bc383d069c64c4a70418aa727e3de4f
   eslint-config-airbnb-typescript: 16.1.0_7f00b4115ebf82d6c4828f4a66c9d2eb
   eslint-plugin-import: 2.25.4_eslint@8.9.0
   eslint-plugin-jsx-a11y: 6.5.1_eslint@8.9.0
-  eslint-plugin-react: 7.29.0_eslint@8.9.0
+  eslint-plugin-react: 7.29.1_eslint@8.9.0
   eslint-plugin-react-hooks: 4.3.0_eslint@8.9.0
 
 packages:
@@ -3510,7 +3510,7 @@ packages:
       - eslint-plugin-import
     dev: true
 
-  /eslint-config-airbnb/19.0.4_57971f5b4e7df9c1ee313bd190fa14d6:
+  /eslint-config-airbnb/19.0.4_8bc383d069c64c4a70418aa727e3de4f:
     resolution: {integrity: sha512-T75QYQVQX57jiNgpF9r1KegMICE94VYwoFQyMGhrvc+lB8YF2E/M/PYDaQe1AJcWaEgqLE+ErXV1Og/+6Vyzew==}
     engines: {node: ^10.12.0 || ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -3524,7 +3524,7 @@ packages:
       eslint-config-airbnb-base: 15.0.0_1326372bbd2fe519ed5ba5fca843a914
       eslint-plugin-import: 2.25.4_eslint@8.9.0
       eslint-plugin-jsx-a11y: 6.5.1_eslint@8.9.0
-      eslint-plugin-react: 7.29.0_eslint@8.9.0
+      eslint-plugin-react: 7.29.1_eslint@8.9.0
       eslint-plugin-react-hooks: 4.3.0_eslint@8.9.0
       object.assign: 4.1.2
       object.entries: 1.1.5
@@ -3597,8 +3597,8 @@ packages:
       eslint: 8.9.0
     dev: true
 
-  /eslint-plugin-react/7.29.0_eslint@8.9.0:
-    resolution: {integrity: sha512-lwbGCO4cEotwl+Wo0zkkjzbhxEzFcG6lv4mpWXfxKzXNZMF5wDEQqykPetB4mi3uTLGVSXxmgVlBMzHTHue6cA==}
+  /eslint-plugin-react/7.29.1_eslint@8.9.0:
+    resolution: {integrity: sha512-WtzRpHMhsOX05ZrkyaaqmLl2uXGqmYooCfBxftJKlkYdsltiufGgfU7uuoHwR2lBam2Kh/EIVID4aU9e3kbCMA==}
     engines: {node: '>=4'}
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8

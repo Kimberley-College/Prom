@@ -29,8 +29,9 @@ const TicketContext = createContext<ITicketContext>(startingData);
 export const TicketContextProvider: React.FC = ({ children }) => {
   const [ticket, setTicket] = useState<Ticket>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const { isLoading: userIsLoading } = useUser();
-  const updateTicket = async (): Promise<void> => supabase.from<Ticket>('tickets').select('*').single().then(({ data }) => setTicket(data));
+  const { user, isLoading: userIsLoading } = useUser();
+  const updateTicket = async (): Promise<void> => supabase.from<Ticket>('tickets').select('*').eq('email', user.email).single()
+    .then(({ data }) => setTicket(data));
 
   useEffect(() => {
     const runUpdate = async (): Promise<void> => {
@@ -38,12 +39,14 @@ export const TicketContextProvider: React.FC = ({ children }) => {
     };
 
     if (!userIsLoading) runUpdate();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userIsLoading]);
 
   const value = useMemo(() => ({
     updateTicket,
     ticket,
     isLoading,
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }), [ticket, isLoading]);
 
   return (

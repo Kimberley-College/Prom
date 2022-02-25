@@ -13,7 +13,7 @@ const NavBar: React.FC = () => {
 
   return (
     <Flex direction="row" justify="center" align="center" w="100%" p="5vw" color="black" h="125px">
-      <NextLink href="/"><Image src="/kimberley_logo.png" height={110} width={110} alt="Logo" /></NextLink>
+      <NextLink href="/"><a><Image src="/kimberley_logo.png" height={110} width={110} alt="Logo" /></a></NextLink>
       <Spacer />
       {/* eslint-disable-next-line no-nested-ternary */}
       {isLoading ? <Spinner />

@@ -19,11 +19,11 @@ const SignedInMenu = () => {
         {user.user_metadata.proper_name}
       </MenuButton>
       <MenuList>
-        <NextLink href="/panel"><MenuItem>User Panel</MenuItem></NextLink>
+        <NextLink href="/panel"><a><MenuItem>User Panel</MenuItem></a></NextLink>
         {user.user_metadata.admin && (
           <>
-            <NextLink href="/admin"><MenuItem>Admin Panel</MenuItem></NextLink>
-            <NextLink href="/admin/69420/terminal"><MenuItem>Buy yourself a ticket</MenuItem></NextLink>
+            <NextLink href="/admin"><a><MenuItem>Admin Panel</MenuItem></a></NextLink>
+            <NextLink href="/admin/69420/terminal"><a><MenuItem>Buy yourself a ticket</MenuItem></a></NextLink>
           </>
         )}
       </MenuList>

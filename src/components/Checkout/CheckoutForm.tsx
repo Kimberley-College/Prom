@@ -4,15 +4,13 @@ import {
   useToast, Flex, Button, Text, Link,
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
+import { useTicket } from 'util/ticketContext';
 
-interface Props {
-  updateTicket: () => Promise<void>;
-}
-
-const CheckoutForm: React.FC<Props> = ({ updateTicket }) => {
+const CheckoutForm: React.FC = () => {
   const stripe = useStripe();
   const elements = useElements();
   const toast = useToast();
+  const { updateTicket } = useTicket();
 
   const [loading, setLoading] = useState<boolean>(false);
 

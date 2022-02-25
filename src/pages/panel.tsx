@@ -2,13 +2,14 @@ import type { NextPage } from 'next';
 import HasTicket from 'components/UserPanel/HasTicket';
 import NoTicket from 'components/UserPanel/NoTicket';
 import BaseLayout from 'components/Layouts/Base';
+import { useTicket } from 'util/ticketContext';
+import { Spinner } from '@chakra-ui/react';
 
 const Panel: NextPage = () => {
-  const hasTicket = false; // = Math.random() > 0.5
-
+  const { ticket, isLoading } = useTicket();
   return (
     <BaseLayout>
-      {hasTicket ? <HasTicket /> : <NoTicket />}
+      {isLoading ? <Spinner /> : ticket ? <HasTicket /> : <NoTicket />}
     </BaseLayout>
   );
 };

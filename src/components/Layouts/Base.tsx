@@ -11,7 +11,9 @@ const BaseLayout: React.FC = ({ children }) => (
       {children}
     </Box>
     <Spacer />
-    <Footer />
+    <Box w="100%">
+      <Footer />
+    </Box>
   </Flex>
 );
 

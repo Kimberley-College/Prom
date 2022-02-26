@@ -12,14 +12,15 @@ interface ReturnBody {
 }
 
 export default withAuthRequired(async (req: NextApiRequest, res: NextApiResponse<ReturnBody | string>): Promise<void> => {
-  const { user: userCalling } = await userSupabase.auth.api.getUserByCookie(req);
-  const serverSupabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE);
+  const { user: userCalling, error } = await userSupabase.auth.api.getUserByCookie(req);
+  if (error) return res.status(error.status).send(error.message);
 
   let user = userCalling;
 
   const { userId }: { userId?: string } = req.body;
   if (userId) {
     if (!userCalling.user_metadata.admin) return res.status(403).send('Unauthorised');
+    const serverSupabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE);
     const calledUser = await serverSupabase.auth.api.getUserById(userId);
     if (calledUser.error) return res.status(500).send('User not found');
     user = calledUser.data;

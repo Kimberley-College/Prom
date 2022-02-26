@@ -37,7 +37,7 @@ specifiers:
   react-dom: 17.0.2
   react-icons: 4.3.1
   react-markdown: 8.0.0
-  stripe: 8.204.0
+  stripe: 8.205.0
   typescript: 4.5.5
 
 dependencies:
@@ -62,7 +62,7 @@ dependencies:
   react-dom: 17.0.2_react@17.0.2
   react-icons: 4.3.1_react@17.0.2
   react-markdown: 8.0.0_a0c521d4794c7ad97f5f4c1c4a7d5818
-  stripe: 8.204.0
+  stripe: 8.205.0
   typescript: 4.5.5
 
 devDependencies:
@@ -5625,8 +5625,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /stripe/8.204.0:
-    resolution: {integrity: sha512-auxR35/ku7W86PlgstoGdc3gVqfdKKKuCuQ1bF5voq8fvpclZmbnLEQf2H2886kZE857piLhdrLiasvBQ6RQBg==}
+  /stripe/8.205.0:
+    resolution: {integrity: sha512-hmYnc7je6j0n9GlkUpc8USsUquLzSxmWj78g9NKFokCtSybNy7y9fYS+VB5AuZUwmIkzhTczgf+TaSmI4kbk9A==}
     engines: {node: ^8.1 || >=10.*}
     dependencies:
       '@types/node': 17.0.18

@@ -1,6 +1,7 @@
 import Stripe from 'stripe';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { withAuthRequired, supabaseClient as supabase } from '@supabase/supabase-auth-helpers/nextjs';
+import { withAuthRequired, supabaseClient as userSupabase } from '@supabase/supabase-auth-helpers/nextjs';
+import { createClient } from '@supabase/supabase-js';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2020-08-27',
@@ -11,7 +12,18 @@ interface ReturnBody {
 }
 
 export default withAuthRequired(async (req: NextApiRequest, res: NextApiResponse<ReturnBody | string>): Promise<void> => {
-  const { user } = await supabase.auth.api.getUserByCookie(req);
+  const { user: userCalling } = await userSupabase.auth.api.getUserByCookie(req);
+  const serverSupabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE);
+
+  let user = userCalling;
+
+  const { userId }: { userId?: string } = req.body;
+  if (userId) {
+    if (!userCalling.user_metadata.admin) return res.status(403).send('Unauthorised');
+    const calledUser = await serverSupabase.auth.api.getUserById(userId);
+    if (calledUser.error) return res.status(500).send('User not found');
+    user = calledUser.data;
+  }
 
   const paymentIntent = await stripe.paymentIntents.create({
     amount: 3000,

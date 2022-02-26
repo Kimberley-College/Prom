@@ -21,6 +21,7 @@ export default withAuthRequired(async (req: NextApiRequest, res: NextApiResponse
     metadata: {
       email: user.email,
       name: user.user_metadata.proper_name,
+      user_id: user.id,
     },
   });
 

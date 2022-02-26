@@ -59,13 +59,21 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse): Promis
   const customer = await stripe.customers.create({
     name: paymentIntent.metadata.name,
     email: paymentIntent.metadata.email,
+    metadata: {
+      user_id: paymentIntent.metadata.user_id,
+    },
   });
 
   await stripe.paymentIntents.update(paymentIntent.id, {
     customer: customer.id,
   });
 
-  await supabase.from('tickets').insert({ email: paymentIntent.metadata.email, checked_in: false, customer_id: customer.id });
+  await supabase.from('tickets').insert({
+    user_id: paymentIntent.metadata.user_id,
+    email: paymentIntent.metadata.email,
+    checked_in: false,
+    customer_id: customer.id,
+  });
 
   // Acknowledge code
   res.json({ received: true });

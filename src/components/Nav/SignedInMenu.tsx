@@ -23,7 +23,7 @@ const SignedInMenu = () => {
         {user.user_metadata.admin && (
           <>
             <NextLink href="/admin"><a><MenuItem>Admin Panel</MenuItem></a></NextLink>
-            <NextLink href="/admin/69420/terminal"><a><MenuItem>Buy yourself a ticket</MenuItem></a></NextLink>
+            <NextLink href="/admin/terminal"><a><MenuItem>Buy yourself a ticket</MenuItem></a></NextLink>
           </>
         )}
       </MenuList>

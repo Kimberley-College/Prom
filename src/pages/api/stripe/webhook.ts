@@ -53,6 +53,7 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse): Promis
       break;
     default:
       console.warn(`Unhandled event type: ${event.type}`);
+      res.status(200).end();
       return;
   }
 
@@ -76,7 +77,7 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse): Promis
   });
 
   // Acknowledge code
-  res.json({ received: true });
+  res.status(200).json({ received: true });
 };
 
 export default cors(webhookHandler);

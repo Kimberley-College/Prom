@@ -10,7 +10,7 @@ import UserSelect from 'components/Terminal/UserSelect';
 const TerminalPage: NextPage = () => {
   const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => setLoading(false), []);
-  const [userId, setUserId] = useState<null | string>(null);
+  const [userId, setUserId] = useState<string>('');
 
   return (
     <BaseLayout isLoading={loading}>

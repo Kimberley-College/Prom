@@ -2,13 +2,13 @@ import { useToast } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 
 // eslint-disable-next-line import/prefer-default-export
-export const usePaymentIntent = (userId?: null | string) => {
+export const usePaymentIntent = (userId?: string) => {
   const toast = useToast();
   const [clientSecret, setClientSecret] = useState<string | null>(null);
 
   useEffect(() => {
     setClientSecret(null);
-    if (!userId) return;
+    if (userId === '') return;
     const getIntent = async () => {
       const res = await fetch('/api/stripe/create-paymentintent', {
         method: 'POST',

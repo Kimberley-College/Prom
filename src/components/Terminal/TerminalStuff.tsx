@@ -54,6 +54,7 @@ const TerminalStuff: React.FC<Props> = ({ userId }) => {
       return toast({
         title: 'Failed to connect',
         description: connectResult.error.message,
+        status: 'error',
       });
     }
 

@@ -1,6 +1,7 @@
 import { buffer } from 'micro';
 import Cors from 'micro-cors';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { withSentry } from '@sentry/nextjs';
 
 import Stripe from 'stripe';
 
@@ -70,4 +71,4 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse): Promis
   res.json({ received: true });
 };
 
-export default cors(webhookHandler);
+export default withSentry(cors(webhookHandler));

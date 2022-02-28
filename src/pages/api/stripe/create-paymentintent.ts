@@ -29,12 +29,13 @@ export default withAuthRequired(async (req: NextApiRequest, res: NextApiResponse
   const paymentIntent = await stripe.paymentIntents.create({
     amount: 3000,
     currency: 'gbp',
-    payment_method_types: ['card', 'card_present'],
+    payment_method_types: ['card', ...(terminal ? ['card_present'] : [])],
     receipt_email: user.email,
     metadata: {
       email: user.email,
       name: user.user_metadata.proper_name,
       user_id: user.id,
+      tenderedBy: terminal ? userCalling.user_metadata.proper_name : undefined,
     },
     capture_method: terminal ? 'manual' : 'automatic',
   });

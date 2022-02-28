@@ -16,7 +16,10 @@ interface ShortUser {
 const UserSelect = ({ userId, setUserId }: Props) => {
   const [users, setUsers] = useState<ShortUser[] | null>(null);
   useEffect(() => {
-    fetch('/api/getTicketlessUsers').then((res) => res.json()).then(setUsers);
+    let isMounted = true;
+    fetch('/api/getTicketlessUsers').then((res) => res.json()).then((data) => isMounted && setUsers(data));
+
+    return () => { isMounted = false; };
   }, []);
 
   if (!users) return <Spinner />;

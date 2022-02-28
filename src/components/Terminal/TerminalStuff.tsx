@@ -14,7 +14,7 @@ interface Props {
 
 const TerminalStuff: React.FC<Props> = ({ userId }) => {
   const toast = useToast();
-  const clientSecret = usePaymentIntent(userId);
+  const clientSecret = usePaymentIntent(userId, true);
   const [terminal, setTerminal] = useState<Terminal | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -26,10 +26,12 @@ const TerminalStuff: React.FC<Props> = ({ userId }) => {
       return secret;
     };
 
-    const unexpectedDisconnect = () => toast({
-      title: 'Unexpected Disconnect',
-      status: 'error',
-    });
+    const unexpectedDisconnect = () => {
+      toast({
+        title: 'Unexpected Disconnect',
+        status: 'error',
+      });
+    };
 
     const createdTerminal = StripeTerminal.create({
       onFetchConnectionToken: fetchConnectionToken,
@@ -131,6 +133,9 @@ const TerminalStuff: React.FC<Props> = ({ userId }) => {
 
     const res = await fetch('/api/stripe/capture-intent', {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({ paymentIntentId: paymentRes.paymentIntent.id }),
     });
 
@@ -144,7 +149,7 @@ const TerminalStuff: React.FC<Props> = ({ userId }) => {
 
     return toast({
       title: 'Payment Processing Errored',
-      description: 'Payment was not successful',
+      description: `Payment was not successful - PaymentIntent status is ${res}`,
       status: 'error',
     });
   };
@@ -156,13 +161,15 @@ const TerminalStuff: React.FC<Props> = ({ userId }) => {
   if (loading) return <Spinner />;
 
   return (
-    <Flex gap={3} wrap="wrap">
-      <Button onClick={discoverReaders}>Discover Readers</Button>
-      <Button onClick={setDisplay}>Set Terminal Display</Button>
-      <Button onClick={clearDisplay}>Clear Terminal Display</Button>
-      <Button onClick={collectPayment} disabled={!clientSecret}>Collect Payment</Button>
-      <Button onClick={clearPayment} disabled={!clientSecret}>Clear Payment</Button>
-      <Button onClick={disconnectReader}>Disconnect Reader</Button>
+    <Flex direction="column">
+      <Flex gap={3} wrap="wrap">
+        <Button onClick={discoverReaders}>Discover Readers</Button>
+        <Button onClick={setDisplay}>Set Terminal Display</Button>
+        <Button onClick={clearDisplay}>Clear Terminal Display</Button>
+        <Button onClick={collectPayment} disabled={!clientSecret}>Collect Payment</Button>
+        <Button onClick={clearPayment} disabled={!clientSecret}>Clear Payment</Button>
+        <Button onClick={disconnectReader}>Disconnect Reader</Button>
+      </Flex>
     </Flex>
   );
 };

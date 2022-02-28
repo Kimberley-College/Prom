@@ -6,10 +6,26 @@ import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs';
 import { UserProvider } from '@supabase/supabase-auth-helpers/react';
 import { useAnalytics } from '@happykit/analytics';
 import { TicketContextProvider } from 'util/ticketContext';
+import { useEffect } from 'react';
+import * as Sentry from '@sentry/nextjs';
 import theme from '../util/theme';
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
   useAnalytics({ publicKey: process.env.NEXT_PUBLIC_HAPPYKIT_ANALYTICS_PUBLIC_KEY });
+  useEffect(() => {
+    const { data: authListener } = supabaseClient.auth.onAuthStateChange(async (_, session) => {
+      if (!session) Sentry.setUser(null);
+      else {
+        Sentry.setUser({
+          email: session.user.email,
+          username: session.user.user_metadata.proper_name,
+          id: session.user.id,
+        });
+      }
+    });
+    return authListener?.unsubscribe();
+  }, []);
+
   return (
     <UserProvider supabaseClient={supabaseClient}>
       <TicketContextProvider>

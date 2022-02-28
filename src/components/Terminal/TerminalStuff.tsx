@@ -10,9 +10,10 @@ import { getStripeTerminal } from 'util/getStripe';
 
 interface Props {
   userId: null | string;
+  setUserId: (userId: string) => void;
 }
 
-const TerminalStuff: React.FC<Props> = ({ userId }) => {
+const TerminalStuff: React.FC<Props> = ({ userId, setUserId }) => {
   const toast = useToast();
   const clientSecret = usePaymentIntent(userId, true);
   const [terminal, setTerminal] = useState<Terminal | null>(null);
@@ -152,6 +153,7 @@ const TerminalStuff: React.FC<Props> = ({ userId }) => {
     });
 
     if (res.ok) {
+      setUserId('');
       return toast({
         title: 'Payment Processed',
         description: 'Payment was successful',

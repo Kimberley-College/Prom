@@ -16,7 +16,7 @@ const TerminalPage: NextPage = () => {
     <BaseLayout isLoading={loading}>
       <Heading as="h1" size="3xl" my={5}>Stripe Terminal</Heading>
       <UserSelect setUserId={setUserId} userId={userId} />
-      <TerminalStuff userId={userId} />
+      <TerminalStuff setUserId={setUserId} userId={userId} />
     </BaseLayout>
   );
 };

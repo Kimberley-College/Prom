@@ -12,7 +12,7 @@ specifiers:
   '@stripe/react-stripe-js': 1.7.0
   '@stripe/stripe-js': 1.23.0
   '@supabase/supabase-auth-helpers': 1.1.3
-  '@supabase/supabase-js': 1.30.6
+  '@supabase/supabase-js': 1.30.7
   '@types/micro': 7.3.6
   '@types/micro-cors': 0.1.2
   '@types/node': 17.0.18
@@ -51,7 +51,7 @@ dependencies:
   '@stripe/react-stripe-js': 1.7.0_1b954f2c9c5cfe84010f888a128cd11e
   '@stripe/stripe-js': 1.23.0
   '@supabase/supabase-auth-helpers': 1.1.3_react-dom@17.0.2+react@17.0.2
-  '@supabase/supabase-js': 1.30.6
+  '@supabase/supabase-js': 1.30.7
   framer-motion: 6.2.8_react-dom@17.0.2+react@17.0.2
   micro: 9.3.4
   micro-cors: 0.1.1
@@ -2489,16 +2489,16 @@ packages:
     resolution: {integrity: sha512-+7w4rVs71Fk8/8uzyzQB5GotHSH9mjOjxM3EYDq/3MR3I2ewELHtvWVMOqfS/9WSKCaKv7h7eFLsMZGpK5jApQ==}
     dev: false
 
-  /@supabase/gotrue-js/1.22.1:
-    resolution: {integrity: sha512-Uqiw03Sd/PYGrjq/sfEGyRcZh868y2B2fxVtZgkUAGDHnQ84K1MpsGiIMCL6x/9JPKDCOkzpSZQdKIohcY8l2Q==}
+  /@supabase/gotrue-js/1.22.3:
+    resolution: {integrity: sha512-w8PYtC23AQpPwwXDyd/YvEfp6O9a5Q50CGhFWNvnc6W82FayQluuJcpZ05K0rQktNvZzYxOkgOAFOm/+dvwrPQ==}
     dependencies:
       cross-fetch: 3.1.5
     transitivePeerDependencies:
       - encoding
     dev: false
 
-  /@supabase/postgrest-js/0.36.0:
-    resolution: {integrity: sha512-KOnhVy8tEr/qNnvOLpFqwOkt7ilRDFMXY+JJfmLjS3+eZuna1G57w4zb3L0SdY6BL7AKnfzP5BG3yHTAuJPSww==}
+  /@supabase/postgrest-js/0.36.2:
+    resolution: {integrity: sha512-ZKQT+5ISWdsiSPDoVLnt/fiY82fUFw3lYLc2aMhx5tS3Zj6cChsWlK7NxH6ZZzo9Re/Pa/h4EoOzDZiDPywqxQ==}
     dependencies:
       cross-fetch: 3.1.5
     transitivePeerDependencies:
@@ -2512,8 +2512,8 @@ packages:
       websocket: 1.0.34
     dev: false
 
-  /@supabase/storage-js/1.6.2:
-    resolution: {integrity: sha512-gFCTLqG3T0ZcZ3vH4NR+tSZRXwaGNcFOV8WNvMcu2zmMws1j+YuO/GPIKvfTOqpEdEpLOtBJjfn9ut2kus3z0g==}
+  /@supabase/storage-js/1.6.4:
+    resolution: {integrity: sha512-vYcr1JGRf8Wr4v+lb8Ucl0bELwCZv8lT/PrYuhEKfJff6BI6/nTJp8rRZSRaDESQR8JlpaLaL+dmD/wsNqZnNQ==}
     dependencies:
       cross-fetch: 3.1.5
     transitivePeerDependencies:
@@ -2523,7 +2523,7 @@ packages:
   /@supabase/supabase-auth-helpers/1.1.3_react-dom@17.0.2+react@17.0.2:
     resolution: {integrity: sha512-Y8fBT7MmP0nIoOISa3x8nnPsFxCZFWU9obyTdTkdfVBNbF2BI/NN4dkoNe4Nm0zmSYi1x+3HdzSDlinnBmRQBw==}
     dependencies:
-      '@supabase/supabase-js': 1.30.6
+      '@supabase/supabase-js': 1.30.7
       '@supabase/ui': 0.36.4_react-dom@17.0.2+react@17.0.2
       tslib: 2.3.1
     transitivePeerDependencies:
@@ -2532,13 +2532,13 @@ packages:
       - react-dom
     dev: false
 
-  /@supabase/supabase-js/1.30.6:
-    resolution: {integrity: sha512-OHPKyvmv7Y5mkuRK1PbHqYUwy+NxbHhovKnI6/BrjmosJVV919Mu4gtSSHa7ZIbXbWZBqo53zYa3uqd4jXsxYQ==}
+  /@supabase/supabase-js/1.30.7:
+    resolution: {integrity: sha512-po1Bkkn3gYw31D3JytzcTuoQYnvBx5Cnyzy7MPnwtSEZbTIITkoy4es2iHDYuPMOjS9kAfUlfhHV3xRw3ZfIsA==}
     dependencies:
-      '@supabase/gotrue-js': 1.22.1
-      '@supabase/postgrest-js': 0.36.0
+      '@supabase/gotrue-js': 1.22.3
+      '@supabase/postgrest-js': 0.36.2
       '@supabase/realtime-js': 1.3.6
-      '@supabase/storage-js': 1.6.2
+      '@supabase/storage-js': 1.6.4
     transitivePeerDependencies:
       - encoding
     dev: false

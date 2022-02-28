@@ -38,8 +38,8 @@ specifiers:
   react-dom: 17.0.2
   react-icons: 4.3.1
   react-markdown: 8.0.0
-  stripe: 8.205.0
   react-qr-reader: ^3.0.0-beta-1
+  stripe: 8.205.0
   typescript: 4.5.5
 
 dependencies:
@@ -65,8 +65,8 @@ dependencies:
   react-dom: 17.0.2_react@17.0.2
   react-icons: 4.3.1_react@17.0.2
   react-markdown: 8.0.0_a0c521d4794c7ad97f5f4c1c4a7d5818
-  stripe: 8.205.0
   react-qr-reader: 3.0.0-beta-1_react-dom@17.0.2+react@17.0.2
+  stripe: 8.205.0
   typescript: 4.5.5
 
 devDependencies:
@@ -2496,7 +2496,7 @@ packages:
   /@stripe/terminal-js/0.9.0:
     resolution: {integrity: sha512-DhQmvFG4tRDh8Xn+fLE62eTFqgiCpRhRPvNHYXJk4a/JaEuDBiLnRbUlqmA4AwxyytOxlRvROosiYb+3k82l0w==}
     dependencies:
-      stripe: 8.204.0
+      stripe: 8.205.0
       ws: 6.2.2
     dev: false
 

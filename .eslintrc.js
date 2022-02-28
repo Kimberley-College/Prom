@@ -29,13 +29,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     '@typescript-eslint/no-unused-vars': ['error'],
-    '@typescript-eslint/explicit-function-return-type': [
-      'warn',
-      {
-        allowExpressions: true,
-        allowConciseArrowFunctionExpressionsStartingWithVoid: true,
-      },
-    ],
+    '@typescript-eslint/explicit-function-return-type': 'off',
     'max-len': 'off',
     'react/function-component-definition': 'off',
     'react/jsx-one-expression-per-line': 'off',

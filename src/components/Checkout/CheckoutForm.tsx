@@ -55,10 +55,10 @@ const CheckoutForm: React.FC = () => {
     if (error) {
       toast({ status: 'error', title: error.message });
     } else {
-      await updateTicket();
+      setTimeout(() => {
+        updateTicket();
+      }, 2000); // I know this is kind of cringe but I couldn't think of a better way. No reason this shouldn't be done within 2 seconds.
     }
-
-    setLoading(false);
   };
 
   return (

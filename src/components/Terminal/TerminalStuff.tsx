@@ -1,5 +1,5 @@
 import {
-  Flex, Button, useToast, Spinner,
+  Flex, Button, useToast, Spinner, Text,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { usePaymentIntent } from 'util/stripeHelpers';
@@ -16,6 +16,7 @@ const TerminalStuff: React.FC<Props> = ({ userId }) => {
   const toast = useToast();
   const clientSecret = usePaymentIntent(userId, true);
   const [terminal, setTerminal] = useState<Terminal | null>(null);
+  const [reader, setReader] = useState<Reader | null>(null);
   const [loading, setLoading] = useState(true);
 
   const runStripeTerminal = async () => {
@@ -31,6 +32,7 @@ const TerminalStuff: React.FC<Props> = ({ userId }) => {
         title: 'Unexpected Disconnect',
         status: 'error',
       });
+      setReader(null);
     };
 
     const createdTerminal = StripeTerminal.create({
@@ -59,6 +61,8 @@ const TerminalStuff: React.FC<Props> = ({ userId }) => {
         status: 'error',
       });
     }
+
+    setReader(connectResult.reader);
 
     return toast({
       title: 'Connected to reader',
@@ -112,7 +116,15 @@ const TerminalStuff: React.FC<Props> = ({ userId }) => {
   };
 
   const collectPayment = async () => {
-    const paymentMethod: { error?: ExposedError, paymentIntent?: ISdkManagedPaymentIntent } = await terminal.collectPaymentMethod(clientSecret);
+    const paymentMethod: { error?: ExposedError, paymentIntent?: ISdkManagedPaymentIntent } | void = await terminal.collectPaymentMethod(clientSecret).catch(() => setReader(null));
+
+    if (!paymentMethod) {
+      return toast({
+        title: 'Disconnected from reader',
+        status: 'error',
+      });
+    }
+
     if (paymentMethod.error) {
       return toast({
         title: 'Payment Method Errored',
@@ -156,19 +168,22 @@ const TerminalStuff: React.FC<Props> = ({ userId }) => {
 
   const clearDisplay = async () => terminal.clearReaderDisplay();
   const clearPayment = async () => terminal.cancelCollectPaymentMethod();
-  const disconnectReader = async () => terminal.disconnectReader().then(() => toast({ title: 'Disconnected from reader', status: 'success' }));
+  const disconnectReader = async () => terminal.disconnectReader()
+    .then(() => setReader(null))
+    .then(() => toast({ title: 'Disconnected from reader', status: 'success' }));
 
   if (loading) return <Spinner />;
 
   return (
     <Flex direction="column">
+      <Text>Reader: {reader?.status ?? 'disconnected'}</Text>
       <Flex gap={3} wrap="wrap">
-        <Button onClick={discoverReaders}>Discover Readers</Button>
-        <Button onClick={setDisplay}>Set Terminal Display</Button>
-        <Button onClick={clearDisplay}>Clear Terminal Display</Button>
-        <Button onClick={collectPayment} disabled={!clientSecret}>Collect Payment</Button>
-        <Button onClick={clearPayment} disabled={!clientSecret}>Clear Payment</Button>
-        <Button onClick={disconnectReader}>Disconnect Reader</Button>
+        <Button onClick={discoverReaders} disabled={!!reader}>Connect to Reader</Button>
+        <Button onClick={setDisplay} disabled={!reader}>Set Terminal Display</Button>
+        <Button onClick={clearDisplay} disabled={!reader}>Clear Terminal Display</Button>
+        <Button onClick={collectPayment} disabled={!clientSecret || !reader}>Collect Payment</Button>
+        <Button onClick={clearPayment} disabled={!clientSecret || !reader}>Clear Payment</Button>
+        <Button onClick={disconnectReader} disabled={!reader}>Disconnect Reader</Button>
       </Flex>
     </Flex>
   );

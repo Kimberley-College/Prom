@@ -2,6 +2,7 @@ import { buffer } from 'micro';
 import Cors from 'micro-cors';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { createClient } from '@supabase/supabase-js';
+import { withSentry } from '@sentry/nextjs';
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
@@ -80,4 +81,4 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse): Promis
   res.status(200).json({ received: true });
 };
 
-export default cors(webhookHandler);
+export default withSentry(cors(webhookHandler));

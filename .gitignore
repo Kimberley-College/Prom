@@ -7,3 +7,5 @@ setup/
 
 public/workbox-*
 public/sw*
+# Sentry
+.sentryclirc

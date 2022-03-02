@@ -9,6 +9,7 @@ import {
 import { useUser } from '@supabase/supabase-auth-helpers/react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import NextLink from 'next/link';
+import { signout } from 'util/authHelpers';
 
 const SignedInMenu = () => {
   const { user, isLoading } = useUser();
@@ -26,6 +27,7 @@ const SignedInMenu = () => {
             <NextLink href="/admin/terminal"><a><MenuItem>Stripe Terminal</MenuItem></a></NextLink>
           </>
         )}
+        <MenuItem onClick={signout}>Sign out</MenuItem>
       </MenuList>
     </Menu>
   );

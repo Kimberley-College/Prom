@@ -3,6 +3,11 @@ import { extendTheme } from '@chakra-ui/react';
 const theme = extendTheme({
   initialColorMode: 'light',
   useSystemColorMode: false,
+  colors: {
+    brand: {
+      kimberley: '#711368',
+    }
+  },
   components: {
     Button: {
       variants: {

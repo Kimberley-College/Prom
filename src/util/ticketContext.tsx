@@ -5,11 +5,12 @@ import { supabaseClient as supabase } from '@supabase/supabase-auth-helpers/next
 import { useUser } from '@supabase/supabase-auth-helpers/react';
 
 export interface Ticket {
-  id: number;
+  id: string;
   created_at: string;
   email: string;
   checked_in: boolean;
   customer_id: string;
+  jwt: string;
 }
 
 interface ITicketContext {

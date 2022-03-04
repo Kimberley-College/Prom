@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { createClient } from '@supabase/supabase-js';
 import { withSentry } from '@sentry/nextjs';
 import Stripe from 'stripe';
-import jwt from 'jsonwebtoken';
+import jwt from 'async-jsonwebtoken';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2020-08-27',
@@ -91,7 +91,7 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse): Promis
     created_at: ticket.created_at,
   } as const;
 
-  const signed = jwt.sign(payload, process.env.JWT_SECRET);
+  const signed = await jwt.sign(payload, process.env.JWT_SECRET);
 
   await supabase.from('tickets').update({ jwt: signed }).match({ id: ticket.id }).single();
 

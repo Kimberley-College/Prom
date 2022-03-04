@@ -24,6 +24,7 @@ specifiers:
   '@types/react-dom': 17.0.11
   '@typescript-eslint/eslint-plugin': 5.13.0
   '@typescript-eslint/parser': 5.13.0
+  async-jsonwebtoken: ^1.0.1
   eslint: 8.10.0
   eslint-config-airbnb: 19.0.4
   eslint-config-airbnb-typescript: 16.1.0
@@ -32,7 +33,6 @@ specifiers:
   eslint-plugin-react: 7.29.2
   eslint-plugin-react-hooks: 4.3.0
   framer-motion: 6.2.8
-  jsonwebtoken: ^8.5.1
   micro: 9.3.4
   micro-cors: 0.1.1
   next: 12.1.0
@@ -62,8 +62,8 @@ dependencies:
   '@stripe/terminal-js': 0.9.0
   '@supabase/supabase-auth-helpers': 1.1.3_react-dom@17.0.2+react@17.0.2
   '@supabase/supabase-js': 1.30.7
+  async-jsonwebtoken: 1.0.1
   framer-motion: 6.2.8_react-dom@17.0.2+react@17.0.2
-  jsonwebtoken: 8.5.1
   micro: 9.3.4
   micro-cors: 0.1.1
   next: 12.1.0_33bdac975a6e334c49640fab91e2abb4
@@ -2771,6 +2771,12 @@ packages:
     resolution: {integrity: sha1-7ihweulOEdK4J7y+UnC86n8+ce4=}
     dev: true
 
+  /@types/jsonwebtoken/8.5.8:
+    resolution: {integrity: sha512-zm6xBQpFDIDM6o9r6HSgDeIcLy82TKWctCXEPbJJcXb5AKmi5BNNdLXneixK4lplX3PqIVcwLBCGE/kAGnlD4A==}
+    dependencies:
+      '@types/node': 17.0.18
+    dev: false
+
   /@types/lodash.mergewith/4.6.6:
     resolution: {integrity: sha512-RY/8IaVENjG19rxTZu9Nukqh0W2UrYgmBj5sdns4hWRZaV8PqR7wIKHFKzvOTjo4zVRV7sVI+yFhAJql12Kfqg==}
     dependencies:
@@ -3175,6 +3181,13 @@ packages:
   /ast-types-flow/0.0.7:
     resolution: {integrity: sha1-9wtzXGvKGlycItmCw+Oef+ujva0=}
     dev: true
+
+  /async-jsonwebtoken/1.0.1:
+    resolution: {integrity: sha512-OVmAtmDgRynqmK2zkwEdnEMBo4cebBFcZubKPIXz4OigZ2OBGdd2/mTLzYea7tsSdPjRNk9GUjQgZQU6TBggMA==}
+    dependencies:
+      '@types/jsonwebtoken': 8.5.8
+      jsonwebtoken: 8.5.1
+    dev: false
 
   /async-limiter/1.0.1:
     resolution: {integrity: sha512-csOlWGAcRFJaI6m+F2WKdnMKr4HhdhFVBk0H/QbJFMCr+uO2kwohwXQPxw/9OCxp05r5ghVBFSyioixx3gfkNQ==}

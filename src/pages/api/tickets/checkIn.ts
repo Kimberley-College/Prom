@@ -20,7 +20,7 @@ export default withAuthRequired(withSentry(async (req: NextApiRequest, res: Next
   // eslint-disable-next-line consistent-return
   if (!decoded) return;
 
-  const { data: updatedTicket, error } = await serverSupabase.from('tickets').update({ checkedIn: true }).match({ id: ticket.id }).single();
+  const { data: updatedTicket, error } = await serverSupabase.from('tickets').update({ checked_in: true }).match({ id: ticket.id }).single();
 
   if (error) return res.status(500).send(error.message);
 

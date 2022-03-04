@@ -91,7 +91,7 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse): Promis
     created_at: ticket.created_at,
   } as const;
 
-  const signed = jwt.sign(payload, process.env.JWT_SECRET)
+  const signed = jwt.sign(payload, process.env.JWT_SECRET);
 
   await supabase.from('tickets').update({ jwt: signed }).match({ id: ticket.id }).single();
 

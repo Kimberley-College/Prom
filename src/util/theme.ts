@@ -6,7 +6,7 @@ const theme = extendTheme({
   colors: {
     brand: {
       kimberley: '#711368',
-    }
+    },
   },
   components: {
     Button: {

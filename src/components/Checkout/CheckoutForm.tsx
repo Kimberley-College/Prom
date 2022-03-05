@@ -10,7 +10,7 @@ const CheckoutForm: React.FC = () => {
   const stripe = useStripe();
   const elements = useElements();
   const toast = useToast();
-  const { updateTicket } = useTicket();
+  const { updateTicket, ticket } = useTicket();
 
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -55,9 +55,10 @@ const CheckoutForm: React.FC = () => {
     if (error) {
       toast({ status: 'error', title: error.message });
     } else {
-      setTimeout(() => {
+      const timer = setInterval(() => {
         updateTicket();
-      }, 2000); // I know this is kind of cringe but I couldn't think of a better way. No reason this shouldn't be done within 2 seconds.
+        if (ticket !== null) clearInterval(timer);
+      }, 500); // I know this is kind of cringe but I couldn't think of a better way. No reason this shouldn't be done within 2 seconds.
     }
   };
 

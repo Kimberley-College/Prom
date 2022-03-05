@@ -4,7 +4,6 @@ import MoreInfo from './MoreInfo';
 
 const NoTicket: React.FC = () => (
   <Flex w="100%" justify="center" direction="column" p={5}>
-    <Heading as="h1" textAlign="center" size="3xl" m={5}>User Panel</Heading>
 
     <Heading as="h2">More information</Heading>
     <MoreInfo />

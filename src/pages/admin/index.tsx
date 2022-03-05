@@ -1,18 +1,23 @@
 import type { NextPage } from 'next';
 import {
-  Button, Heading,
+  Button, Heading, Flex,
 } from '@chakra-ui/react';
-import Link from 'next/link';
+import NextLink from 'next/link';
 import BaseLayout from 'components/Layouts/Base';
 
 const Home: NextPage = () => (
   <BaseLayout>
-    <Heading as="h1" size="3xl">
+    <Heading as="h1" size="3xl" my={5} textAlign="center">
       Admin Page
     </Heading>
-    <Link href="/ticketScanner">
-      <Button>Ticket Scanner</Button>
-    </Link>
+    <Flex gap={3}>
+      <NextLink href="/admin/terminal">
+        <Button>Stripe Terminal</Button>
+      </NextLink>
+      <NextLink href="/admin/scanner">
+        <Button>Ticket Scanner</Button>
+      </NextLink>
+    </Flex>
   </BaseLayout>
 );
 

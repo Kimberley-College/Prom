@@ -48,6 +48,7 @@ specifiers:
   stripe: 8.205.0
   typescript: 4.6.2
   uuid: ^8.3.2
+  webhook-discord: ^3.7.8
 
 dependencies:
   '@babel/core': 7.17.5
@@ -81,6 +82,7 @@ dependencies:
   stripe: 8.205.0
   typescript: 4.6.2
   uuid: 8.3.2
+  webhook-discord: 3.7.8
 
 devDependencies:
   '@fast-csv/parse': 4.3.6
@@ -5965,6 +5967,11 @@ packages:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
 
+  /snekfetch/3.6.4:
+    resolution: {integrity: sha512-NjxjITIj04Ffqid5lqr7XdgwM7X61c/Dns073Ly170bPQHLm6jkmelye/eglS++1nfTWktpP6Y2bFXjdPlQqdw==}
+    deprecated: use node-fetch instead
+    dev: false
+
   /source-list-map/2.0.1:
     resolution: {integrity: sha512-qnQ7gVMxGNxsiL4lEuJwe/To8UnK7fAnmbGEEH8RpLouuKbeEm0lhbQVFIrNSuB+G7tVrAlVsZgETT5nljf+Iw==}
     dev: false
@@ -6528,6 +6535,12 @@ packages:
     resolution: {integrity: sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==}
     dependencies:
       loose-envify: 1.4.0
+    dev: false
+
+  /webhook-discord/3.7.8:
+    resolution: {integrity: sha512-IDEvKmu83SIAPZD0efpEXj3ZEm+X8Q68iRuKEKtyXlGN9S9lVtdL7cp4I0AXqTapVj+eh+Wby7y9DaxP01Yk2g==}
+    dependencies:
+      snekfetch: 3.6.4
     dev: false
 
   /webidl-conversions/3.0.1:

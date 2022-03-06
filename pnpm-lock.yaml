@@ -38,7 +38,7 @@ specifiers:
   next: 12.1.0
   next-pwa: 5.4.5
   next-seo: 5.1.0
-  qrcode.react: ^1.0.1
+  qrcode.react: 2.0.0
   react: 17.0.2
   react-dom: 17.0.2
   react-icons: 4.3.1
@@ -69,7 +69,7 @@ dependencies:
   next: 12.1.0_33bdac975a6e334c49640fab91e2abb4
   next-pwa: 5.4.5_@babel+core@7.17.5+next@12.1.0
   next-seo: 5.1.0_caa633a00319350dbda42996613fe26c
-  qrcode.react: 1.0.1_react@17.0.2
+  qrcode.react: 2.0.0_react@17.0.2
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
   react-icons: 4.3.1_react@17.0.2
@@ -5508,10 +5508,10 @@ packages:
     resolution: {integrity: sha1-ys6GOG9ZoNuAUPqQ2baw6IoeNk8=}
     dev: false
 
-  /qrcode.react/1.0.1_react@17.0.2:
-    resolution: {integrity: sha512-8d3Tackk8IRLXTo67Y+c1rpaiXjoz/Dd2HpcMdW//62/x8J1Nbho14Kh8x974t9prsLHN6XqVgcnRiBGFptQmg==}
+  /qrcode.react/2.0.0_react@17.0.2:
+    resolution: {integrity: sha512-1CCzwC4KHYCzOLb7M+lKYqHzDMVsppKJBhrU1ZDCuJRHKiD99LeDHOkuvUKCRvnJgDzp9SnB6/WNA7qp6I7ozA==}
     peerDependencies:
-      react: ^15.5.3 || ^16.0.0 || ^17.0.0
+      react: ^16.3.0 || ^17.0.0
     dependencies:
       loose-envify: 1.4.0
       prop-types: 15.8.1

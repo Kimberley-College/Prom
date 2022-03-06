@@ -33,6 +33,7 @@ specifiers:
   eslint-plugin-react: 7.29.3
   eslint-plugin-react-hooks: 4.3.0
   framer-motion: 6.2.8
+  html5-qrcode: ^2.2.0
   micro: 9.3.4
   micro-cors: 0.1.1
   next: 12.1.0
@@ -46,6 +47,7 @@ specifiers:
   react-qr-reader: ^3.0.0-beta-1
   stripe: 8.205.0
   typescript: 4.6.2
+  uuid: ^8.3.2
 
 dependencies:
   '@babel/core': 7.17.5
@@ -64,6 +66,7 @@ dependencies:
   '@supabase/supabase-js': 1.30.7
   async-jsonwebtoken: 1.0.1
   framer-motion: 6.2.8_react-dom@17.0.2+react@17.0.2
+  html5-qrcode: 2.2.0
   micro: 9.3.4
   micro-cors: 0.1.1
   next: 12.1.0_33bdac975a6e334c49640fab91e2abb4
@@ -77,6 +80,7 @@ dependencies:
   react-qr-reader: 3.0.0-beta-1_react-dom@17.0.2+react@17.0.2
   stripe: 8.205.0
   typescript: 4.6.2
+  uuid: 8.3.2
 
 devDependencies:
   '@fast-csv/parse': 4.3.6
@@ -4297,6 +4301,10 @@ packages:
       react-is: 16.13.1
     dev: false
 
+  /html5-qrcode/2.2.0:
+    resolution: {integrity: sha512-8fkxks2N0NEfHnhxmq7AQnDTvx3IWp0VD2h5yhHufDTflWhC1dXPy/Xvdl+tA9nOsPCRqirOOZpl/OQbTYhnSw==}
+    dev: false
+
   /http-errors/1.6.2:
     resolution: {integrity: sha1-CgAsyFcHGSp+eUbO7cERVfYOxzY=}
     engines: {node: '>= 0.6'}
@@ -6478,6 +6486,11 @@ packages:
 
   /util-deprecate/1.0.2:
     resolution: {integrity: sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=}
+    dev: false
+
+  /uuid/8.3.2:
+    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    hasBin: true
     dev: false
 
   /uvu/0.5.3:

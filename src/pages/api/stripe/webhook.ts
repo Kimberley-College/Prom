@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { createClient } from '@supabase/supabase-js';
 import { withSentry } from '@sentry/nextjs';
 import Stripe from 'stripe';
-import jwt from 'async-jsonwebtoken';
+import { sign } from 'async-jsonwebtoken';
 import { v4 as uuidv4 } from 'uuid';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
@@ -82,7 +82,7 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse): Promis
     created_at: time,
   } as const;
 
-  const signedJwt = await jwt.sign(jwtPayload, process.env.JWT_SECRET);
+  const [signedJwt] = await sign(jwtPayload, process.env.JWT_SECRET);
 
   const { error: createError } = await supabase.from('tickets').insert({
     user_id: paymentIntent.metadata.user_id,

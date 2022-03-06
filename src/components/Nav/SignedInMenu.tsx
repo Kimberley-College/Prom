@@ -27,7 +27,7 @@ const SignedInMenu = () => {
             <NextLink href="/admin/terminal"><a><MenuItem>Stripe Terminal</MenuItem></a></NextLink>
           </>
         )}
-        <MenuItem onClick={signout}>Sign out</MenuItem>
+        <a href="/api/auth/logout"><MenuItem onClick={signout}>Sign out</MenuItem></a>
       </MenuList>
     </Menu>
   );

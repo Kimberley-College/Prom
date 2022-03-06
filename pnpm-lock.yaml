@@ -8,6 +8,7 @@ specifiers:
   '@emotion/react': 11.8.2
   '@emotion/styled': 11.8.1
   '@fast-csv/parse': 4.3.6
+  '@google-pay/save-button-react': ^1.0.0
   '@happykit/analytics': 1.0.1
   '@next/eslint-plugin-next': 12.1.1
   '@sendgrid/mail': 7.6.2
@@ -60,6 +61,7 @@ dependencies:
   '@chakra-ui/system': 1.11.2_dc240608ee0d50d8faddd7dd724375c2
   '@emotion/react': 11.8.2_c1cf67fb40c16c390126f300fc197413
   '@emotion/styled': 11.8.1_9e1aa84c2920c31b9f962a733ba5a2b4
+  '@google-pay/save-button-react': 1.0.0_b8199948237381d32641430399d599f8
   '@happykit/analytics': 1.0.1_next@12.1.1+react@17.0.2
   '@sendgrid/mail': 7.6.2
   '@sentry/cli': 1.74.2
@@ -2232,6 +2234,21 @@ packages:
       lodash.isundefined: 3.0.1
       lodash.uniq: 4.5.0
     dev: true
+
+  /@google-pay/save-button-react/1.0.0_b8199948237381d32641430399d599f8:
+    resolution: {integrity: sha512-BNtu9QZIyBgNPpmMUvXMojbRJ7vP91g3/A/KsLcMveNY5Ew25UiMob6IJqHYu3l9QLcvm0rfioyCmz4tUUgi7Q==}
+    engines: {node: '>=8.0.0'}
+    peerDependencies:
+      '@types/react': '>=16.0.0'
+      '@types/react-dom': '>=16.0.0'
+      react: '>=16.3.0'
+      react-dom: '>=16.3.0'
+    dependencies:
+      '@types/react': 17.0.43
+      '@types/react-dom': 17.0.14
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
 
   /@happykit/analytics/1.0.1_next@12.1.1+react@17.0.2:
     resolution: {integrity: sha512-yA0XHxDrfFqjD0R2mKQHsHvJlesoXno7795XbcI7WMDFBnZ02Y/ai5ZyVu17PP4B82pmpOa8zftSYizgtXzAhg==}

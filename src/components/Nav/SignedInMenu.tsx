@@ -23,10 +23,7 @@ const SignedInMenu = () => {
       <MenuList>
         <NextLink href="/panel"><a><MenuItem>User Panel</MenuItem></a></NextLink>
         {user.user_metadata.admin && (
-          <>
-            <NextLink href="/admin"><a><MenuItem>Admin Panel</MenuItem></a></NextLink>
-            <NextLink href="/admin/terminal"><a><MenuItem>Stripe Terminal</MenuItem></a></NextLink>
-          </>
+          <NextLink href="/admin"><a><MenuItem>Admin Panel</MenuItem></a></NextLink>
         )}
         {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
         <a href="/api/auth/logout"><MenuItem onClick={signout}>Sign out</MenuItem></a>

@@ -1,10 +1,5 @@
 import { handleAuth } from '@supabase/supabase-auth-helpers/nextjs';
 import { withSentry } from '@sentry/nextjs';
+import cookieOptions from 'util/cookieOptions';
 
-export default withSentry(handleAuth({
-  name: 'sb',
-  lifetime: 60 * 60 * 24 * 30, // 30 Day Sessions
-  domain: '',
-  path: '/',
-  sameSite: 'Strict',
-}));
+export default withSentry(handleAuth(cookieOptions));

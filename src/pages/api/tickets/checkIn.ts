@@ -1,11 +1,19 @@
 import { createClient } from '@supabase/supabase-js';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { withAuthRequired, supabaseClient as supabase } from '@supabase/supabase-auth-helpers/nextjs';
-import jwt from 'async-jsonwebtoken';
+import { verify } from 'async-jsonwebtoken';
 import { withSentry } from '@sentry/nextjs';
 
 interface ReturnBody {
   name: string;
+}
+
+interface JWT {
+  name: string;
+  email: string;
+  user_id: string;
+  id: string;
+  created_at: string;
 }
 
 export default withAuthRequired(withSentry(async (req: NextApiRequest, res: NextApiResponse<ReturnBody | string>): Promise<void> => {
@@ -16,13 +24,15 @@ export default withAuthRequired(withSentry(async (req: NextApiRequest, res: Next
 
   const { ticket } = req.body;
 
-  const decoded = await jwt.verify(ticket, process.env.JWT_SECRET).catch(() => res.status(403).send('Unauthorised'));
-  // eslint-disable-next-line consistent-return
-  if (!decoded) return;
+  const verifyRes = await verify(ticket, process.env.JWT_SECRET).catch(() => res.status(403).send('Unauthorised'));
 
-  const { data: updatedTicket, error } = await serverSupabase.from('tickets').update({ checked_in: true }).match({ id: ticket.id }).single();
+  if (!verifyRes) return res.status(403).send('Unauthorised');
+
+  const decoded: JWT = verifyRes[0] as JWT;
+
+  const { error } = await serverSupabase.from('tickets').update({ checked_in: true }).match({ id: decoded.id }).single();
 
   if (error) return res.status(500).send(error.message);
 
-  return res.status(200).send({ name: updatedTicket.name });
+  return res.status(200).send({ name: decoded.name });
 }));

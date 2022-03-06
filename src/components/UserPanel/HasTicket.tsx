@@ -9,8 +9,8 @@ const HasTicket: React.FC = () => {
     <>
       <Flex direction="column" align="center" justify="center" m={5}>
         <Heading as="h2" my={3}>Your Ticket</Heading>
-        <Box bgColor="brand.kimberley" w="300px" h="300px" boxSizing="content-box" borderRadius="15px" p={6}>
-          <QRCode value={ticket.jwt} size={300} fgColor="white" bgColor="#711368" level="L" />
+        <Box bgColor="white" border="3px solid" borderColor="brand.kimberley" w="300px" h="300px" boxSizing="content-box" borderRadius="15px" p={6}>
+          <QRCode value={ticket.jwt} size={300} fgColor="#711368" level="L" />
         </Box>
 
       </Flex>

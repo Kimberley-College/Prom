@@ -10,8 +10,9 @@ const CheckoutForm: React.FC = () => {
   const stripe = useStripe();
   const elements = useElements();
   const toast = useToast();
-  const { updateTicket, ticket } = useTicket();
+  const { updateTicket } = useTicket();
 
+  const [timer, setTimer] = useState<null | NodeJS.Timer>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
@@ -37,6 +38,10 @@ const CheckoutForm: React.FC = () => {
     });
   }, [stripe, toast]);
 
+  useEffect(() => () => {
+    if (timer) clearInterval(timer);
+  }, [timer]);
+
   const handleSubmit = async (e): Promise<void> => {
     e.preventDefault();
 
@@ -55,10 +60,9 @@ const CheckoutForm: React.FC = () => {
     if (error) {
       toast({ status: 'error', title: error.message });
     } else {
-      const timer = setInterval(() => {
+      setTimer(setInterval(() => {
         updateTicket();
-        if (ticket !== null) clearInterval(timer);
-      }, 500); // I know this is kind of cringe but I couldn't think of a better way. No reason this shouldn't be done within 2 seconds.
+      }, 500));
     }
   };
 

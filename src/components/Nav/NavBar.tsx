@@ -20,7 +20,7 @@ const NavBar: React.FC = () => {
         : user
           ? <SignedInMenu />
           : (
-            <Button onClick={signin} leftIcon={<Icon as={FiLogIn} boxSize={6} />}>  Sign in </Button>
+            <Button onClick={signin} leftIcon={<Icon as={FiLogIn} boxSize={6} />}>Sign in</Button>
           )}
     </Flex>
   );

@@ -32,7 +32,6 @@
     "@stripe/terminal-js": "^0.9.0",
     "@supabase/supabase-auth-helpers": "1.2.0",
     "@supabase/supabase-js": "1.30.7",
-    "@svuick/supabase": "^0.0.25",
     "async-jsonwebtoken": "^1.0.1",
     "framer-motion": "6.2.8",
     "html5-qrcode": "^2.2.0",

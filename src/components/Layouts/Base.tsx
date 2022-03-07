@@ -11,7 +11,7 @@ interface Props {
 
 const BaseLayout: React.FC<Props> = ({ children, isLoading }) => (
   <Flex flexFlow="column nowrap" align="center" w="100%" maxW="100%" minH="100vh" boxSizing="border-box" bgColor="gray.100">
-    <Box w="100%">
+    <Box w="100%" zIndex={100}>
       <Banner />
     </Box>
     <Box w="100%">

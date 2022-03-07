@@ -2,6 +2,7 @@ import {
   Flex, Box, Spacer, Center, Spinner,
 } from '@chakra-ui/react';
 import NavBar from '../Nav/NavBar';
+import Banner from './Banner';
 import Footer from './Footer';
 
 interface Props {
@@ -10,6 +11,9 @@ interface Props {
 
 const BaseLayout: React.FC<Props> = ({ children, isLoading }) => (
   <Flex flexFlow="column nowrap" align="center" w="100%" maxW="100%" minH="100vh" boxSizing="border-box" bgColor="gray.100">
+    <Box w="100%">
+      <Banner />
+    </Box>
     <Box w="100%">
       <NavBar />
     </Box>

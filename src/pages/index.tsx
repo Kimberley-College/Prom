@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { useToast } from '@chakra-ui/react';
 
 const Home: NextPage = () => {
-  const router = useRouter(); // from next/router
+  const router = useRouter();
   const toast = useToast();
   useEffect(() => {
     const { query } = router;
@@ -15,14 +15,10 @@ const Home: NextPage = () => {
       toast({
         status: 'error',
         title: query.error,
-        description: query.error_message, // or whatever it is''
+        description: query.error_message,
       });
     }
-    // stuff here will run when the page loads
-    // parse your query params in here
-  }, [router, toast]); // dependency array = re-run when any of these change
-
-  // in this you might need a dependency array of [router] because you're using it inside the effect hook and effectively have to wait for it to load
+  }, [router, toast]);
   return (
     <HomeLayout>
       <Header />

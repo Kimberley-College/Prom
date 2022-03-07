@@ -15,7 +15,7 @@ const Home: NextPage = () => {
       toast({
         status: 'error',
         title: query.error,
-        description: query.error_message,
+        description: query.error_description,
       });
     }
   }, [router, toast]);

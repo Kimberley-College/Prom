@@ -17,7 +17,7 @@ const Header: React.FC = () => {
       {/* eslint-disable-next-line no-nested-ternary */}
       {isLoading ? <Spinner />
         : user ? (
-          <NextLink href="/panel"><Button>  User Panel </Button></NextLink>
+          <NextLink href="/panel"><Button>User Panel</Button></NextLink>
         )
           : (
             <Button onClick={signin} leftIcon={<Icon as={SiMicrosoftoffice} color="black" boxSize={8} />} fontSize="24" p={8}>Sign in with Office</Button>

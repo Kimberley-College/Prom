@@ -27,6 +27,7 @@ const SignedInMenu = () => {
             <NextLink href="/admin/terminal"><a><MenuItem>Stripe Terminal</MenuItem></a></NextLink>
           </>
         )}
+        {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
         <a href="/api/auth/logout"><MenuItem onClick={signout}>Sign out</MenuItem></a>
       </MenuList>
     </Menu>

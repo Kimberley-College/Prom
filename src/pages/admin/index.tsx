@@ -42,9 +42,11 @@ const Home: NextPage = () => {
         </NextLink>
       </Flex>
 
-      {users.map((user) => (
-        <UserCard user={user} />
-      ))}
+      <Flex gap={3} flexFlow="row wrap">
+        {users?.map((user) => (
+          <UserCard user={user} />
+        ))}
+      </Flex>
     </BaseLayout>
   );
 };

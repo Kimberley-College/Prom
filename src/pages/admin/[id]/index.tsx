@@ -1,12 +1,12 @@
 import type { NextPage } from 'next';
 import {
-  Button, Heading,
+  Heading, Text,
 } from '@chakra-ui/react';
 import BaseLayout from 'components/Layouts/Base';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useUser } from '@supabase/supabase-auth-helpers/react';
-import NextLink from 'next/link';
+import Error from 'next/error';
 
 interface ManagedUser {
   id: string;
@@ -21,21 +21,25 @@ const ManageSpecificUser: NextPage = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [managedUser, setManagedUser] = useState(null);
+  const [errorCode, setErrorCode] = useState<false | number>(false);
   const { user } = useUser();
 
   useEffect(() => {
     if (!router || !user) return;
     const getUser = async (): Promise<void> => {
-      const { data }: { data: ManagedUser } = await fetch(`/api/getUser/${router.query.id}`).then((res) => res.json());
+      const res = await fetch(`/api/getUser/${router.query.id}`);
+      if (!res.ok) {
+        setErrorCode(res.status);
+        return;
+      }
+      const { data }: { data?: ManagedUser } = await res.json();
       setManagedUser(data);
     };
     getUser();
     setIsLoading(false);
-    console.log(managedUser);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router]);
+  }, [router, user]);
 
-  // Just want to try getting Stripe Terminal working, the getting another user stuff needs a lot more work.
+  if (errorCode) return <Error statusCode={errorCode} />;
 
   return (
     <BaseLayout isLoading={isLoading}>
@@ -43,7 +47,8 @@ const ManageSpecificUser: NextPage = () => {
         {/* Managing {managedUser?.name} */}
         Managing {user?.user_metadata.proper_name}
       </Heading>
-      <NextLink href={`/admin/${router.query.id}/terminal`}><Button>Launch Terminal</Button></NextLink>
+      <Text>Has bought ticket: {managedUser?.hasTicket}</Text>
+      <Text>Has checked in: {managedUser?.checkedIn}</Text>
     </BaseLayout>
   );
 };

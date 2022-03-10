@@ -31,7 +31,7 @@
     "@stripe/stripe-js": "1.24.0",
     "@stripe/terminal-js": "^0.9.0",
     "@supabase/supabase-auth-helpers": "1.2.2",
-    "@supabase/supabase-js": "1.30.7",
+    "@supabase/supabase-js": "1.31.1",
     "async-jsonwebtoken": "^1.0.1",
     "framer-motion": "6.2.8",
     "html5-qrcode": "^2.2.0",

@@ -1,26 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { withAuthRequired, supabaseClient as userSupabase } from '@supabase/supabase-auth-helpers/nextjs';
 import { createClient } from '@supabase/supabase-js';
+import { Ticket, UserWithTicket } from 'types/user';
 
-interface ManagedUser {
-  id: string;
-  email: string;
-  name: string;
-  is_admin: boolean;
-  hasTicket: boolean;
-  checkedIn: boolean;
-}
-
-interface Ticket {
-  id: string;
-  created_at: string;
-  email: string;
-  checked_in: boolean;
-  customer_id: string;
-  user_id: string;
-}
-
-export default withAuthRequired(async (req: NextApiRequest, res: NextApiResponse<ManagedUser | string>): Promise<void> => {
+export default withAuthRequired(async (req: NextApiRequest, res: NextApiResponse<UserWithTicket | string>): Promise<void> => {
   const { data: calledUser, error: calledUserError } = await userSupabase.auth.api.getUserByCookie(req, res);
 
   if (calledUserError) return res.status(calledUserError.status).send(calledUserError.message);
@@ -39,7 +22,9 @@ export default withAuthRequired(async (req: NextApiRequest, res: NextApiResponse
     email: user.email,
     name: user.user_metadata.proper_name as string,
     is_admin: user.user_metadata.admin as boolean,
-    hasTicket: !!ticket,
-    checkedIn: ticket?.checked_in,
+    has_ticket: !!ticket,
+    checked_in: ticket?.checked_in,
+    ticketId: ticket?.id,
+    jwt: ticket?.jwt,
   });
 });

@@ -6,7 +6,7 @@ interface Props {
 }
 
 const UserCard: React.FC<Props> = ({ user }) => (
-  <Box w="300px" h="300px" bgColor="purple.300">
+  <Box w="300px" h="300px" bgColor="purple.300" borderRadius={10}>
     {JSON.stringify(user)}
   </Box>
 );

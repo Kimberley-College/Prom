@@ -78,7 +78,7 @@ const Home: NextPage = () => {
         </Flex>
 
         <Flex gap={3} flexFlow="row wrap" justify="center">
-          {filtered.map((user) => (
+          {filtered?.map((user) => (
             <UserCard user={user} />
           ))}
         </Flex>

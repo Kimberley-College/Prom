@@ -1,7 +1,7 @@
-import { Flex, Heading, Box } from '@chakra-ui/react';
+import { Flex, Heading } from '@chakra-ui/react';
 import { useTicket } from 'util/ticketContext';
-import QRCode from 'qrcode.react';
 import MoreInfo from './MoreInfo';
+import QR from './QR';
 
 const HasTicket: React.FC = () => {
   const { ticket } = useTicket();
@@ -9,10 +9,7 @@ const HasTicket: React.FC = () => {
     <>
       <Flex direction="column" align="center" justify="center" m={5}>
         <Heading as="h2" my={3}>Your Ticket</Heading>
-        <Box bgColor="white" border="3px solid" borderColor="brand.kimberley" w="300px" h="300px" boxSizing="content-box" borderRadius="15px" p={6}>
-          <QRCode value={ticket.jwt} size={300} fgColor="#711368" level="L" />
-        </Box>
-
+        <QR jwt={ticket.jwt} />
       </Flex>
       <MoreInfo />
     </>

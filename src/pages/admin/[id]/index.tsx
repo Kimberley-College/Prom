@@ -1,49 +1,56 @@
 import type { NextPage } from 'next';
 import {
-  Button, Heading,
+  Flex,
+  Heading, Text,
 } from '@chakra-ui/react';
 import BaseLayout from 'components/Layouts/Base';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useUser } from '@supabase/supabase-auth-helpers/react';
-import NextLink from 'next/link';
-
-interface ManagedUser {
-  id: string;
-  email: string;
-  name: string;
-  is_admin: boolean;
-  hasTicket: boolean;
-  checkedIn: boolean;
-}
+import Error from 'next/error';
+import type { UserWithTicket } from 'types/user';
+import QR from 'components/UserPanel/QR';
 
 const ManageSpecificUser: NextPage = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
-  const [managedUser, setManagedUser] = useState(null);
+  const [managedUser, setManagedUser] = useState<null | UserWithTicket>(null);
+  const [errorCode, setErrorCode] = useState<false | number>(false);
   const { user } = useUser();
 
   useEffect(() => {
-    if (!router || !user) return;
+    if (!router?.query?.id || !user) return;
+
     const getUser = async (): Promise<void> => {
-      const { data }: { data: ManagedUser } = await fetch(`/api/getUser/${router.query.id}`).then((res) => res.json());
+      const res = await fetch(`/api/getUser/${router.query.id}`);
+      if (!res.ok) {
+        setErrorCode(res.status);
+        return;
+      }
+      const data: UserWithTicket = await res.json();
       setManagedUser(data);
+      setIsLoading(false);
     };
     getUser();
-    setIsLoading(false);
-    console.log(managedUser);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router]);
+  }, [router, user]);
 
-  // Just want to try getting Stripe Terminal working, the getting another user stuff needs a lot more work.
+  if (errorCode) return <Error statusCode={errorCode} />;
 
   return (
     <BaseLayout isLoading={isLoading}>
-      <Heading as="h1" size="3xl">
-        {/* Managing {managedUser?.name} */}
-        Managing {user?.user_metadata.proper_name}
-      </Heading>
-      <NextLink href={`/admin/${router.query.id}/terminal`}><Button>Launch Terminal</Button></NextLink>
+      <Flex direction="column" align="center">
+        <Heading as="h1" size="3xl" lineHeight={1.2} my={3}>Managing {managedUser?.name}</Heading>
+        <Text>Is admin: {managedUser?.is_admin ? 'Yes' : 'No'}</Text>
+        <Text>Has bought ticket: {managedUser?.has_ticket ? 'Yes' : 'No'}</Text>
+
+        {managedUser?.has_ticket && (
+        <>
+          <Text>Has checked in: {managedUser?.checked_in ? 'Yes' : 'No'}</Text>
+          <Heading as="h3" py={2}>Their Ticket</Heading>
+          <QR jwt={managedUser?.jwt} />
+        </>
+        )}
+      </Flex>
     </BaseLayout>
   );
 };

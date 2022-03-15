@@ -39,14 +39,14 @@ const ManageSpecificUser: NextPage = () => {
   return (
     <BaseLayout isLoading={isLoading}>
       <Flex direction="column" align="center">
-        <Heading as="h1" size="3xl" lineHeight={1.2} my={3}>Managing {user?.user_metadata.proper_name}</Heading>
-        <Text>Is admin: {managedUser?.is_admin.toString()}</Text>
-        <Text>Has bought ticket: {managedUser?.has_ticket.toString()}</Text>
+        <Heading as="h1" size="3xl" lineHeight={1.2} my={3}>Managing {managedUser?.name}</Heading>
+        <Text>Is admin: {managedUser?.is_admin ? 'Yes' : 'No'}</Text>
+        <Text>Has bought ticket: {managedUser?.has_ticket ? 'Yes' : 'No'}</Text>
 
-        {managedUser?.ticketId && (
+        {managedUser?.has_ticket && (
         <>
-          <Text>Has checked in: {managedUser?.checked_in.toString()}</Text>
-          <Heading as="h3">Their Ticket</Heading>
+          <Text>Has checked in: {managedUser?.checked_in ? 'Yes' : 'No'}</Text>
+          <Heading as="h3" py={2}>Their Ticket</Heading>
           <QR jwt={managedUser?.jwt} />
         </>
         )}

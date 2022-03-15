@@ -57,7 +57,7 @@ const Home: NextPage = () => {
     <BaseLayout isLoading={!users}>
       <Flex direction="column" align="center">
         <Heading as="h1" size="3xl" my={5} textAlign="center">
-          Admin Page
+          Admin Panel
         </Heading>
         <Flex gap={3} my={3}>
           <NextLink href="/admin/terminal" passHref>
@@ -79,7 +79,9 @@ const Home: NextPage = () => {
 
         <Flex gap={3} flexFlow="row wrap" justify="center">
           {filtered?.map((user) => (
-            <UserCard user={user} />
+            <NextLink href={`/admin/${user.id}`} key={user.id}>
+              <a><UserCard user={user} /></a>
+            </NextLink>
           ))}
         </Flex>
       </Flex>

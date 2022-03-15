@@ -36,7 +36,8 @@ export default withAuthRequired(withSentry(async (req: NextApiRequest, res: Next
       email: user.email,
       name: user.user_metadata.proper_name,
       user_id: user.id,
-      tenderedBy: terminal ? userCalling.user_metadata.proper_name : undefined,
+      payment_type: terminal ? 'card_present' : 'online',
+      cashier: terminal ? userCalling.id : undefined,
     },
     capture_method: terminal ? 'manual' : 'automatic',
   });

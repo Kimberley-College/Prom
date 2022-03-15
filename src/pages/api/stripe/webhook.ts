@@ -92,6 +92,8 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse): Promis
     created_at: time,
     id: uuid,
     jwt: signedJwt,
+    payment_type: paymentIntent.metadata.payment_type,
+    cashier: paymentIntent.metadata.cashier,
   }).single();
 
   if (createError) {

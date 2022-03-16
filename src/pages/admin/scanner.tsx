@@ -1,19 +1,23 @@
-import { Flex, Heading, useToast } from '@chakra-ui/react';
+import {
+  Flex, Heading, useToast, Box,
+} from '@chakra-ui/react';
 import BaseLayout from 'components/Layouts/Base';
-import QRScanner from 'components/Scanner/QRScanner';
+import { OnResultFunction, QrReader } from 'react-qr-reader';
+import ViewFinder from 'components/Admin/ViewFinder';
 
 const Scanner: React.FC = () => {
   const toast = useToast();
 
-  const checkInTicket = async (result: string) => {
+  const checkInTicket: OnResultFunction = async (result) => {
     if (!result) return;
+    const data = result.getText();
 
     const res = await fetch('/api/tickets/checkIn', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ ticket: result }),
+      body: JSON.stringify({ ticket: data }),
     });
 
     if (!res.ok) {
@@ -37,7 +41,15 @@ const Scanner: React.FC = () => {
     <BaseLayout>
       <Heading as="h1" size="3xl" textAlign="center" my={5}>Ticket Scanner</Heading>
       <Flex direction="column" justify="center" align="center" w="100%">
-        <QRScanner onSuccess={checkInTicket} onError={console.log} verbose={false} disableFlip />
+        <Box minW="300px" w="80%" maxW="500px">
+          <QrReader
+            onResult={checkInTicket}
+            constraints={{ facingMode: 'environment' }}
+            containerStyle={{ width: '100%' }}
+            videoStyle={{ objectFit: 'cover' }}
+            ViewFinder={ViewFinder}
+          />
+        </Box>
       </Flex>
     </BaseLayout>
   );

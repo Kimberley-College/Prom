@@ -59,6 +59,7 @@ const CheckoutForm: React.FC = () => {
 
     if (error) {
       toast({ status: 'error', title: error.message });
+      setLoading(false);
     } else {
       setTimer(setInterval(() => {
         updateTicket();

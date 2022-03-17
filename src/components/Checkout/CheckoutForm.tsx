@@ -61,6 +61,10 @@ const CheckoutForm: React.FC = () => {
       toast({ status: 'error', title: error.message });
       setLoading(false);
     } else {
+      toast({
+        status: 'success',
+        title: 'Payment succeeded, please do not re-attempt it - wait patiently!',
+      });
       setTimer(setInterval(() => {
         updateTicket();
       }, 500));

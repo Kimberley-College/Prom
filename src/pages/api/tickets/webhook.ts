@@ -52,6 +52,7 @@ export default withSentry(async (req: NextApiRequest, res: NextApiResponse<strin
       email: body.record.email,
       dateTime: body.record.created_at,
       ticketId: jwt.id,
+      jwt: body.record.jwt,
     },
     personalizations: [
       {

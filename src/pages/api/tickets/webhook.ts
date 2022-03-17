@@ -2,6 +2,9 @@ import { withSentry } from '@sentry/nextjs';
 import { MessageBuilder, Webhook } from 'webhook-discord';
 import { verify } from 'async-jsonwebtoken';
 import type { NextApiRequest, NextApiResponse } from 'next';
+import type { JWT } from 'types/user';
+import mailClient from '@sendgrid/mail';
+import QRCode from 'qrcode';
 
 interface Payload {
   type: 'INSERT'
@@ -17,14 +20,6 @@ interface Payload {
     jwt: string;
   }
   old_record: null
-}
-
-interface JWT {
-  name: string;
-  email: string;
-  user_id: string;
-  id: string;
-  created_at: string;
 }
 
 export default withSentry(async (req: NextApiRequest, res: NextApiResponse<string | void>): Promise<void> => {
@@ -47,6 +42,34 @@ export default withSentry(async (req: NextApiRequest, res: NextApiResponse<strin
     .addField('Time Created', body.record.created_at, true);
 
   Hook.send(msg);
+
+  mailClient.setApiKey(process.env.SENDGRID_API_KEY);
+
+  const qrImage = await QRCode.toDataURL(body.record.jwt);
+
+  const emailMessage = {
+    from: 'nick@prom.kim',
+    template_id: process.env.SENDGRID_CONFIRMATION_TEMPLATE_ID,
+    dynamic_template_data: {
+      name: jwt.name,
+      email: body.record.email,
+      dateTime: body.record.created_at,
+      ticketId: jwt.id,
+      qrImage,
+    },
+    personalizations: [
+      {
+        to: [
+          {
+            email: body.record.email,
+          },
+        ],
+      },
+    ],
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  await mailClient.send(emailMessage as any); // For some reason it seems to want me to provide a content field which I shouldn't need when giving template id...
 
   return res.status(200).send('Received');
 });

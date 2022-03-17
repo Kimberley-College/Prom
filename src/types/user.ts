@@ -21,3 +21,11 @@ export interface Ticket {
   user_id: string;
   jwt: string;
 }
+
+export interface JWT {
+  name: string;
+  email: string;
+  user_id: string;
+  id: string;
+  created_at: string;
+}

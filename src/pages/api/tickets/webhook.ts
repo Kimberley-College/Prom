@@ -4,6 +4,7 @@ import { verify } from 'async-jsonwebtoken';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import type { JWT } from 'types/user';
 import mailClient from '@sendgrid/mail';
+import QRCode from 'qrcode';
 
 interface Payload {
   type: 'INSERT'
@@ -44,6 +45,8 @@ export default withSentry(async (req: NextApiRequest, res: NextApiResponse<strin
 
   mailClient.setApiKey(process.env.SENDGRID_API_KEY);
 
+  const qrImage = await QRCode.toDataURL(body.record.jwt);
+
   const emailMessage = {
     from: 'nick@prom.kim',
     template_id: process.env.SENDGRID_CONFIRMATION_TEMPLATE_ID,
@@ -52,7 +55,7 @@ export default withSentry(async (req: NextApiRequest, res: NextApiResponse<strin
       email: body.record.email,
       dateTime: body.record.created_at,
       ticketId: jwt.id,
-      jwt: body.record.jwt,
+      qrImage,
     },
     personalizations: [
       {

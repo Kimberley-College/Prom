@@ -13,7 +13,7 @@ specifiers:
   '@sentry/cli': ^1.73.0
   '@sentry/nextjs': ^6.18.0
   '@stripe/react-stripe-js': 1.7.0
-  '@stripe/stripe-js': 1.24.0
+  '@stripe/stripe-js': 1.25.0
   '@stripe/terminal-js': ^0.9.0
   '@supabase/supabase-auth-helpers': 1.2.3
   '@supabase/supabase-js': 1.31.1
@@ -62,8 +62,8 @@ dependencies:
   '@sendgrid/mail': 7.6.2
   '@sentry/cli': 1.73.0
   '@sentry/nextjs': 6.18.0_next@12.1.0+react@17.0.2
-  '@stripe/react-stripe-js': 1.7.0_2272d46cfb55a1a89dee55cd5776c81d
-  '@stripe/stripe-js': 1.24.0
+  '@stripe/react-stripe-js': 1.7.0_03d938d16acfbee9ff7ea886bf170a9d
+  '@stripe/stripe-js': 1.25.0
   '@stripe/terminal-js': 0.9.0
   '@supabase/supabase-auth-helpers': 1.2.3_react-dom@17.0.2+react@17.0.2
   '@supabase/supabase-js': 1.31.1
@@ -2674,21 +2674,21 @@ packages:
       - supports-color
     dev: false
 
-  /@stripe/react-stripe-js/1.7.0_2272d46cfb55a1a89dee55cd5776c81d:
+  /@stripe/react-stripe-js/1.7.0_03d938d16acfbee9ff7ea886bf170a9d:
     resolution: {integrity: sha512-L20v8Jq0TDZFL2+y+uXD751t6q9SalSFkSYZpmZ2VWrGZGK7HAGfRQ804dzYSSr5fGenW6iz6y7U0YKfC/TK3g==}
     peerDependencies:
       '@stripe/stripe-js': ^1.20.3
       react: ^16.8.0 || ^17.0.0
       react-dom: ^16.8.0 || ^17.0.0
     dependencies:
-      '@stripe/stripe-js': 1.24.0
+      '@stripe/stripe-js': 1.25.0
       prop-types: 15.8.1
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
     dev: false
 
-  /@stripe/stripe-js/1.24.0:
-    resolution: {integrity: sha512-8CEILOpzoRhGwvgcf6y+BlPyEq1ZqxAv3gsX7LvokFYvbcyH72GRcHQMGXuZS3s7HqfYQuTSFrvZNL/qdkgA9Q==}
+  /@stripe/stripe-js/1.25.0:
+    resolution: {integrity: sha512-cywIoKu3sJnBPQ1eKi3BzFHWslA2ePqHvQhcxp7iYYlo1tWcVgEKTSh7y7hb6GoR4TyT3DwlK4v1vOZpVg8u4Q==}
     dev: false
 
   /@stripe/terminal-js/0.9.0:

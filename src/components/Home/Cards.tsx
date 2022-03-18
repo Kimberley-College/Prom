@@ -13,7 +13,7 @@ const Cards: React.FC = () => {
         <Flex direction="column" align="center">
           <Icon as={GoLocation} boxSize={10} />
           {user
-            ? <Text fontSize="24" align="center">Go to the user panel to view the date and location of our prom.</Text>
+            ? <Text fontSize="24" align="center">The prom will take place at the Sharnbrook Hotel on the 8th July, from 7pm to 11pm.</Text>
             : <Text fontSize="24" align="center">Login to view the date and location of our prom.</Text>}
         </Flex>
       </Box>

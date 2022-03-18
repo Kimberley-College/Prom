@@ -5,8 +5,7 @@ export const middleware = async (req: NextRequest): Promise<NextResponse | Respo
   const url = req.nextUrl.clone();
 
   if (url.pathname !== '/panel') return NextResponse.next();
-
-  const token = req.cookies['sb-access-token'];
+  const token = req.cookies['sb-access-token'] ?? req.nextUrl.hash.match(/access_token=.[^&]*/)?.[0].split('=')[1];
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/auth/v1/user`, {
     headers: {

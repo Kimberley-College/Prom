@@ -9,7 +9,7 @@ const MoreInfo: React.FC = () => (
     <Box w="330px" h="240px" p={3} mt={3}>
       <Flex direction="column" align="center">
         <Icon as={GoLocation} boxSize={10} />
-        <Text fontSize="24" align="center">The prom will take place at the Sharnbrook Hotel on the [date tbd].</Text>
+        <Text fontSize="24" align="center">The prom will take place at the Sharnbrook Hotel on the 8th July, from 7pm to 11pm.</Text>
       </Flex>
     </Box>
 

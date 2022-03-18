@@ -83,7 +83,7 @@ We only use functional cookies, which recognise you on our website and remember 
 The Kimberley College Prom 2022 website contains links to other websites. Our privacy policy applies only to our website, so if you click on a link to another website, you should read their privacy policy.
 
 ## Changes to our privacy policy
-Kimberley College Prom 2022 keeps its privacy policy under regular review and places any updates on this web page. This privacy policy was last updated on 9 January 2019.
+Kimberley College Prom 2022 keeps its privacy policy under regular review and places any updates on this web page. This privacy policy was last updated on 18 March 2022.
 
 ## How to contact us
 If you have any questions about Kimberley College Prom 2022's privacy policy, the data we hold on you, or you would like to exercise one of your data protection rights, please do not hesitate to contact us.

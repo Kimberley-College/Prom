@@ -13,9 +13,11 @@ import theme from '../util/theme';
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
   useAnalytics({ publicKey: process.env.NEXT_PUBLIC_HAPPYKIT_ANALYTICS_PUBLIC_KEY });
   useEffect(() => {
-    const { data: authListener } = supabaseClient.auth.onAuthStateChange(async (_, session) => {
-      if (!session) Sentry.setUser(null);
-      else {
+    console.log('effect');
+    const { data: authListener } = supabaseClient.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_OUT') {
+        Sentry.setUser(null);
+      } else if (session) {
         Sentry.setUser({
           email: session.user.email,
           username: session.user.user_metadata.proper_name,

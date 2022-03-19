@@ -22,6 +22,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended', // TypeScript rules
     'airbnb',
     'airbnb-typescript',
+    'plugin:@next/next/recommended'
   ],
   rules: {
     'react/prop-types': 'off',

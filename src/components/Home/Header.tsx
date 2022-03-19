@@ -9,6 +9,7 @@ import { BsFillArrowDownCircleFill, BsArrowDownCircle } from 'react-icons/bs';
 import { useUser } from '@supabase/supabase-auth-helpers/react';
 import { signin } from 'util/authHelpers';
 import NextLink from 'next/link';
+import { animateScroll as scroll } from 'react-scroll';
 
 const Header: React.FC = () => {
   const { user, isLoading } = useUser();
@@ -29,7 +30,7 @@ const Header: React.FC = () => {
       <Flex direction="row" mt="-30px" justify="center" zIndex={5}>
         <BsArrowDownCircle size="60px" color="white" />
       </Flex>
-      <Flex direction="row" mt="-60px" justify="center" zIndex={6}>
+      <Flex direction="row" mt="-60px" justify="center" zIndex={6} onClick={() => scroll.scrollTo('cards')}>
         <BsFillArrowDownCircleFill size="60px" color="#711368" />
       </Flex>
     </>

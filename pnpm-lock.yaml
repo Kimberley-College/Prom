@@ -47,6 +47,7 @@ specifiers:
   react-icons: 4.3.1
   react-markdown: 8.0.1
   react-qr-reader: ^3.0.0-beta-1
+  react-scroll: ^1.8.6
   stripe: 8.210.0
   typescript: 4.6.2
   uuid: ^8.3.2
@@ -82,6 +83,7 @@ dependencies:
   react-icons: 4.3.1_react@17.0.2
   react-markdown: 8.0.1_00d6772dea80510e818fd171caaa025a
   react-qr-reader: 3.0.0-beta-1_react-dom@17.0.2+react@17.0.2
+  react-scroll: 1.8.6_react-dom@17.0.2+react@17.0.2
   stripe: 8.210.0
   typescript: 4.6.2
   uuid: 8.3.2
@@ -4909,6 +4911,10 @@ packages:
     resolution: {integrity: sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=}
     dev: false
 
+  /lodash.throttle/4.1.1:
+    resolution: {integrity: sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=}
+    dev: false
+
   /lodash.uniq/4.5.0:
     resolution: {integrity: sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=}
     dev: true
@@ -5796,6 +5802,18 @@ packages:
       tslib: 1.14.1
       use-callback-ref: 1.2.5_00d6772dea80510e818fd171caaa025a
       use-sidecar: 1.0.5_react@17.0.2
+    dev: false
+
+  /react-scroll/1.8.6_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-VbbvjzLXvCjr2kiiG/lpLFim6mHpkXMdvOXQqwoSnUKyQPNmAo72r46x9C5PTLPSJq/dBd0gwrlZnnxqj5Yz1Q==}
+    peerDependencies:
+      react: ^15.5.4 || ^16.0.0 || ^17.0.0
+      react-dom: ^15.5.4 || ^16.0.0 || ^17.0.0
+    dependencies:
+      lodash.throttle: 4.1.1
+      prop-types: 15.8.1
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
     dev: false
 
   /react-style-singleton/2.1.1_00d6772dea80510e818fd171caaa025a:

@@ -2,7 +2,6 @@ import {
   Flex, Heading, Button, Box,
   Icon,
   Spinner,
-  IconButton,
 } from '@chakra-ui/react';
 import { SiMicrosoftoffice } from 'react-icons/si';
 import { FaRegUser } from 'react-icons/fa';
@@ -28,11 +27,11 @@ const Header: React.FC = () => {
               <Button onClick={signin} leftIcon={<Icon as={SiMicrosoftoffice} color="black" boxSize={8} />} fontSize="24" p={8}>Sign in with Office</Button>
             )}
       </Flex>
-      <Flex direction="row" mt="-30px" justify="center" zIndex={5}>
+      <Flex direction="row" mt="-30px" justify="center" zIndex={105} position="sticky" bottom={2}>
         <BsArrowDownCircle size="60px" color="white" />
       </Flex>
-      <Flex direction="row" mt="-60px" justify="center" zIndex={6}>
-        <IconButton aria-label="downArrow" icon={<BsFillArrowDownCircleFill size="60px" color="#711368" />} onClick={() => scroll.scrollTo('cards')} />
+      <Flex alignSelf="center" w="60px" h="60px" borderRadius="30px" shadow="dark-lg" direction="row" mt="-60px" justify="center" zIndex={110} position="sticky" bottom={2}>
+        <BsFillArrowDownCircleFill size="60px" color="#711368" onClick={() => scroll.scrollTo(720, 'cards')} />
       </Flex>
     </>
   );

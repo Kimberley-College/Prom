@@ -26,7 +26,7 @@ export default withAuthRequired(withSentry(async (req: NextApiRequest, res: Next
 
   const verifyRes = await verify(ticket, process.env.JWT_SECRET).catch(() => res.status(403).send('Unauthorised'));
 
-  if (!verifyRes) return res.status(403).send('Unauthorised');
+  if (!verifyRes?.[0]) return res.status(400).send('Invalid ticket');
 
   const decoded: JWT = verifyRes[0] as JWT;
 

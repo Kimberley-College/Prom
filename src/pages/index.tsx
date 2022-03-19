@@ -5,7 +5,6 @@ import HomeLayout from 'components/Layouts/Home';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useToast } from '@chakra-ui/react';
-import { Element } from 'react-scroll';
 
 const Home: NextPage = () => {
   const router = useRouter();

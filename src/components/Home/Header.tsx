@@ -21,12 +21,12 @@ const Header: React.FC = () => {
         {/* eslint-disable-next-line no-nested-ternary */}
         {isLoading ? <Spinner />
           : user ? (
-            <NextLink href="/panel" passHref>
-              <a><Button leftIcon={<Icon as={FaRegUser} color="black" boxSize={8} />} fontSize="24" p={8}>User Panel</Button></a>
+            <NextLink href="/panel">
+              <a><Button leftIcon={<Icon as={FaRegUser} color="white" boxSize={8} />} fontSize="24" p={8}>User Panel</Button></a>
             </NextLink>
           )
             : (
-              <Button onClick={signin} leftIcon={<Icon as={SiMicrosoftoffice} color="black" boxSize={8} />} fontSize="24" p={8}>Sign in with Office</Button>
+              <Button onClick={signin} leftIcon={<Icon as={SiMicrosoftoffice} color="white" boxSize={8} />} fontSize="24" p={8}>Sign in with Office</Button>
             )}
       </Flex>
       <Flex direction="row" mt="-30px" justify="center" zIndex={105} position="sticky" bottom={2}>

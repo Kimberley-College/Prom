@@ -17,7 +17,7 @@ const BaseLayout: React.FC<Props> = ({ children, isLoading }) => (
     <Box w="100%" zIndex={99}>
       <NavBar />
     </Box>
-    <Box w="60%">
+    <Box w="90%">
       {isLoading ? <Center><Spinner size="xl" /></Center> : children}
     </Box>
     <Spacer />

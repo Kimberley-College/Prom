@@ -22,8 +22,8 @@ const Home: NextPage = () => {
   return (
     <HomeLayout>
       <Header />
-
       <Cards />
+
     </HomeLayout>
   );
 };

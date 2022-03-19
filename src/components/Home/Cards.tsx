@@ -1,7 +1,8 @@
 import {
   Box, Flex, Text, Icon,
 } from '@chakra-ui/react';
-import { GoLocation, GoKey } from 'react-icons/go';
+import { GoLocation } from 'react-icons/go';
+import { IoTicketSharp } from 'react-icons/io5';
 import { GrCafeteria } from 'react-icons/gr';
 import { useUser } from '@supabase/supabase-auth-helpers/react';
 
@@ -14,7 +15,7 @@ const Cards: React.FC = () => {
           <Icon as={GoLocation} boxSize={10} />
           {user
             ? <Text fontSize="24" align="center">The prom will take place at the Sharnbrook Hotel on the 8th July, from 7pm to 11pm.</Text>
-            : <Text fontSize="24" align="center">Login to view the date and location of our prom.</Text>}
+            : <Text fontSize="24" align="center">Use your school email and password to sign in and view the date and location.</Text>}
         </Flex>
       </Box>
 
@@ -27,9 +28,9 @@ const Cards: React.FC = () => {
 
       <Box w="330px" h="240px" p={3} mt={3}>
         <Flex direction="column" align="center">
-          <Icon as={GoKey} boxSize={10} />
+          <Icon as={IoTicketSharp} boxSize={10} />
           <Text fontSize="24" align="center">
-            Log in using your school email and password above to buy a ticket for £30.
+            Tickets cost £30 - any profits from the event will go to charity.
           </Text>
         </Flex>
       </Box>

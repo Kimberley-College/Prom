@@ -31,7 +31,7 @@ const Header: React.FC = () => {
         <BsArrowDownCircle size="60px" color="white" />
       </Flex>
       <Flex alignSelf="center" w="60px" h="60px" borderRadius="30px" shadow="dark-lg" direction="row" mt="-60px" justify="center" zIndex={110} position="sticky" bottom={2}>
-        <BsFillArrowDownCircleFill size="60px" color="#711368" onClick={() => scroll.scrollTo(720, 'cards')} />
+        <BsFillArrowDownCircleFill size="60px" color="#711368" onClick={() => scroll.scrollTo(720)} />
       </Flex>
     </>
   );

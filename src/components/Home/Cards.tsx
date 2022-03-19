@@ -14,7 +14,7 @@ const Cards: React.FC = () => {
           <Icon as={GoLocation} boxSize={10} />
           {user
             ? <Text fontSize="24" align="center">The prom will take place at the Sharnbrook Hotel on the 8th July, from 7pm to 11pm.</Text>
-            : <Text fontSize="24" align="center">Login to view the date and location of our prom.</Text>}
+            : <Text fontSize="24" align="center">Use your school email and password to sign in and view the date and location.</Text>}
         </Flex>
       </Box>
 
@@ -29,7 +29,7 @@ const Cards: React.FC = () => {
         <Flex direction="column" align="center">
           <Icon as={GoKey} boxSize={10} />
           <Text fontSize="24" align="center">
-            Log in using your school email and password above to buy a ticket for £30.
+            Tickets cost £30 - any profits from the event will go to charity.
           </Text>
         </Flex>
       </Box>

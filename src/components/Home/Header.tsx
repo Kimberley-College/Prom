@@ -4,6 +4,8 @@ import {
   Spinner,
 } from '@chakra-ui/react';
 import { SiMicrosoftoffice } from 'react-icons/si';
+import { FaUser } from 'react-icons/fa';
+import { BsFillArrowDownCircleFill, BsArrowDownCircle } from 'react-icons/bs';
 import { useUser } from '@supabase/supabase-auth-helpers/react';
 import { signin } from 'util/authHelpers';
 import NextLink from 'next/link';
@@ -11,18 +13,26 @@ import NextLink from 'next/link';
 const Header: React.FC = () => {
   const { user, isLoading } = useUser();
   return (
-    <Flex direction="column" p="5vw" pt={['150px', null, null, '100px', '350px']} bgImg="/KimberleyBg.png" bgRepeat="no-repeat" bgSize="cover" bgPosition="top" backdropFilter="blur(5px)" backgroundColor="rgba(0,0,0,0.6)" align="flex-start" justify="center" h="600px" maxH="100vh" gap={10}>
-      <Box h="640px" w="100%" pos="absolute" top={0} left={0} backdropFilter="blur(5px)" bgColor="rgba(255,255,255,0.2)" zIndex={-1} />
-      <Heading color="black" as="h1" size="3xl" fontWeight="bold">Kimberley College Prom</Heading>
-      {/* eslint-disable-next-line no-nested-ternary */}
-      {isLoading ? <Spinner />
-        : user ? (
-          <NextLink href="/panel"><Button>User Panel</Button></NextLink>
-        )
-          : (
-            <Button onClick={signin} leftIcon={<Icon as={SiMicrosoftoffice} color="black" boxSize={8} />} fontSize="24" p={8}>Sign in with Office</Button>
-          )}
-    </Flex>
+    <>
+      <Flex direction="column" p="5vw" pt={['150px', null, null, '100px', '350px']} bgImg="/KimberleyBg.png" bgRepeat="no-repeat" bgSize="cover" bgPosition="top" backdropFilter="blur(5px)" backgroundColor="rgba(0,0,0,0.6)" align="flex-start" justify="center" h="600px" maxH="100vh" gap={10}>
+        <Box h="600px" w="100%" pos="absolute" top={0} left={0} backdropFilter="blur(5px)" bgColor="rgba(255,255,255,0.2)" zIndex={-1} />
+        <Heading color="black" as="h1" size="3xl" fontWeight="bold">Kimberley College Prom</Heading>
+        {/* eslint-disable-next-line no-nested-ternary */}
+        {isLoading ? <Spinner />
+          : user ? (
+            <NextLink href="/panel"><Button leftIcon={<Icon as={FaUser} color="black" boxSize={8} />} fontSize="24" p={8}>User Panel</Button></NextLink>
+          )
+            : (
+              <Button onClick={signin} leftIcon={<Icon as={SiMicrosoftoffice} color="black" boxSize={8} />} fontSize="24" p={8}>Sign in with Office</Button>
+            )}
+      </Flex>
+      <Flex direction="row" mt="-30px" justify="center" zIndex={5}>
+        <BsArrowDownCircle size="60px" color="white" />
+      </Flex>
+      <Flex direction="row" mt="-60px" justify="center" zIndex={6}>
+        <BsFillArrowDownCircleFill size="60px" color="#711368" />
+      </Flex>
+    </>
   );
 };
 

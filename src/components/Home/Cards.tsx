@@ -1,7 +1,8 @@
 import {
   Box, Flex, Text, Icon,
 } from '@chakra-ui/react';
-import { GoLocation, GoKey } from 'react-icons/go';
+import { GoLocation } from 'react-icons/go';
+import { IoTicketSharp } from 'react-icons/io5';
 import { GrCafeteria } from 'react-icons/gr';
 import { useUser } from '@supabase/supabase-auth-helpers/react';
 
@@ -27,7 +28,7 @@ const Cards: React.FC = () => {
 
       <Box w="330px" h="240px" p={3} mt={3}>
         <Flex direction="column" align="center">
-          <Icon as={GoKey} boxSize={10} />
+          <Icon as={IoTicketSharp} boxSize={10} />
           <Text fontSize="24" align="center">
             Tickets cost £30 - any profits from the event will go to charity.
           </Text>

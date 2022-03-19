@@ -4,7 +4,7 @@ import {
   Spinner,
 } from '@chakra-ui/react';
 import { SiMicrosoftoffice } from 'react-icons/si';
-import { FaUser } from 'react-icons/fa';
+import { FaRegUser } from 'react-icons/fa';
 import { BsFillArrowDownCircleFill, BsArrowDownCircle } from 'react-icons/bs';
 import { useUser } from '@supabase/supabase-auth-helpers/react';
 import { signin } from 'util/authHelpers';
@@ -20,7 +20,7 @@ const Header: React.FC = () => {
         {/* eslint-disable-next-line no-nested-ternary */}
         {isLoading ? <Spinner />
           : user ? (
-            <NextLink href="/panel"><Button leftIcon={<Icon as={FaUser} color="black" boxSize={8} />} fontSize="24" p={8}>User Panel</Button></NextLink>
+            <NextLink href="/panel"><Button leftIcon={<Icon as={FaRegUser} color="black" boxSize={8} />} fontSize="24" p={8}>User Panel</Button></NextLink>
           )
             : (
               <Button onClick={signin} leftIcon={<Icon as={SiMicrosoftoffice} color="black" boxSize={8} />} fontSize="24" p={8}>Sign in with Office</Button>

@@ -4,12 +4,12 @@ import {
   Spinner,
 } from '@chakra-ui/react';
 import { SiMicrosoftoffice } from 'react-icons/si';
-import { FaRegUser } from 'react-icons/fa';
 import { BsFillArrowDownCircleFill, BsArrowDownCircle } from 'react-icons/bs';
+import { FaRegUser } from 'react-icons/fa';
 import { useUser } from '@supabase/supabase-auth-helpers/react';
 import { signin } from 'util/authHelpers';
 import NextLink from 'next/link';
-import { animateScroll as scroll } from 'react-scroll';
+import ScrollIntoView from 'react-scroll-into-view';
 
 const Header: React.FC = () => {
   const { user, isLoading } = useUser();
@@ -21,7 +21,9 @@ const Header: React.FC = () => {
         {/* eslint-disable-next-line no-nested-ternary */}
         {isLoading ? <Spinner />
           : user ? (
-            <NextLink href="/panel" passHref><Button leftIcon={<Icon as={FaRegUser} color="black" boxSize={8} />} fontSize="24" p={8}>User Panel</Button></NextLink>
+            <NextLink href="/panel" passHref>
+              <a><Button leftIcon={<Icon as={FaRegUser} color="black" boxSize={8} />} fontSize="24" p={8}>User Panel</Button></a>
+            </NextLink>
           )
             : (
               <Button onClick={signin} leftIcon={<Icon as={SiMicrosoftoffice} color="black" boxSize={8} />} fontSize="24" p={8}>Sign in with Office</Button>
@@ -31,7 +33,9 @@ const Header: React.FC = () => {
         <BsArrowDownCircle size="60px" color="white" />
       </Flex>
       <Flex alignSelf="center" w="60px" h="60px" borderRadius="30px" shadow="dark-lg" direction="row" mt="-60px" justify="center" zIndex={110} position="sticky" bottom={2}>
-        <BsFillArrowDownCircleFill size="60px" color="#711368" onClick={() => scroll.scrollTo(720)} />
+        <ScrollIntoView selector="#cards">
+          <BsFillArrowDownCircleFill size="60px" color="#711368" />
+        </ScrollIntoView>
       </Flex>
     </>
   );

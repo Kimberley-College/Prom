@@ -9,7 +9,7 @@ import { useUser } from '@supabase/supabase-auth-helpers/react';
 const Cards: React.FC = () => {
   const { user } = useUser();
   return (
-    <Flex direction={['column', null, 'row']} justify="center" mt={10} align="center">
+    <Flex direction={['column', null, 'row']} justify="center" mt={10} align="center" id="cards">
       <Box w="330px" h="240px" p={3} mt={3}>
         <Flex direction="column" align="center">
           <Icon as={GoLocation} boxSize={10} />

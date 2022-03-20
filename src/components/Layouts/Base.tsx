@@ -14,7 +14,7 @@ const BaseLayout: React.FC<Props> = ({ children, isLoading }) => (
     <Box w="100%" zIndex={100}>
       <Banner />
     </Box>
-    <Box w="100%">
+    <Box w="100%" zIndex={99}>
       <NavBar />
     </Box>
     <Box w="60%">

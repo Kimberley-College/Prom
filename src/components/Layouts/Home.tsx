@@ -8,7 +8,7 @@ const HomeLayout: React.FC = ({ children }) => (
     <Box w="100%" zIndex={100}>
       <Banner />
     </Box>
-    <Box pos="absolute" w="100%" zIndex={100} pt="40px">
+    <Box pos="absolute" w="100%" zIndex={99} pt="40px">
       <NavBar />
     </Box>
     {children}

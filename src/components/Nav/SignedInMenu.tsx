@@ -8,6 +8,7 @@ import {
 } from '@chakra-ui/react';
 import { useUser } from '@supabase/supabase-auth-helpers/react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
+import { FaRegUser } from 'react-icons/fa';
 import NextLink from 'next/link';
 import { signout } from 'util/authHelpers';
 
@@ -16,7 +17,7 @@ const SignedInMenu = () => {
   if (isLoading || !user) return <Spinner />;
   return (
     <Menu>
-      <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+      <MenuButton as={Button} leftIcon={<FaRegUser />} rightIcon={<ChevronDownIcon />}>
         {user.user_metadata.proper_name}
       </MenuButton>
       <MenuList>

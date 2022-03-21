@@ -1,7 +1,5 @@
 import {
-  Flex, Heading, Button, Box,
-  Icon,
-  Spinner,
+  Flex, Heading, Button, Box, Spinner,
 } from '@chakra-ui/react';
 import { SiMicrosoftoffice } from 'react-icons/si';
 import { BsFillArrowDownCircleFill, BsArrowDownCircle } from 'react-icons/bs';
@@ -22,11 +20,11 @@ const Header: React.FC = () => {
         {isLoading ? <Spinner />
           : user ? (
             <NextLink href="/panel">
-              <a><Button leftIcon={<Icon as={FaRegUser} color="white" boxSize={8} />} fontSize="24" p={8}>User Panel</Button></a>
+              <a><Button leftIcon={<FaRegUser />} fontSize="24" p={8}>User Panel</Button></a>
             </NextLink>
           )
             : (
-              <Button onClick={signin} leftIcon={<Icon as={SiMicrosoftoffice} color="white" boxSize={8} />} fontSize="24" p={8}>Sign in with Office</Button>
+              <Button onClick={signin} leftIcon={<SiMicrosoftoffice />} fontSize="24" p={8}>Sign in with Office</Button>
             )}
       </Flex>
       <Flex direction="row" mt="-30px" justify="center" zIndex={105} position="sticky" bottom={2}>

@@ -8,7 +8,7 @@ import { useEffect, useState, useMemo } from 'react';
 import type { UserWithTicketInfo } from 'types/user';
 import UserCard from 'components/Admin/UserCard';
 
-type SelectTypes = '' | 'has_ticket' | 'checked_in';
+type SelectTypes = '' | 'has_ticket' | 'checked_in' | 'no';
 
 const Home: NextPage = () => {
   const [users, setUsers] = useState<UserWithTicketInfo[] | null>(null);
@@ -44,6 +44,9 @@ const Home: NextPage = () => {
           break;
         case 'checked_in':
           typeCheck = user.checked_in;
+          break;
+        case 'no':
+          typeCheck = !user.has_ticket;
           break;
         default:
           typeCheck = true;

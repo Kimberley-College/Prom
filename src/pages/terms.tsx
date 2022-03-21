@@ -165,7 +165,7 @@ You may only purchase one (1) ticket.
 
 const Terms: NextPage = () => (
   <BaseLayout>
-    <Heading as="h1" size="2xl">Terms and Conditions</Heading>
+    <Heading as="h1" size="2xl" textAlign="center">Terms and Conditions</Heading>
     <Box>
       <MarkdownRenderer
         components={{

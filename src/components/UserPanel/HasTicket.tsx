@@ -8,7 +8,7 @@ const HasTicket: React.FC = () => {
   return (
     <>
       <Flex direction="column" align="center" justify="center" m={5}>
-        <Heading as="h2" my={3}>Your Ticket</Heading>
+        <Heading as="h2" my={3} textAlign="center">Your Ticket</Heading>
         <QR jwt={ticket.jwt} />
       </Flex>
       <MoreInfo />

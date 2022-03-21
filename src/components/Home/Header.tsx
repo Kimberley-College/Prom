@@ -27,7 +27,7 @@ const Header: React.FC = () => {
               <Button onClick={signin} leftIcon={<SiMicrosoftoffice />} fontSize="24" p={8}>Sign in with Office</Button>
             )}
       </Flex>
-      <Flex direction="row" mt="-30px" justify="center" zIndex={105} position="sticky" bottom={2}>
+      <Flex direction="row" alignSelf="center" w="60px" mt="-30px" justify="center" zIndex={105} position="sticky" bottom={2}>
         <BsArrowDownCircle size="60px" color="white" />
       </Flex>
       <Flex alignSelf="center" w="60px" h="60px" borderRadius="30px" shadow="dark-lg" direction="row" mt="-60px" justify="center" zIndex={110} position="sticky" bottom={2} _hover={{ cursor: 'pointer' }}>

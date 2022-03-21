@@ -1,5 +1,5 @@
 import {
-  Flex, Spacer, Button, Icon, Spinner,
+  Flex, Spacer, Button, Spinner,
 } from '@chakra-ui/react';
 import { FiLogIn } from 'react-icons/fi';
 import { useUser } from '@supabase/supabase-auth-helpers/react';
@@ -20,7 +20,7 @@ const NavBar: React.FC = () => {
         : user
           ? <SignedInMenu />
           : (
-            <Button onClick={signin} leftIcon={<Icon as={FiLogIn} boxSize={6} />}>Sign in</Button>
+            <Button onClick={signin} leftIcon={<FiLogIn size={16} />}>Sign in</Button>
           )}
     </Flex>
   );

@@ -32,7 +32,7 @@ const Header: React.FC = () => {
       <Flex direction="row" mt="-30px" justify="center" zIndex={105} position="sticky" bottom={2}>
         <BsArrowDownCircle size="60px" color="white" />
       </Flex>
-      <Flex alignSelf="center" w="60px" h="60px" borderRadius="30px" shadow="dark-lg" direction="row" mt="-60px" justify="center" zIndex={110} position="sticky" bottom={2}>
+      <Flex alignSelf="center" w="60px" h="60px" borderRadius="30px" shadow="dark-lg" direction="row" mt="-60px" justify="center" zIndex={110} position="sticky" bottom={2} _hover={{ cursor: 'pointer' }}>
         <ScrollIntoView selector="#cards">
           <BsFillArrowDownCircleFill size="60px" color="#711368" />
         </ScrollIntoView>

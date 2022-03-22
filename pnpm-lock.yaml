@@ -16,7 +16,7 @@ specifiers:
   '@stripe/react-stripe-js': 1.7.0
   '@stripe/stripe-js': 1.25.0
   '@stripe/terminal-js': 0.9.0
-  '@supabase/supabase-auth-helpers': 1.2.3
+  '@supabase/supabase-auth-helpers': 1.3.0
   '@supabase/supabase-js': 1.31.1
   '@types/micro': 7.3.7
   '@types/micro-cors': 0.1.2
@@ -67,7 +67,7 @@ dependencies:
   '@stripe/react-stripe-js': 1.7.0_03d938d16acfbee9ff7ea886bf170a9d
   '@stripe/stripe-js': 1.25.0
   '@stripe/terminal-js': 0.9.0
-  '@supabase/supabase-auth-helpers': 1.2.3_react-dom@17.0.2+react@17.0.2
+  '@supabase/supabase-auth-helpers': 1.3.0_react-dom@17.0.2+react@17.0.2
   '@supabase/supabase-js': 1.31.1
   async-jsonwebtoken: 1.0.1
   framer-motion: 6.2.8_react-dom@17.0.2+react@17.0.2
@@ -2740,8 +2740,8 @@ packages:
       - encoding
     dev: false
 
-  /@supabase/supabase-auth-helpers/1.2.3_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-v87K5Q98UYx5RU9wB7xJD4/eKbeamclhmUIJNElcIv6xd6ZNBF7+8rJZVwnn+XgVdQdmzo0y0IO7UcFtZ5iwmw==}
+  /@supabase/supabase-auth-helpers/1.3.0_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-nRYt9xorPSWi3IMt8CTYJ84aRisv4yTYX1z3oED2dJVfYthUWf+/QyRVpVAOol5mUVpl90J+5IWj2JxXL11AHg==}
     dependencies:
       '@supabase/supabase-js': 1.31.1
       '@supabase/ui': 0.36.4_react-dom@17.0.2+react@17.0.2

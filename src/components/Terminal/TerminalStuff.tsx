@@ -98,7 +98,7 @@ const TerminalStuff: React.FC<Props> = ({ userId, setUserId }) => {
   };
 
   const setDisplay = () => {
-    const PRICE = 30 * 100; // £30
+    const PRICE = parseInt(process.env.NEXT_PUBLIC_TICKET_PRICE, 10);
     terminal?.setReaderDisplay({
       type: 'cart',
       cart: {

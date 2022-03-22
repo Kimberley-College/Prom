@@ -97,8 +97,10 @@ const TerminalStuff: React.FC<Props> = ({ userId, setUserId }) => {
     return connectReader(discoverResult);
   };
 
-  const setDisplay = () => {
+  const setDisplay = async () => {
     const PRICE = parseInt(process.env.NEXT_PUBLIC_TICKET_PRICE, 10);
+    const userData = await fetch(`/api/getUser/${userId}`).then((res) => res.json());
+    const { name } = userData;
     terminal?.setReaderDisplay({
       type: 'cart',
       cart: {
@@ -106,6 +108,11 @@ const TerminalStuff: React.FC<Props> = ({ userId, setUserId }) => {
           {
             description: 'Kimberley College Prom Ticket 2022',
             amount: PRICE,
+            quantity: 1,
+          },
+          {
+            description: `User: ${name}`,
+            amount: 0,
             quantity: 1,
           },
         ],

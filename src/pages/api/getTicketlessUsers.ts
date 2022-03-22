@@ -18,9 +18,11 @@ export default withAuthRequired(withSentry(async (req: NextApiRequest, res: Next
 
   const { data, error: rpcError } = await serverSupabase.rpc<ShortUser>('ticketless');
 
+  console.log(data);
+
   if (rpcError) return res.status(500).send(rpcError.message);
 
-  return res.status(200).json(data);
+  return res.status(200).json(data ?? []);
 }));
 
 export const config = {

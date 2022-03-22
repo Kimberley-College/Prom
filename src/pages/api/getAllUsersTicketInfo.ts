@@ -16,7 +16,7 @@ export default withAuthRequired(withSentry(async (req: NextApiRequest, res: Next
 
   if (rpcError) return res.status(500).send(rpcError.message);
 
-  return res.status(200).json(data);
+  return res.status(200).json(data ?? []);
 }));
 
 export const config = {

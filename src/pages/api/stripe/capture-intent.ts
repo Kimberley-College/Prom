@@ -18,3 +18,9 @@ export default withAuthRequired(withSentry(async (req: NextApiRequest, res: Next
   if (paymentIntent.status === 'succeeded') return res.status(200).send('Success');
   return res.status(500).send(paymentIntent.status);
 }));
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
+};

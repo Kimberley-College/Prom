@@ -17,6 +17,7 @@ const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 export const config = {
   api: {
     bodyParser: false,
+    externalResolver: true,
   },
 };
 

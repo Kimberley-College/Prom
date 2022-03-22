@@ -44,3 +44,9 @@ export default withAuthRequired(withSentry(async (req: NextApiRequest, res: Next
 
   return res.status(200).send({ clientSecret: paymentIntent.client_secret });
 }));
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
+};

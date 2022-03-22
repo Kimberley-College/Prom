@@ -8,3 +8,9 @@ export default withSentry(handleAuth({
     returnTo: '/',
   },
 }));
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
+};

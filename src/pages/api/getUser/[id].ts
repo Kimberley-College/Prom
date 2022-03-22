@@ -2,8 +2,9 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { withAuthRequired, supabaseClient as userSupabase } from '@supabase/supabase-auth-helpers/nextjs';
 import { createClient } from '@supabase/supabase-js';
 import { Ticket, UserWithTicket } from 'types/user';
+import { withSentry } from '@sentry/nextjs';
 
-export default withAuthRequired(async (req: NextApiRequest, res: NextApiResponse<UserWithTicket | string>): Promise<void> => {
+export default withAuthRequired(withSentry(async (req: NextApiRequest, res: NextApiResponse<UserWithTicket | string>): Promise<void> => {
   const { data: calledUser, error: calledUserError } = await userSupabase.auth.api.getUserByCookie(req, res);
 
   if (calledUserError) return res.status(calledUserError.status).send(calledUserError.message);
@@ -27,4 +28,10 @@ export default withAuthRequired(async (req: NextApiRequest, res: NextApiResponse
     ticketId: ticket?.id,
     jwt: ticket?.jwt,
   });
-});
+}));
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
+};

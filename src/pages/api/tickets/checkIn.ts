@@ -36,3 +36,9 @@ export default withAuthRequired(withSentry(async (req: NextApiRequest, res: Next
 
   return res.status(200).send({ name: decoded.name });
 }));
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
+};

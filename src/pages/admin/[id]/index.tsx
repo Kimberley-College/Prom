@@ -1,11 +1,14 @@
 import type { NextPage } from 'next';
 import {
+  Button,
   Flex,
-  Heading, Text,
+  Heading,
+  Text,
+  useToast,
 } from '@chakra-ui/react';
 import BaseLayout from 'components/Layouts/Base';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useUser } from '@supabase/supabase-auth-helpers/react';
 import Error from 'next/error';
 import type { UserWithTicket } from 'types/user';
@@ -17,22 +20,42 @@ const ManageSpecificUser: NextPage = () => {
   const [managedUser, setManagedUser] = useState<null | UserWithTicket>(null);
   const [errorCode, setErrorCode] = useState<false | number>(false);
   const { user } = useUser();
+  const toast = useToast();
+
+  const getUser = useCallback(async (): Promise<void> => {
+    const res = await fetch(`/api/getUser/${router.query.id}`);
+    if (!res.ok) {
+      setErrorCode(res.status);
+      return;
+    }
+    const data: UserWithTicket = await res.json();
+    setManagedUser(data);
+    setIsLoading(false);
+  }, [router]);
 
   useEffect(() => {
     if (!router?.query?.id || !user) return;
 
-    const getUser = async (): Promise<void> => {
-      const res = await fetch(`/api/getUser/${router.query.id}`);
-      if (!res.ok) {
-        setErrorCode(res.status);
-        return;
-      }
-      const data: UserWithTicket = await res.json();
-      setManagedUser(data);
-      setIsLoading(false);
-    };
     getUser();
-  }, [router, user]);
+  }, [router, user, getUser]);
+
+  const toggleAdmin = async () => {
+    const res = await fetch(`/api/user/${router?.query?.id}/toggleAdmin`);
+    if (!res.ok) {
+      toast({
+        title: 'Failed to toggle admin',
+        status: 'error',
+      });
+      return;
+    }
+    const data = await res.json();
+    toast({
+      title: 'Admin status toggled',
+      description: `New admin status: ${data.is_admin}`,
+      status: 'success',
+    });
+    getUser();
+  };
 
   if (errorCode) return <Error statusCode={errorCode} />;
 
@@ -50,6 +73,8 @@ const ManageSpecificUser: NextPage = () => {
           <QR jwt={managedUser?.jwt} />
         </>
         )}
+
+        <Button mt={3} onClick={toggleAdmin}>Toggle Admin</Button>
       </Flex>
     </BaseLayout>
   );

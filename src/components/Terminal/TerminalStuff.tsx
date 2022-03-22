@@ -188,8 +188,8 @@ const TerminalStuff: React.FC<Props> = ({ userId, setUserId }) => {
       <Text>Reader: {reader?.status ?? 'disconnected'}</Text>
       <Flex gap={3} wrap="wrap">
         <Button onClick={discoverReaders} disabled={!!reader}>Connect to Reader</Button>
-        <Button onClick={setDisplay} disabled={!reader}>Set Terminal Display</Button>
-        <Button onClick={clearDisplay} disabled={!reader}>Clear Terminal Display</Button>
+        <Button onClick={setDisplay} disabled={!clientSecret || !reader}>Set Terminal Display</Button>
+        <Button onClick={clearDisplay} disabled={!clientSecret || !reader}>Clear Terminal Display</Button>
         <Button onClick={collectPayment} disabled={!clientSecret || !reader}>Collect Payment</Button>
         <Button onClick={clearPayment} disabled={!clientSecret || !reader}>Clear Payment</Button>
         <Button onClick={disconnectReader} disabled={!reader}>Disconnect Reader</Button>

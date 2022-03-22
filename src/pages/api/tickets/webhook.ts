@@ -73,3 +73,9 @@ export default withSentry(async (req: NextApiRequest, res: NextApiResponse<strin
 
   return res.status(200).send('Received');
 });
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
+};

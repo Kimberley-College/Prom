@@ -30,7 +30,7 @@ const Cards: React.FC = () => {
         <Flex direction="column" align="center">
           <Icon as={IoTicketSharp} boxSize={10} />
           <Text fontSize="24" align="center">
-            Tickets cost £30 - any profits from the event will go to charity.
+            Tickets cost £{(parseInt(process.env.NEXT_PUBLIC_TICKET_PRICE, 10) / 100).toFixed(2)} - any profits from the event will go to charity.
           </Text>
         </Flex>
       </Box>

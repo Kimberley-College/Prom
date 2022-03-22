@@ -28,7 +28,7 @@ export default withAuthRequired(withSentry(async (req: NextApiRequest, res: Next
   }
 
   const paymentIntent = await stripe.paymentIntents.create({
-    amount: 3000,
+    amount: parseInt(process.env.NEXT_PUBLIC_TICKET_PRICE, 10),
     currency: 'gbp',
     payment_method_types: ['card', ...(terminal ? ['card_present'] : [])],
     receipt_email: user.email,
@@ -44,3 +44,9 @@ export default withAuthRequired(withSentry(async (req: NextApiRequest, res: Next
 
   return res.status(200).send({ clientSecret: paymentIntent.client_secret });
 }));
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
+};

@@ -18,3 +18,9 @@ export default withAuthRequired(withSentry(async (req: NextApiRequest, res: Next
 
   return res.status(200).json(data);
 }));
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
+};

@@ -39,7 +39,7 @@ specifiers:
   micro-cors: 0.1.1
   next: 12.1.0
   next-pwa: 5.4.6
-  next-seo: 5.1.0
+  next-seo: 5.2.0
   qrcode: 1.5.0
   qrcode.react: 2.0.0
   react: 17.0.2
@@ -75,7 +75,7 @@ dependencies:
   micro-cors: 0.1.1
   next: 12.1.0_978f344c876a57c1143ffe356b90df31
   next-pwa: 5.4.6_@babel+core@7.17.8+next@12.1.0
-  next-seo: 5.1.0_caa633a00319350dbda42996613fe26c
+  next-seo: 5.2.0_caa633a00319350dbda42996613fe26c
   qrcode: 1.5.0
   qrcode.react: 2.0.0_react@17.0.2
   react: 17.0.2
@@ -5263,8 +5263,8 @@ packages:
       - webpack
     dev: false
 
-  /next-seo/5.1.0_caa633a00319350dbda42996613fe26c:
-    resolution: {integrity: sha512-ampuQfNTOi1x+xtRIb6CZGunIo6rQXtMo2Tyu861d5GjJFIwfOXsA4lzCa4+e2rLkyXDyVpavNNUZWa3US9ELw==}
+  /next-seo/5.2.0_caa633a00319350dbda42996613fe26c:
+    resolution: {integrity: sha512-IJNKzYH4ARKHxN6YTN7AYj3CEpZLpL/o6FlDZqWJ/HaOnpjpvLHpQlI57be/N92iafmYwYE+jOU0SQ6T9DIo/Q==}
     peerDependencies:
       next: ^8.1.1-canary.54 || >=9.0.0
       react: '>=16.0.0'

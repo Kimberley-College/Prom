@@ -49,7 +49,7 @@
     "react-qr-reader": "3.0.0-beta-1",
     "react-scroll-into-view": "1.12.0",
     "stripe": "8.211.0",
-    "typescript": "4.6.2",
+    "typescript": "4.6.3",
     "uuid": "8.3.2",
     "webhook-discord": "3.7.8"
   },

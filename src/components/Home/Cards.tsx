@@ -22,7 +22,7 @@ const Cards: React.FC = () => {
       <Box w="330px" h="240px" p={3} mt={3}>
         <Flex direction="column" align="center">
           <Icon as={GrCafeteria} boxSize={10} />
-          <Text fontSize="24" align="center">Food will be provided, as well as a non-alcoholic drink upon entry.</Text>
+          <Text fontSize="24" align="center">Food will be provided, as well as a non-alcoholic drink upon entry. You will be able to purchase alcoholic drinks at the bar.</Text>
         </Flex>
       </Box>
 

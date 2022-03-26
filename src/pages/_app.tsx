@@ -25,6 +25,14 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
               locale: 'en_GB',
               url: 'https://prom.kim',
               site_name: 'Kimberley College Prom',
+              images: [
+                {
+                  url: 'https://prom.kim/kimberley_logo.png',
+                  type: 'image/png',
+                  width: 400,
+                  height: 400,
+                },
+              ],
             }}
             additionalLinkTags={[
               {

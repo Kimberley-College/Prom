@@ -11,8 +11,9 @@ import { useRouter } from 'next/router';
 import { useCallback, useEffect, useState } from 'react';
 import { useUser } from '@supabase/supabase-auth-helpers/react';
 import Error from 'next/error';
-import type { UserWithTicket } from 'types/user';
+import type { UserWithTicket, Ticket } from 'types/user';
 import QR from 'components/UserPanel/QR';
+import { supabaseClient as supabase } from '@supabase/supabase-auth-helpers/nextjs';
 
 const ManageSpecificUser: NextPage = () => {
   const router = useRouter();
@@ -57,6 +58,23 @@ const ManageSpecificUser: NextPage = () => {
     getUser();
   };
 
+  const unCheckIn = async () => {
+    const { error, data: newTicket } = await supabase.from<Ticket>('tickets').update({ checked_in: false }).match({ id: managedUser.ticketId }).single();
+    if (error) {
+      toast({
+        title: 'Failed to uncheck in',
+        status: 'error',
+      });
+      return;
+    }
+    toast({
+      title: 'Unchecked in',
+      description: `New check in status: ${newTicket.checked_in}`,
+      status: 'success',
+    });
+    getUser();
+  };
+
   if (errorCode) return <Error statusCode={errorCode} />;
 
   return (
@@ -72,6 +90,10 @@ const ManageSpecificUser: NextPage = () => {
           <Heading as="h3" py={2}>Their Ticket</Heading>
           <QR jwt={managedUser?.jwt} />
         </>
+        )}
+
+        {managedUser?.checked_in && (
+          <Button mt={3} onClick={unCheckIn}>Un Check-in</Button>
         )}
 
         <Button mt={3} onClick={toggleAdmin}>Toggle Admin</Button>

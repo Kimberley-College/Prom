@@ -2,6 +2,7 @@ import { Flex, Heading } from '@chakra-ui/react';
 import { useTicket } from 'util/ticketContext';
 import MoreInfo from './MoreInfo';
 import QR from './QR';
+import GooglePayBtn from './GooglePayBtn';
 
 const HasTicket: React.FC = () => {
   const { ticket } = useTicket();
@@ -10,6 +11,7 @@ const HasTicket: React.FC = () => {
       <Flex direction="column" align="center" justify="center" m={5}>
         <Heading as="h2" my={3} textAlign="center">Your Ticket</Heading>
         <QR jwt={ticket.jwt} />
+        <GooglePayBtn ticketJwt={ticket.jwt} />
       </Flex>
       <MoreInfo />
     </>

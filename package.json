@@ -24,6 +24,7 @@
     "@chakra-ui/system": "1.12.0",
     "@emotion/react": "11.8.2",
     "@emotion/styled": "11.8.1",
+    "@google-pay/save-button-react": "^1.0.0",
     "@happykit/analytics": "1.0.1",
     "@sendgrid/mail": "7.6.2",
     "@sentry/cli": "1.74.2",

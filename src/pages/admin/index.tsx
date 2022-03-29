@@ -1,6 +1,19 @@
 import type { NextPage } from 'next';
 import {
-  Button, Heading, Flex, useToast, Input, Select,
+  Button,
+  Heading,
+  Flex,
+  useToast,
+  Input,
+  Select,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import BaseLayout from 'components/Layouts/Base';
@@ -15,6 +28,7 @@ const Home: NextPage = () => {
   const toast = useToast();
   const [search, setSearch] = useState('');
   const [type, setType] = useState<SelectTypes>('');
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
     const getUsers = async () => {
@@ -57,38 +71,59 @@ const Home: NextPage = () => {
   }, [search, type, users]);
 
   return (
-    <BaseLayout isLoading={!users}>
-      <Flex direction="column" align="center">
-        <Heading as="h1" size="3xl" my={5} textAlign="center">
-          Admin Panel
-        </Heading>
-        <Flex gap={3} my={3}>
-          <NextLink href="/admin/terminal" passHref>
-            <Button>Stripe Terminal</Button>
-          </NextLink>
-          <NextLink href="/admin/scanner" passHref>
-            <Button>Ticket Scanner</Button>
-          </NextLink>
-        </Flex>
-
-        <Flex direction="row" justify="center" my={5} minW="300px" maxW="700px" w="80%" gap={2}>
-          <Input borderColor="gray.500" focusBorderColor="gray.600" _hover={{ borderColor: 'gray.600' }} minW="150px" maxW="500px" w="65%" placeholder="Search by name" value={search} onChange={(e) => setSearch(e.currentTarget.value)} />
-          <Select borderColor="gray.500" focusBorderColor="gray.600" _hover={{ borderColor: 'gray.600' }} minW="150px" maxW="500px" w="35%" placeholder="Select Status" value={type} onChange={(e) => setType(e.currentTarget.value as SelectTypes)}>
-            <option value="no">No Ticket</option>
-            <option value="has_ticket">Has Ticket (Not CI)</option>
-            <option value="checked_in">Checked In</option>
-          </Select>
-        </Flex>
-
-        <Flex gap={3} flexFlow="row wrap" justify="center">
-          {filtered?.map((user) => (
-            <NextLink href={`/admin/${user.id}`} key={user.id}>
-              <a><UserCard user={user} /></a>
+    <>
+      <BaseLayout isLoading={!users}>
+        <Flex direction="column" align="center">
+          <Heading as="h1" size="3xl" my={5} textAlign="center">
+            Admin Panel
+          </Heading>
+          <Flex gap={3} my={3}>
+            <NextLink href="/admin/terminal" passHref>
+              <Button>Stripe Terminal</Button>
             </NextLink>
-          ))}
+            <NextLink href="/admin/scanner" passHref>
+              <Button>Ticket Scanner</Button>
+            </NextLink>
+            <Button onClick={onOpen}>Create User</Button>
+          </Flex>
+
+          <Flex direction="row" justify="center" my={5} minW="300px" maxW="700px" w="80%" gap={2}>
+            <Input borderColor="gray.500" focusBorderColor="gray.600" _hover={{ borderColor: 'gray.600' }} minW="150px" maxW="500px" w="65%" placeholder="Search by name" value={search} onChange={(e) => setSearch(e.currentTarget.value)} />
+            <Select borderColor="gray.500" focusBorderColor="gray.600" _hover={{ borderColor: 'gray.600' }} minW="150px" maxW="500px" w="35%" placeholder="Select Status" value={type} onChange={(e) => setType(e.currentTarget.value as SelectTypes)}>
+              <option value="no">No Ticket</option>
+              <option value="has_ticket">Has Ticket (Not CI)</option>
+              <option value="checked_in">Checked In</option>
+            </Select>
+          </Flex>
+
+          <Flex gap={3} flexFlow="row wrap" justify="center">
+            {filtered?.map((user) => (
+              <NextLink href={`/admin/${user.id}`} key={user.id}>
+                <a><UserCard user={user} /></a>
+              </NextLink>
+            ))}
+          </Flex>
         </Flex>
-      </Flex>
-    </BaseLayout>
+      </BaseLayout>
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Create User</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            hi
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme="blue" mr={3} onClick={onClose}>
+              Close
+            </Button>
+            <Button variant="ghost">Secondary Action</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
   );
 };
 

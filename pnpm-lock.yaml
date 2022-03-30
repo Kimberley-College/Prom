@@ -17,7 +17,7 @@ specifiers:
   '@stripe/stripe-js': 1.26.0
   '@stripe/terminal-js': 0.9.0
   '@supabase/supabase-auth-helpers': 1.3.0
-  '@supabase/supabase-js': 1.33.0
+  '@supabase/supabase-js': 1.33.2
   '@types/micro': 7.3.7
   '@types/micro-cors': 0.1.2
   '@types/node': 17.0.18
@@ -68,7 +68,7 @@ dependencies:
   '@stripe/stripe-js': 1.26.0
   '@stripe/terminal-js': 0.9.0
   '@supabase/supabase-auth-helpers': 1.3.0_react-dom@18.0.0+react@18.0.0
-  '@supabase/supabase-js': 1.33.0
+  '@supabase/supabase-js': 1.33.2
   async-jsonwebtoken: 1.0.1
   framer-motion: 6.2.8_react-dom@18.0.0+react@18.0.0
   micro: 9.3.4
@@ -2718,42 +2718,40 @@ packages:
       ws: 6.2.2
     dev: false
 
-  /@supabase/functions-js/1.2.3:
-    resolution: {integrity: sha512-OgeI84eK02pyYa7uA7gzZri6wyPEB2jOu1AEcZKJa328Jd6LlX9VPfPZZ86ahWzKEDmvBrUUXJAUihGuqWcFeQ==}
+  /@supabase/functions-js/1.3.2:
+    resolution: {integrity: sha512-97b2pdrCW4C4khFjotPRlXXs+oPmlbNZbMuR76nGyuNVSbNZ8tsIMYbfUdi4m61vqSUkRk+vieKaeNHMDsPN2A==}
     dependencies:
       cross-fetch: 3.1.5
     transitivePeerDependencies:
       - encoding
     dev: false
 
-  /@supabase/gotrue-js/1.22.8:
-    resolution: {integrity: sha512-2mG5M3goHSPwwQzjbgw5lmUNeVexOaPIFcUmUU9p9mwsSzbZ5u2pKbZGVS/9aBaJoD8YvW8khMej9XaGEFQeiQ==}
+  /@supabase/gotrue-js/1.22.11:
+    resolution: {integrity: sha512-v6i6LVIvPIb4xP77x7IEbrffyOZkbcDKb/F3nHQ4xguP0izMyxNZqLQmIAYqgTNPUP7JIF666oCkp8y+j0oa7w==}
     dependencies:
       cross-fetch: 3.1.5
     transitivePeerDependencies:
       - encoding
     dev: false
 
-  /@supabase/postgrest-js/0.37.1:
-    resolution: {integrity: sha512-Lm7eLuYzEr7ppGC84mlqpm8v9Vy8kyR6he6z3avrkccC8pwLOsxaK0bkKiV4LBwkJc7uARMTdlp+IskatHkz2g==}
+  /@supabase/postgrest-js/0.37.2:
+    resolution: {integrity: sha512-3Dgx5k3RvtKqc8DvR2BEyh2fVyjZe5P4e0zD1r8dyuVmpaYDaASZ2YeNVgyWXMCWH7xzrj4vepTYlKwfj78QLg==}
     dependencies:
       cross-fetch: 3.1.5
     transitivePeerDependencies:
       - encoding
     dev: false
 
-  /@supabase/realtime-js/1.4.0:
-    resolution: {integrity: sha512-KHSyb2IengH92RaTmY7hhhJ43ZdDsJfVjFqvXVb0t1MQRgLfrVfcGxbWFPhU3sBvwzsvudRM4jLO0ZrzVezL2w==}
+  /@supabase/realtime-js/1.4.5:
+    resolution: {integrity: sha512-DTlWqh92xjsBu0qBHXJbx8WFNjt+yB4IzYlQEJkp5tKCAIgNuREhGQT2NGJJzvznA8NdP6zT5sSQbseLl10+dg==}
     dependencies:
-      '@types/lodash.clonedeep': 4.5.6
       '@types/phoenix': 1.5.4
-      '@types/websocket': 1.0.5
       lodash.clonedeep: 4.5.0
       websocket: 1.0.34
     dev: false
 
-  /@supabase/storage-js/1.6.4:
-    resolution: {integrity: sha512-vYcr1JGRf8Wr4v+lb8Ucl0bELwCZv8lT/PrYuhEKfJff6BI6/nTJp8rRZSRaDESQR8JlpaLaL+dmD/wsNqZnNQ==}
+  /@supabase/storage-js/1.6.5:
+    resolution: {integrity: sha512-Tz1Gqx5/sJFILFmIdeJQAyiSxnjpLUlidYyKzNSRTyLTnqsxngkB0JnXinIBfUnbqXlCTnRnxbH5B5EnDrHl/w==}
     dependencies:
       cross-fetch: 3.1.5
     transitivePeerDependencies:
@@ -2763,7 +2761,7 @@ packages:
   /@supabase/supabase-auth-helpers/1.3.0_react-dom@18.0.0+react@18.0.0:
     resolution: {integrity: sha512-nRYt9xorPSWi3IMt8CTYJ84aRisv4yTYX1z3oED2dJVfYthUWf+/QyRVpVAOol5mUVpl90J+5IWj2JxXL11AHg==}
     dependencies:
-      '@supabase/supabase-js': 1.33.0
+      '@supabase/supabase-js': 1.33.2
       '@supabase/ui': 0.36.4_react-dom@18.0.0+react@18.0.0
       tslib: 2.3.1
     transitivePeerDependencies:
@@ -2772,14 +2770,14 @@ packages:
       - react-dom
     dev: false
 
-  /@supabase/supabase-js/1.33.0:
-    resolution: {integrity: sha512-+Em5zRScXekKST5fAkADib4qhL0heHhU6jpC+EwJPO0SiOivxtk6R/3emfWYLO1HRtUZXx6jjxLhnJidMUmjWA==}
+  /@supabase/supabase-js/1.33.2:
+    resolution: {integrity: sha512-OAsvCw4C5L5E+VGwz5ZMm+NAO6BYmMMdVlc6ER6wbb5It8yfaE78HrffeBW5z+gXNkF4bi45O9LH6B/GqS0CdA==}
     dependencies:
-      '@supabase/functions-js': 1.2.3
-      '@supabase/gotrue-js': 1.22.8
-      '@supabase/postgrest-js': 0.37.1
-      '@supabase/realtime-js': 1.4.0
-      '@supabase/storage-js': 1.6.4
+      '@supabase/functions-js': 1.3.2
+      '@supabase/gotrue-js': 1.22.11
+      '@supabase/postgrest-js': 0.37.2
+      '@supabase/realtime-js': 1.4.5
+      '@supabase/storage-js': 1.6.5
     transitivePeerDependencies:
       - encoding
     dev: false
@@ -2841,12 +2839,6 @@ packages:
     resolution: {integrity: sha512-zm6xBQpFDIDM6o9r6HSgDeIcLy82TKWctCXEPbJJcXb5AKmi5BNNdLXneixK4lplX3PqIVcwLBCGE/kAGnlD4A==}
     dependencies:
       '@types/node': 17.0.18
-    dev: false
-
-  /@types/lodash.clonedeep/4.5.6:
-    resolution: {integrity: sha512-cE1jYr2dEg1wBImvXlNtp0xDoS79rfEdGozQVgliDZj1uERH4k+rmEMTudP9b4VQ8O6nRb5gPqft0QzEQGMQgA==}
-    dependencies:
-      '@types/lodash': 4.14.178
     dev: false
 
   /@types/lodash.mergewith/4.6.6:
@@ -2945,12 +2937,6 @@ packages:
 
   /@types/warning/3.0.0:
     resolution: {integrity: sha1-DSUBJorY+ZYrdA04fEZU9fjiPlI=}
-    dev: false
-
-  /@types/websocket/1.0.5:
-    resolution: {integrity: sha512-NbsqiNX9CnEfC1Z0Vf4mE1SgAJ07JnRYcNex7AJ9zAVzmiGHmjKFEk7O4TJIsgv2B1sLEb6owKFZrACwdYngsQ==}
-    dependencies:
-      '@types/node': 17.0.18
     dev: false
 
   /@typescript-eslint/eslint-plugin/5.17.0_689ff565753ecf7c3328c07fad067df5:

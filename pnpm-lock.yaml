@@ -48,7 +48,7 @@ specifiers:
   react-markdown: 8.0.2
   react-qr-reader: 3.0.0-beta-1
   react-scroll-into-view: 1.12.0
-  stripe: 8.214.0
+  stripe: 8.215.0
   typescript: 4.6.3
   uuid: 8.3.2
   webhook-discord: 3.7.8
@@ -84,7 +84,7 @@ dependencies:
   react-markdown: 8.0.2_00a11a054056e3746b551a83b9229751
   react-qr-reader: 3.0.0-beta-1_react-dom@18.0.0+react@18.0.0
   react-scroll-into-view: 1.12.0_react-dom@18.0.0+react@18.0.0
-  stripe: 8.214.0
+  stripe: 8.215.0
   typescript: 4.6.3
   uuid: 8.3.2
   webhook-discord: 3.7.8
@@ -2714,7 +2714,7 @@ packages:
   /@stripe/terminal-js/0.9.0:
     resolution: {integrity: sha512-DhQmvFG4tRDh8Xn+fLE62eTFqgiCpRhRPvNHYXJk4a/JaEuDBiLnRbUlqmA4AwxyytOxlRvROosiYb+3k82l0w==}
     dependencies:
-      stripe: 8.214.0
+      stripe: 8.215.0
       ws: 6.2.2
     dev: false
 
@@ -6261,8 +6261,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /stripe/8.214.0:
-    resolution: {integrity: sha512-6LfoBlW2o26Jks5D9OuGddKWSr5V7lMnQQXV1Los0y3t2BPG3fwJESV1tSvcH3NrMjZPW76HrE52kBmqyU8hzA==}
+  /stripe/8.215.0:
+    resolution: {integrity: sha512-M+7iTZ9bzTkU1Ms+Zsuh0mTQfEzOjMoqyEaVBpuUmdbWTvshavzpAihsOkfabEu+sNY0vdbQxxHZ4kI3W8pKHQ==}
     engines: {node: ^8.1 || >=10.*}
     dependencies:
       '@types/node': 17.0.18

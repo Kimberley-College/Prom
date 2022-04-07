@@ -38,7 +38,7 @@ specifiers:
   micro: 9.3.4
   micro-cors: 0.1.1
   next: 12.1.4
-  next-pwa: 5.4.6
+  next-pwa: 5.4.7
   next-seo: 5.3.0
   qrcode: 1.5.0
   qrcode.react: 2.0.0
@@ -74,7 +74,7 @@ dependencies:
   micro: 9.3.4
   micro-cors: 0.1.1
   next: 12.1.4_572108936dbf4157100a77328045f809
-  next-pwa: 5.4.6_@babel+core@7.17.8+next@12.1.4
+  next-pwa: 5.4.7_@babel+core@7.17.8+next@12.1.4
   next-seo: 5.3.0_c0abbb53577d424fe320649841fdc7d4
   qrcode: 1.5.0
   qrcode.react: 2.0.0_react@18.0.0
@@ -5261,8 +5261,8 @@ packages:
     resolution: {integrity: sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=}
     dev: true
 
-  /next-pwa/5.4.6_@babel+core@7.17.8+next@12.1.4:
-    resolution: {integrity: sha512-cJVxfn4a1DqwKGP+zhqE9QikqFuUhCYi7wiaucxhFLeShC6DVX1Gy5Qh3HAs1i6VHQcEOnaOwfk0Q9Z08yRkCg==}
+  /next-pwa/5.4.7_@babel+core@7.17.8+next@12.1.4:
+    resolution: {integrity: sha512-Uc1pOYJ/7tORbi2LoIEbaHz/hEbq06jiGbVuhr+nzHJHjPGFkmF6JfcDKVdbaXbJa1gJass0utPOI+Wrce06Qw==}
     peerDependencies:
       next: '>=9.0.0'
     dependencies:

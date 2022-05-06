@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import {
-  Button, Heading, Flex, useToast, Input, Select,
+  Button, Heading, Flex, useToast, Input, Select, Text,
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import BaseLayout from 'components/Layouts/Base';
@@ -78,6 +78,7 @@ const Home: NextPage = () => {
             <option value="has_ticket">Has Ticket (Not CI)</option>
             <option value="checked_in">Checked In</option>
           </Select>
+          <Text minW="80px" mt={2}>{filtered?.length} results</Text>
         </Flex>
 
         <Flex gap={3} flexFlow="row wrap" justify="center">

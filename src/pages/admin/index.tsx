@@ -71,14 +71,17 @@ const Home: NextPage = () => {
           </NextLink>
         </Flex>
 
-        <Flex direction="row" justify="center" my={5} minW="300px" maxW="700px" w="80%" gap={2}>
+        <Flex direction="row" justify="center" mt={5} mb={1} minW="300px" maxW="700px" w="80%" gap={2}>
           <Input borderColor="gray.500" focusBorderColor="gray.600" _hover={{ borderColor: 'gray.600' }} minW="150px" maxW="500px" w="65%" placeholder="Search by name" value={search} onChange={(e) => setSearch(e.currentTarget.value)} />
           <Select borderColor="gray.500" focusBorderColor="gray.600" _hover={{ borderColor: 'gray.600' }} minW="150px" maxW="500px" w="35%" placeholder="Select Status" value={type} onChange={(e) => setType(e.currentTarget.value as SelectTypes)}>
             <option value="no">No Ticket</option>
             <option value="has_ticket">Has Ticket (Not CI)</option>
             <option value="checked_in">Checked In</option>
           </Select>
-          <Text minW="80px" mt={2}>{filtered?.length} results</Text>
+        </Flex>
+
+        <Flex justify="center" mb={5} minW="300px" maxW="700px" w="80%">
+          <Text fontSize="lg" minW="80px">{filtered?.length} results</Text>
         </Flex>
 
         <Flex gap={3} flexFlow="row wrap" justify="center">

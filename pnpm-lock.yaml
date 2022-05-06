@@ -11,7 +11,7 @@ specifiers:
   '@happykit/analytics': 1.0.1
   '@next/eslint-plugin-next': 12.1.6
   '@sendgrid/mail': 7.6.2
-  '@sentry/cli': 1.74.3
+  '@sentry/cli': 1.74.4
   '@sentry/nextjs': 6.19.6
   '@stripe/react-stripe-js': 1.7.0
   '@stripe/stripe-js': 1.29.0
@@ -62,7 +62,7 @@ dependencies:
   '@emotion/styled': 11.8.1_9cf54d1e4618873be86d7b7f583dd872
   '@happykit/analytics': 1.0.1_next@12.1.6+react@18.0.0
   '@sendgrid/mail': 7.6.2
-  '@sentry/cli': 1.74.3
+  '@sentry/cli': 1.74.4
   '@sentry/nextjs': 6.19.6_next@12.1.6+react@18.0.0
   '@stripe/react-stripe-js': 1.7.0_fd144ade065f2a88848ec96af81315c1
   '@stripe/stripe-js': 1.29.0
@@ -2545,8 +2545,8 @@ packages:
       tslib: 1.14.1
     dev: false
 
-  /@sentry/cli/1.74.3:
-    resolution: {integrity: sha512-74NiqWTgTFDPe2S99h1ge5UMe6aAC44ebareadd1P6MdaNfYz6JUEa2QrDfMq7TKccEiRFXhXBHbUI8mxzrzuQ==}
+  /@sentry/cli/1.74.4:
+    resolution: {integrity: sha512-BMfzYiedbModsNBJlKeBOLVYUtwSi99LJ8gxxE4Bp5N8hyjNIN0WVrozAVZ27mqzAuy6151Za3dpmOLO86YlGw==}
     engines: {node: '>= 8'}
     hasBin: true
     requiresBuild: true
@@ -2688,7 +2688,7 @@ packages:
     resolution: {integrity: sha512-PtKr0NL62b5L3kPFGjwSNbIUwwcW5E5G6bQxAYZGpkgL1MFPnS4ND0SAsySuX0byQJRFFium5A19LpzyvQZSlQ==}
     engines: {node: '>= 8'}
     dependencies:
-      '@sentry/cli': 1.74.3
+      '@sentry/cli': 1.74.4
     transitivePeerDependencies:
       - encoding
       - supports-color

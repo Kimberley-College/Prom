@@ -45,7 +45,7 @@ specifiers:
   react: 18.0.0
   react-dom: 18.0.0
   react-icons: 4.3.1
-  react-markdown: 8.0.2
+  react-markdown: 8.0.3
   react-qr-reader: 3.0.0-beta-1
   react-scroll-into-view: 1.12.0
   stripe: 8.215.0
@@ -81,7 +81,7 @@ dependencies:
   react: 18.0.0
   react-dom: 18.0.0_react@18.0.0
   react-icons: 4.3.1_react@18.0.0
-  react-markdown: 8.0.2_3adb690023d1157f64abd5db2f6a6306
+  react-markdown: 8.0.3_3adb690023d1157f64abd5db2f6a6306
   react-qr-reader: 3.0.0-beta-1_react-dom@18.0.0+react@18.0.0
   react-scroll-into-view: 1.12.0_react-dom@18.0.0+react@18.0.0
   stripe: 8.215.0
@@ -5740,8 +5740,8 @@ packages:
     resolution: {integrity: sha512-yUcBYdBBbo3QiPsgYDcfQcIkGZHfxOaoE6HLSnr1sPzMhdyxusbfKOSUbSd/ocGi32dxcj366PsTj+5oggeKKw==}
     dev: false
 
-  /react-markdown/8.0.2_3adb690023d1157f64abd5db2f6a6306:
-    resolution: {integrity: sha512-WeXeDlCPFZBbN75AiLVEmN4gC6pNWadsZVWWxWpvrYQnUTHsB3l1PH60I1sbxTJr0oWOQc3zhxTrRQMTceNifw==}
+  /react-markdown/8.0.3_3adb690023d1157f64abd5db2f6a6306:
+    resolution: {integrity: sha512-We36SfqaKoVNpN1QqsZwWSv/OZt5J15LNgTLWynwAN5b265hrQrsjMtlRNwUvS+YyR3yDM8HpTNc4pK9H/Gc0A==}
     peerDependencies:
       '@types/react': '>=16'
       react: '>=16'

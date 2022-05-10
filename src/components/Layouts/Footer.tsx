@@ -13,7 +13,7 @@ const Footer: React.FC = () => (
       Axolotl :)
     </Text>
     <Spacer />
-    <Flex justify="right" w="40vw">
+    <Flex justify="right" maxW="40vw">
       <Text>
         <NextLink href="/terms" passHref><Link>Terms and Conditions</Link></NextLink>  |  <NextLink href="/privacy" passHref><Link>Privacy Policy</Link></NextLink>
       </Text>

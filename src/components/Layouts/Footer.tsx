@@ -9,9 +9,9 @@ const Footer: React.FC = () => (
       Developers/Thanks: Nick, Jamie, Dalu, John, Dustin, Roch, Adam, Josh Heng
     </Box>
     <Spacer />
-    <Flex w="10vw" color="gray.200">
+    <Text color="gray.200">
       Axolotl :)
-    </Flex>
+    </Text>
     <Spacer />
     <Flex justify="right" w="40vw">
       <Text>

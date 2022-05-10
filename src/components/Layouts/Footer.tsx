@@ -9,9 +9,10 @@ const Footer: React.FC = () => (
       Developers/Thanks: Nick, Jamie, Dalu, John, Dustin, Roch, Adam, Josh Heng
     </Box>
     <Spacer />
-    <Box w="10vw" color="gray.200">
+    <Flex w="10vw" color="gray.200">
       Axolotl :)
-    </Box>
+    </Flex>
+    <Spacer />
     <Flex justify="right" w="40vw">
       <Text>
         <NextLink href="/terms" passHref><Link>Terms and Conditions</Link></NextLink>  |  <NextLink href="/privacy" passHref><Link>Privacy Policy</Link></NextLink>

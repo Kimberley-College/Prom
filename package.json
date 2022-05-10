@@ -25,6 +25,7 @@
     "@emotion/react": "11.9.0",
     "@emotion/styled": "11.8.1",
     "@happykit/analytics": "1.0.1",
+    "@happykit/flags": "^2.0.5-perf.0",
     "@sendgrid/mail": "7.6.2",
     "@sentry/cli": "1.74.4",
     "@sentry/nextjs": "6.19.6",

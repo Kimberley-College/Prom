@@ -1,12 +1,19 @@
-import { Spinner } from '@chakra-ui/react';
+import { Spinner, Text } from '@chakra-ui/react';
 import { usePaymentIntent } from 'util/stripeHelpers';
 import { Elements } from '@stripe/react-stripe-js';
 import { getStripe } from 'util/getStripe';
 import CheckoutForm from './CheckoutForm';
 
-const CheckoutWrapper: React.FC = () => {
+interface Props {
+  purchasesEnabled: boolean;
+}
+
+const CheckoutWrapper: React.FC<Props> = ({ purchasesEnabled }) => {
   const stripe = getStripe();
   const clientSecret = usePaymentIntent();
+  if (purchasesEnabled === false) {
+    return <Text>Sorry - purchases are disabled.</Text>;
+  }
 
   const appearance = {
     theme: 'stripe',

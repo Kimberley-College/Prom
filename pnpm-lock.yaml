@@ -15,7 +15,7 @@ specifiers:
   '@sentry/nextjs': 6.19.7
   '@stripe/react-stripe-js': 1.7.2
   '@stripe/stripe-js': 1.29.0
-  '@stripe/terminal-js': 0.9.0
+  '@stripe/terminal-js': 0.10.0
   '@supabase/supabase-auth-helpers': 1.3.0
   '@supabase/supabase-js': 1.35.3
   '@types/micro': 7.3.7
@@ -66,7 +66,7 @@ dependencies:
   '@sentry/nextjs': 6.19.7_next@12.1.6+react@18.0.0
   '@stripe/react-stripe-js': 1.7.2_fd144ade065f2a88848ec96af81315c1
   '@stripe/stripe-js': 1.29.0
-  '@stripe/terminal-js': 0.9.0
+  '@stripe/terminal-js': 0.10.0
   '@supabase/supabase-auth-helpers': 1.3.0_react-dom@18.0.0+react@18.0.0
   '@supabase/supabase-js': 1.35.3
   async-jsonwebtoken: 1.0.1
@@ -2723,8 +2723,8 @@ packages:
     resolution: {integrity: sha512-OsUxk0VLlum8E2d6onlEdKuQcvLMs7qTrOXCnl/BGV3fAm65qr6h3e1IZ5AX4lgUlPRrzRcddSOA5DvkKKYLvg==}
     dev: false
 
-  /@stripe/terminal-js/0.9.0:
-    resolution: {integrity: sha512-DhQmvFG4tRDh8Xn+fLE62eTFqgiCpRhRPvNHYXJk4a/JaEuDBiLnRbUlqmA4AwxyytOxlRvROosiYb+3k82l0w==}
+  /@stripe/terminal-js/0.10.0:
+    resolution: {integrity: sha512-R3ZxGWOQAMInSGiKA5lLyecY6azZYG8hUyOidU0KC4jPD4u5/fIgp1u4BAskayOoZssouJXNZCM84dfPOigXyQ==}
     dependencies:
       stripe: 8.222.0
       ws: 6.2.2

@@ -5,11 +5,15 @@ import { DefaultSeo } from 'next-seo';
 import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs';
 import { UserProvider } from '@supabase/supabase-auth-helpers/react';
 import { useAnalytics } from '@happykit/analytics';
+import { configure } from '@happykit/flags/config';
 import { TicketContextProvider } from 'util/ticketContext';
 import theme from '../util/theme';
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
   useAnalytics({ publicKey: process.env.NEXT_PUBLIC_HAPPYKIT_ANALYTICS_PUBLIC_KEY });
+  configure({
+    envKey: process.env.NEXT_PUBLIC_FLAGS_ENVIRONMENT_KEY,
+  });
 
   return (
     <UserProvider supabaseClient={supabaseClient}>

@@ -37,6 +37,7 @@ jobs:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          NEXT_PUBLIC_FLAGS_ENVIRONMENT_KEY: ${{ secrets.NEXT_PUBLIC_FLAGS_ENVIRONMENT_KEY }}
 
       - name: Run ESLint
         run: pnpm run lint

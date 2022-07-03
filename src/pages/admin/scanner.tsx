@@ -41,11 +41,12 @@ const Scanner: React.FC = () => {
     <BaseLayout>
       <Heading as="h1" size="3xl" textAlign="center" my={5}>Ticket Scanner</Heading>
       <Flex direction="column" justify="center" align="center" w="100%">
-        <Box minW="300px" w="80%" maxW="500px">
+        <Box minW="300px" w="90%" maxW="500px" h="90vh">
           <QrReader
             onResult={checkInTicket}
             constraints={{ facingMode: 'environment' }}
-            containerStyle={{ width: '100%' }}
+            containerStyle={{ width: '100%', height: '100%' }}
+            videoContainerStyle={{ width: '100%', height: '100%' }}
             videoStyle={{ objectFit: 'cover' }}
             ViewFinder={ViewFinder}
           />

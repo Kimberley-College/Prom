@@ -6,6 +6,7 @@ import { withSentry } from '@sentry/nextjs';
 
 interface ReturnBody {
   name: string;
+  alreadyChecked: boolean;
 }
 
 interface JWT {
@@ -30,11 +31,17 @@ export default withAuthRequired(withSentry(async (req: NextApiRequest, res: Next
 
   const decoded: JWT = verifyRes[0] as JWT;
 
+  const { data: currentTicket, error: currentTicketError } = await serverSupabase.from('tickets').select('checked_in').match({ id: decoded.id }).single();
+
+  if (currentTicketError) return res.status(500).send(currentTicketError.message);
+
+  if (currentTicket.checked_in) return res.status(200).send({ name: decoded.name, alreadyChecked: true });
+
   const { error } = await serverSupabase.from('tickets').update({ checked_in: true }).match({ id: decoded.id }).single();
 
   if (error) return res.status(500).send(error.message);
 
-  return res.status(200).send({ name: decoded.name });
+  return res.status(200).send({ name: decoded.name, alreadyChecked: false });
 }));
 
 export const config = {

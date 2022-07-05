@@ -17,7 +17,7 @@ specifiers:
   '@stripe/react-stripe-js': 1.7.2
   '@stripe/stripe-js': 1.29.0
   '@stripe/terminal-js': 0.10.0
-  '@supabase/supabase-auth-helpers': 1.3.0
+  '@supabase/supabase-auth-helpers': 1.4.2
   '@supabase/supabase-js': 1.35.3
   '@types/micro': 7.3.7
   '@types/micro-cors': 0.1.2
@@ -69,7 +69,7 @@ dependencies:
   '@stripe/react-stripe-js': 1.7.2_fd144ade065f2a88848ec96af81315c1
   '@stripe/stripe-js': 1.29.0
   '@stripe/terminal-js': 0.10.0
-  '@supabase/supabase-auth-helpers': 1.3.0_react-dom@18.0.0+react@18.0.0
+  '@supabase/supabase-auth-helpers': 1.4.2
   '@supabase/supabase-js': 1.35.3
   async-jsonwebtoken: 1.0.1
   framer-motion: 6.3.3_react-dom@18.0.0+react@18.0.0
@@ -2788,16 +2788,14 @@ packages:
       - encoding
     dev: false
 
-  /@supabase/supabase-auth-helpers/1.3.0_react-dom@18.0.0+react@18.0.0:
-    resolution: {integrity: sha512-nRYt9xorPSWi3IMt8CTYJ84aRisv4yTYX1z3oED2dJVfYthUWf+/QyRVpVAOol5mUVpl90J+5IWj2JxXL11AHg==}
+  /@supabase/supabase-auth-helpers/1.4.2:
+    resolution: {integrity: sha512-XF1JM/W3dOTi26ohvXe0M8Y1Mkk0JIPvpHoXhLWnX0W7i1bbDSTGGuQCXdHVktFnw+GQKHj+X+xOB3oC7Zwd7w==}
     dependencies:
       '@supabase/supabase-js': 1.35.3
-      '@supabase/ui': 0.36.4_react-dom@18.0.0+react@18.0.0
+      jose: 4.8.3
       tslib: 2.3.1
     transitivePeerDependencies:
       - encoding
-      - react
-      - react-dom
       - supports-color
     dev: false
 
@@ -2812,20 +2810,6 @@ packages:
     transitivePeerDependencies:
       - encoding
       - supports-color
-    dev: false
-
-  /@supabase/ui/0.36.4_react-dom@18.0.0+react@18.0.0:
-    resolution: {integrity: sha512-7Wq4D/5269q1wpmSo8V57hhWEXB83eKKEW9NHBdSS7wnsAb9hK+m6D/DN8ImpSdybDheHOdT/C4xjc2W6luOxg==}
-    peerDependencies:
-      react: ^16.13.1 || ^17.0.1
-      react-dom: ^16.13.1 || ^17.0.1
-    dependencies:
-      lodash: 4.17.21
-      prop-types: 15.8.1
-      react: 18.0.0
-      react-dom: 18.0.0_react@18.0.0
-    optionalDependencies:
-      fsevents: 2.3.2
     dev: false
 
   /@surma/rollup-plugin-off-main-thread/2.2.3:
@@ -4773,6 +4757,10 @@ packages:
       supports-color: 8.1.1
     dev: false
 
+  /jose/4.8.3:
+    resolution: {integrity: sha512-7rySkpW78d8LBp4YU70Wb7+OTgE3OwAALNVZxhoIhp4Kscp+p/fBkdpxGAMKxvCAMV4QfXBU9m6l9nX/vGwd2g==}
+    dev: false
+
   /js-tokens/4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
@@ -6564,7 +6552,6 @@ packages:
     resolution: {integrity: sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw==}
     engines: {node: '>=4.2.0'}
     hasBin: true
-    dev: false
 
   /unbox-primitive/1.0.1:
     resolution: {integrity: sha512-tZU/3NqK3dA5gpE1KtyiJUrEB0lxnGkMFHptJ7q6ewdZ8s12QrODwNbhIJStmJkd1QDXa1NRA8aF2A1zk/Ypyw==}

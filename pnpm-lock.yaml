@@ -24,7 +24,7 @@ specifiers:
   '@types/node': 17.0.18
   '@types/qrcode.react': 1.0.2
   '@types/react': 17.0.44
-  '@types/react-dom': 17.0.16
+  '@types/react-dom': 18.0.6
   '@typescript-eslint/eslint-plugin': 5.18.0
   '@typescript-eslint/parser': 5.18.0
   async-jsonwebtoken: 1.0.1
@@ -99,7 +99,7 @@ devDependencies:
   '@types/node': 17.0.18
   '@types/qrcode.react': 1.0.2
   '@types/react': 17.0.44
-  '@types/react-dom': 17.0.16
+  '@types/react-dom': 18.0.6
   '@typescript-eslint/eslint-plugin': 5.18.0_d6f231ef730f5c2487f80796bc3b2629
   '@typescript-eslint/parser': 5.18.0_eslint@8.15.0+typescript@4.6.3
   eslint: 8.15.0
@@ -2937,8 +2937,8 @@ packages:
       '@types/react': 17.0.44
     dev: true
 
-  /@types/react-dom/17.0.16:
-    resolution: {integrity: sha512-DWcXf8EbMrO/gWnQU7Z88Ws/p16qxGpPyjTKTpmBSFKeE+HveVubqGO1CVK7FrwlWD5MuOcvh8gtd0/XO38NdQ==}
+  /@types/react-dom/18.0.6:
+    resolution: {integrity: sha512-/5OFZgfIPSwy+YuIBP/FgJnQnsxhZhjjrnxudMddeblOouIodEQ75X14Rr4wGSG/bknL+Omy9iWlLo1u/9GzAA==}
     dependencies:
       '@types/react': 17.0.44
     dev: true
@@ -6564,7 +6564,6 @@ packages:
     resolution: {integrity: sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw==}
     engines: {node: '>=4.2.0'}
     hasBin: true
-    dev: false
 
   /unbox-primitive/1.0.1:
     resolution: {integrity: sha512-tZU/3NqK3dA5gpE1KtyiJUrEB0lxnGkMFHptJ7q6ewdZ8s12QrODwNbhIJStmJkd1QDXa1NRA8aF2A1zk/Ypyw==}

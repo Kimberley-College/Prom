@@ -5,6 +5,7 @@ import {
 import NextLink from 'next/link';
 import BaseLayout from 'components/Layouts/Base';
 import UsersList from 'components/Admin/UsersList';
+import AddUser from 'components/Admin/AddUser';
 
 const Home: NextPage = () => (
   <BaseLayout>
@@ -19,6 +20,7 @@ const Home: NextPage = () => (
         <NextLink href="/admin/scanner" passHref>
           <Button>Ticket Scanner</Button>
         </NextLink>
+        <AddUser />
       </Flex>
 
       <UsersList />

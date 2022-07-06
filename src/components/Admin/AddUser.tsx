@@ -1,8 +1,8 @@
 import {
-  Button, FormControl, FormErrorMessage, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure,
+  Button, Checkbox, CheckboxGroup, FormControl, FormErrorMessage, FormLabel, HStack, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure,
 } from '@chakra-ui/react';
 import {
-  Field, Form, Formik, type FormikHelpers,
+  Field, FieldProps, Form, Formik, FormikProps, type FormikHelpers,
 } from 'formik';
 
 const AddUser = () => {
@@ -32,18 +32,39 @@ const AddUser = () => {
             onSubmit={onSubmit}
             initialValues={{ name: '', email: '', roles: [] }}
           >
-            {(props) => (
+            {(props: FormikProps<Values>) => (
               <Form>
                 <ModalBody>
-                  <Field name="name" validate={(val) => console.log(val)}>
-                    {({ field, form }) => (
-                      <FormControl>
+                  <Field name="name" validate={(val) => (val.length > 0 ? '' : 'Please enter a name')}>
+                    {({ field, form }: FieldProps<string>) => (
+                      <FormControl isInvalid={form.errors.name && form.touched.name as boolean}>
                         <FormLabel htmlFor="name">Name</FormLabel>
                         <Input {...field} type="text" />
                         <FormErrorMessage>{form.errors.name}</FormErrorMessage>
                       </FormControl>
                     )}
                   </Field>
+
+                  <Field name="email" validate={(val) => (/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(val) ? '' : 'Please enter a valid email address')}>
+                    {({ field, form }: FieldProps<string>) => (
+                      <FormControl isInvalid={form.errors.email && form.touched.email as boolean}>
+                        <FormLabel htmlFor="email">Email</FormLabel>
+                        <Input {...field} type="text" />
+                        <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                      </FormControl>
+                    )}
+                  </Field>
+
+                  <FormControl>
+                    <FormLabel htmlFor="name">Roles</FormLabel>
+                    <CheckboxGroup>
+                      <HStack spacing={3}>
+                        <Field name="roles" as={Checkbox} value="admin">Admin</Field>
+                        <Field name="roles" as={Checkbox} value="security">Security</Field>
+                      </HStack>
+                    </CheckboxGroup>
+                    <FormErrorMessage>{props.errors.roles}</FormErrorMessage>
+                  </FormControl>
                 </ModalBody>
 
                 <ModalFooter>

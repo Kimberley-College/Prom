@@ -4,8 +4,6 @@ import {
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import BaseLayout from 'components/Layouts/Base';
-import UsersList from 'components/Admin/UsersList';
-import AddUser from 'components/Admin/AddUser';
 
 const Home: NextPage = () => (
   <BaseLayout>
@@ -14,16 +12,12 @@ const Home: NextPage = () => (
         Admin Panel
       </Heading>
       <Flex gap={3} my={3}>
-        <NextLink href="/admin/terminal" passHref>
-          <Button>Stripe Terminal</Button>
-        </NextLink>
         <NextLink href="/security/scanner" passHref>
           <Button>Ticket Scanner</Button>
         </NextLink>
-        <AddUser />
       </Flex>
 
-      <UsersList />
+      Welcome to the security area. This should probably have more stuff at some point.
 
     </Flex>
   </BaseLayout>

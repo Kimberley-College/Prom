@@ -28,7 +28,7 @@ const SignedInMenu = () => {
             <NextLink href="/admin/terminal"><a><MenuItem>Stripe Terminal</MenuItem></a></NextLink>
           </>
         )}
-        {user.user_metadata.admin || user.user_metadata.roles.includes('security') && (
+        {(user.user_metadata.admin || user.user_metadata.roles.includes('security')) && (
           <NextLink href="/security"><a><MenuItem>Security Panel</MenuItem></a></NextLink>
         )}
         {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}

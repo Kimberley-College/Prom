@@ -9,11 +9,11 @@ import {
 import BaseLayout from 'components/Layouts/Base';
 import { useRouter } from 'next/router';
 import { useCallback, useEffect, useState } from 'react';
-import { useUser } from '@supabase/supabase-auth-helpers/react';
+import { useUser } from '@supabase/auth-helpers-react';
 import Error from 'next/error';
 import type { UserWithTicket, Ticket } from 'types/user';
 import QR from 'components/UserPanel/QR';
-import { supabaseClient as supabase } from '@supabase/supabase-auth-helpers/nextjs';
+import { supabaseClient as supabase } from '@supabase/auth-helpers-nextjs';
 
 const ManageSpecificUser: NextPage = () => {
   const router = useRouter();

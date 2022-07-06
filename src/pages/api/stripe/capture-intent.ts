@@ -1,6 +1,6 @@
 import Stripe from 'stripe';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { withAuthRequired, supabaseClient as userSupabase } from '@supabase/supabase-auth-helpers/nextjs';
+import { withAuthRequired, supabaseClient as userSupabase } from '@supabase/auth-helpers-nextjs';
 import { withSentry } from '@sentry/nextjs';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {

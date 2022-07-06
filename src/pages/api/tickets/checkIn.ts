@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { withAuthRequired, supabaseClient as supabase } from '@supabase/supabase-auth-helpers/nextjs';
+import { withAuthRequired, supabaseClient as supabase } from '@supabase/auth-helpers-nextjs';
 import { verify } from 'async-jsonwebtoken';
 import { withSentry } from '@sentry/nextjs';
 

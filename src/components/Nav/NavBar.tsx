@@ -2,7 +2,7 @@ import {
   Flex, Spacer, Button, Spinner,
 } from '@chakra-ui/react';
 import { FiLogIn } from 'react-icons/fi';
-import { useUser } from '@supabase/supabase-auth-helpers/react';
+import { useUser } from '@supabase/auth-helpers-react';
 import { signin } from 'util/authHelpers';
 import Image from 'next/image';
 import NextLink from 'next/link';

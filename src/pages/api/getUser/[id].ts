@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { withAuthRequired, supabaseClient as userSupabase } from '@supabase/supabase-auth-helpers/nextjs';
+import { withAuthRequired, supabaseClient as userSupabase } from '@supabase/auth-helpers-nextjs';
 import { createClient } from '@supabase/supabase-js';
 import { Ticket, UserWithTicket } from 'types/user';
 import { withSentry } from '@sentry/nextjs';

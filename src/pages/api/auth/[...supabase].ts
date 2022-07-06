@@ -1,4 +1,4 @@
-import { handleAuth } from '@supabase/supabase-auth-helpers/nextjs';
+import { handleAuth } from '@supabase/auth-helpers-nextjs';
 import { withSentry } from '@sentry/nextjs';
 import cookieOptions from 'util/cookieOptions';
 

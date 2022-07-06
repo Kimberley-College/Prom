@@ -1,6 +1,6 @@
 import Stripe from 'stripe';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { withAuthRequired, supabaseClient as userSupabase } from '@supabase/supabase-auth-helpers/nextjs';
+import { withAuthRequired, supabaseClient as userSupabase } from '@supabase/auth-helpers-nextjs';
 import { createClient } from '@supabase/supabase-js';
 import { withSentry } from '@sentry/nextjs';
 

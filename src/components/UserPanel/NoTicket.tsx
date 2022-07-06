@@ -4,7 +4,7 @@ import {
 import CheckoutWrapper from 'components/Checkout/CheckoutWrapper';
 import type { Flags } from 'types/flags';
 import { useFlags } from '@happykit/flags/client';
-import { useUser } from '@supabase/supabase-auth-helpers/react';
+import { useUser } from '@supabase/auth-helpers-react';
 import MoreInfo from './MoreInfo';
 
 const NoTicket: React.FC = () => {

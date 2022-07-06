@@ -1,5 +1,5 @@
 import { createStandaloneToast } from '@chakra-ui/react';
-import { supabaseClient as supabase } from '@supabase/supabase-auth-helpers/nextjs';
+import { supabaseClient as supabase } from '@supabase/auth-helpers-nextjs';
 
 export const signin = async (): Promise<void> => {
   const toast = createStandaloneToast();

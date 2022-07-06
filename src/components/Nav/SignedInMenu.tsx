@@ -6,7 +6,7 @@ import {
   Spinner,
   Button,
 } from '@chakra-ui/react';
-import { useUser } from '@supabase/supabase-auth-helpers/react';
+import { useUser } from '@supabase/auth-helpers-react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { FaRegUser } from 'react-icons/fa';
 import NextLink from 'next/link';
@@ -27,6 +27,9 @@ const SignedInMenu = () => {
             <NextLink href="/admin"><a><MenuItem>Admin Panel</MenuItem></a></NextLink>
             <NextLink href="/admin/terminal"><a><MenuItem>Stripe Terminal</MenuItem></a></NextLink>
           </>
+        )}
+        {user.user_metadata.admin || user.user_metadata.roles.includes('security') && (
+          <NextLink href="/security"><a><MenuItem>Security Panel</MenuItem></a></NextLink>
         )}
         {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
         <a href="/api/auth/logout"><MenuItem onClick={signout}>Sign out</MenuItem></a>

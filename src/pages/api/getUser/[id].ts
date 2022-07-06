@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { withAuthRequired, supabaseClient as userSupabase } from '@supabase/auth-helpers-nextjs';
+import { withApiAuth, supabaseClient as userSupabase } from '@supabase/auth-helpers-nextjs';
 import { createClient } from '@supabase/supabase-js';
 import { Ticket, UserWithTicket } from 'types/user';
 import { withSentry } from '@sentry/nextjs';
 
-export default withAuthRequired(withSentry(async (req: NextApiRequest, res: NextApiResponse<UserWithTicket | string>): Promise<void> => {
+export default withApiAuth(withSentry(async (req: NextApiRequest, res: NextApiResponse<UserWithTicket | string>): Promise<void> => {
   const { data: calledUser, error: calledUserError } = await userSupabase.auth.api.getUserByCookie(req, res);
 
   if (calledUserError) return res.status(calledUserError.status).send(calledUserError.message);

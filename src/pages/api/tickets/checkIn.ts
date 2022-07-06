@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { withAuthRequired, supabaseClient as supabase } from '@supabase/auth-helpers-nextjs';
+import { withApiAuth, supabaseClient as supabase } from '@supabase/auth-helpers-nextjs';
 import { verify } from 'async-jsonwebtoken';
 import { withSentry } from '@sentry/nextjs';
 
@@ -17,7 +17,7 @@ interface JWT {
   created_at: string;
 }
 
-export default withAuthRequired(withSentry(async (req: NextApiRequest, res: NextApiResponse<ReturnBody | string>): Promise<void> => {
+export default withApiAuth(withSentry(async (req: NextApiRequest, res: NextApiResponse<ReturnBody | string>): Promise<void> => {
   const { user } = await supabase.auth.api.getUserByCookie(req);
   if (!user?.user_metadata.admin) return res.status(403).send('Unauthorised');
 

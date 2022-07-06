@@ -1,6 +1,6 @@
 import Stripe from 'stripe';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { withAuthRequired, supabaseClient as userSupabase } from '@supabase/auth-helpers-nextjs';
+import { withApiAuth, supabaseClient as userSupabase } from '@supabase/auth-helpers-nextjs';
 import { createClient } from '@supabase/supabase-js';
 import { withSentry } from '@sentry/nextjs';
 
@@ -12,7 +12,7 @@ interface ReturnBody {
   clientSecret: string;
 }
 
-export default withAuthRequired(withSentry(async (req: NextApiRequest, res: NextApiResponse<ReturnBody | string>): Promise<void> => {
+export default withApiAuth(withSentry(async (req: NextApiRequest, res: NextApiResponse<ReturnBody | string>): Promise<void> => {
   const { user: userCalling, error } = await userSupabase.auth.api.getUserByCookie(req);
   if (error) return res.status(error.status).send(error.message);
 

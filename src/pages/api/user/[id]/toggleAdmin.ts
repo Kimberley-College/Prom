@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { withAuthRequired, supabaseClient as userSupabase } from '@supabase/auth-helpers-nextjs';
+import { withApiAuth, supabaseClient as userSupabase } from '@supabase/auth-helpers-nextjs';
 import { createClient } from '@supabase/supabase-js';
 import { withSentry } from '@sentry/nextjs';
 
@@ -8,7 +8,7 @@ interface Return {
   is_admin: boolean;
 }
 
-export default withAuthRequired(withSentry(async (req: NextApiRequest, res: NextApiResponse<Return | string>): Promise<void> => {
+export default withApiAuth(withSentry(async (req: NextApiRequest, res: NextApiResponse<Return | string>): Promise<void> => {
   if (!req.query.id) return res.status(400).send('No user id provided');
   const { data: calledUser, error: calledUserError } = await userSupabase.auth.api.getUserByCookie(req, res);
 

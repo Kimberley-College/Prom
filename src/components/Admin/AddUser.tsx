@@ -1,5 +1,5 @@
 import {
-  Button, Checkbox, CheckboxGroup, FormControl, FormErrorMessage, FormLabel, HStack, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure,
+  Button, Checkbox, CheckboxGroup, FormControl, FormErrorMessage, FormLabel, HStack, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure, useToast,
 } from '@chakra-ui/react';
 import {
   Field, FieldProps, Form, Formik, FormikProps, type FormikHelpers,
@@ -7,6 +7,7 @@ import {
 
 const AddUser = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const toast = useToast();
 
   interface Values {
     name: string;
@@ -15,7 +16,27 @@ const AddUser = () => {
   }
 
   const onSubmit = async (values: Values, actions: FormikHelpers<Values>) => {
-    console.log(values);
+    const res = await fetch('/api/user/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(values),
+    });
+    if (!res.ok) {
+      toast({
+        title: `Error ${res.status}`,
+        description: await res.text(),
+        status: 'error',
+      });
+    } else {
+      toast({
+        title: 'Success',
+        description: 'User created',
+        status: 'success',
+      });
+      onClose();
+    }
     actions.setSubmitting(false);
   };
 
@@ -68,7 +89,7 @@ const AddUser = () => {
                 </ModalBody>
 
                 <ModalFooter>
-                  <Button variant="ghost" colorScheme="red" mr={3} onClick={onClose} isLoading={props.isSubmitting}>
+                  <Button variant="ghost" colorScheme="red" mr={3} onClick={onClose} isDisabled={props.isSubmitting}>
                     Cancel
                   </Button>
                   <Button variant="ghost" colorScheme="green" isLoading={props.isSubmitting} type="submit">Add</Button>

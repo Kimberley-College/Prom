@@ -27,6 +27,8 @@ export default withApiAuth(withSentry(async (req: NextApiRequest, res: NextApiRe
     checked_in: ticket?.checked_in,
     ticketId: ticket?.id,
     jwt: ticket?.jwt,
+    risk: ticket?.risk,
+    notes: ticket?.notes,
   });
 }));
 

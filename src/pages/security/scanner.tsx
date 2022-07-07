@@ -50,7 +50,7 @@ const Scanner: React.FC = () => {
     <BaseLayout>
       <Heading as="h1" size="3xl" textAlign="center" my={5}>Ticket Scanner</Heading>
       <Flex direction="column" justify="center" align="center" w="100%">
-        <Box minW="300px" w="90%" maxW="500px" h="90vh">
+        <Box minW="300px" w="100%" maxW="500px" h="90vh">
           <QrReader
             onResult={checkInTicket}
             constraints={{ facingMode: 'environment' }}

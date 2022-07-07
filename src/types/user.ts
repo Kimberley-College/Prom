@@ -5,6 +5,8 @@ export interface UserWithTicketInfo {
   is_admin: boolean;
   has_ticket: boolean;
   checked_in: boolean;
+  risk: number;
+  notes: string;
 }
 
 export type UserWithTicket = UserWithTicketInfo & {
@@ -20,6 +22,8 @@ export interface Ticket {
   customer_id: string;
   user_id: string;
   jwt: string;
+  risk: number;
+  notes: string;
 }
 
 export interface JWT {

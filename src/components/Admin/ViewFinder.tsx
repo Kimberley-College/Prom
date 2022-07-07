@@ -3,6 +3,7 @@ import React from 'react';
 const ViewFinder = () => (
   <svg
     viewBox="0 0 100 100"
+    preserveAspectRatio="none"
     style={{
       top: 0,
       left: 0,

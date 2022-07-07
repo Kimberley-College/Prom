@@ -4,7 +4,7 @@ import {
 import { SiMicrosoftoffice } from 'react-icons/si';
 import { BsFillArrowDownCircleFill, BsArrowDownCircle } from 'react-icons/bs';
 import { FaRegUser } from 'react-icons/fa';
-import { useUser } from '@supabase/supabase-auth-helpers/react';
+import { useUser } from '@supabase/auth-helpers-react';
 import { signin } from 'util/authHelpers';
 import NextLink from 'next/link';
 import ScrollIntoView from 'react-scroll-into-view';

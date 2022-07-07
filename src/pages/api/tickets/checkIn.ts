@@ -1,11 +1,15 @@
 import { createClient } from '@supabase/supabase-js';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { withAuthRequired, supabaseClient as supabase } from '@supabase/supabase-auth-helpers/nextjs';
+import { withApiAuth, supabaseClient as supabase } from '@supabase/auth-helpers-nextjs';
 import { verify } from 'async-jsonwebtoken';
 import { withSentry } from '@sentry/nextjs';
+import { Ticket } from '../../../types/user';
 
 interface ReturnBody {
   name: string;
+  alreadyChecked: boolean;
+  risk: number;
+  notes: string;
 }
 
 interface JWT {
@@ -16,7 +20,7 @@ interface JWT {
   created_at: string;
 }
 
-export default withAuthRequired(withSentry(async (req: NextApiRequest, res: NextApiResponse<ReturnBody | string>): Promise<void> => {
+export default withApiAuth(withSentry(async (req: NextApiRequest, res: NextApiResponse<ReturnBody | string>): Promise<void> => {
   const { user } = await supabase.auth.api.getUserByCookie(req);
   if (!user?.user_metadata.admin) return res.status(403).send('Unauthorised');
 
@@ -30,11 +34,23 @@ export default withAuthRequired(withSentry(async (req: NextApiRequest, res: Next
 
   const decoded: JWT = verifyRes[0] as JWT;
 
-  const { error } = await serverSupabase.from('tickets').update({ checked_in: true }).match({ id: decoded.id }).single();
+  const { data: currentTicket, error: currentTicketError } = await serverSupabase.from<Ticket>('tickets').select('*').match({ id: decoded.id }).single();
+
+  if (currentTicketError) return res.status(500).send(currentTicketError.message);
+
+  if (currentTicket.checked_in) {
+    return res.status(200).send({
+      name: decoded.name, alreadyChecked: true, risk: currentTicket.risk, notes: currentTicket.notes,
+    });
+  }
+
+  const { error } = await serverSupabase.from<Ticket>('tickets').update({ checked_in: true }).match({ id: decoded.id }).single();
 
   if (error) return res.status(500).send(error.message);
 
-  return res.status(200).send({ name: decoded.name });
+  return res.status(200).send({
+    name: decoded.name, alreadyChecked: false, risk: currentTicket.risk, notes: currentTicket.notes,
+  });
 }));
 
 export const config = {

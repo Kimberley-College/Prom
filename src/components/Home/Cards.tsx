@@ -4,7 +4,7 @@ import {
 import { GoLocation } from 'react-icons/go';
 import { IoTicketSharp } from 'react-icons/io5';
 import { GrCafeteria } from 'react-icons/gr';
-import { useUser } from '@supabase/supabase-auth-helpers/react';
+import { useUser } from '@supabase/auth-helpers-react';
 
 const Cards: React.FC = () => {
   const { user } = useUser();

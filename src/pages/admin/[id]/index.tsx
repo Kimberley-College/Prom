@@ -9,11 +9,13 @@ import {
 import BaseLayout from 'components/Layouts/Base';
 import { useRouter } from 'next/router';
 import { useCallback, useEffect, useState } from 'react';
-import { useUser } from '@supabase/supabase-auth-helpers/react';
+import { useUser } from '@supabase/auth-helpers-react';
 import Error from 'next/error';
 import type { UserWithTicket, Ticket } from 'types/user';
 import QR from 'components/UserPanel/QR';
-import { supabaseClient as supabase } from '@supabase/supabase-auth-helpers/nextjs';
+import { supabaseClient as supabase } from '@supabase/auth-helpers-nextjs';
+import RiskLevel from 'components/Admin/RiskLevel';
+import Notes from 'components/Admin/Notes';
 
 const ManageSpecificUser: NextPage = () => {
   const router = useRouter();
@@ -89,6 +91,8 @@ const ManageSpecificUser: NextPage = () => {
           <Text>Has checked in: {managedUser?.checked_in ? 'Yes' : 'No'}</Text>
           <Heading as="h3" py={2}>Their Ticket</Heading>
           <QR jwt={managedUser?.jwt} />
+          <RiskLevel user={managedUser} />
+          <Notes user={managedUser} />
         </>
         )}
 

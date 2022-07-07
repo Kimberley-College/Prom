@@ -1,8 +1,8 @@
 import {
   createContext, useContext, useState, useMemo, useEffect,
 } from 'react';
-import { supabaseClient as supabase } from '@supabase/supabase-auth-helpers/nextjs';
-import { useUser } from '@supabase/supabase-auth-helpers/react';
+import { supabaseClient as supabase } from '@supabase/auth-helpers-nextjs';
+import { useUser } from '@supabase/auth-helpers-react';
 
 export interface Ticket {
   id: string;

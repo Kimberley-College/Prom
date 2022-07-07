@@ -3,10 +3,13 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { withApiAuth, supabaseClient as supabase } from '@supabase/auth-helpers-nextjs';
 import { verify } from 'async-jsonwebtoken';
 import { withSentry } from '@sentry/nextjs';
+import { Ticket } from '../../../types/user';
 
 interface ReturnBody {
   name: string;
   alreadyChecked: boolean;
+  risk: number;
+  notes: string;
 }
 
 interface JWT {
@@ -31,17 +34,23 @@ export default withApiAuth(withSentry(async (req: NextApiRequest, res: NextApiRe
 
   const decoded: JWT = verifyRes[0] as JWT;
 
-  const { data: currentTicket, error: currentTicketError } = await serverSupabase.from('tickets').select('checked_in').match({ id: decoded.id }).single();
+  const { data: currentTicket, error: currentTicketError } = await serverSupabase.from<Ticket>('tickets').select('*').match({ id: decoded.id }).single();
 
   if (currentTicketError) return res.status(500).send(currentTicketError.message);
 
-  if (currentTicket.checked_in) return res.status(200).send({ name: decoded.name, alreadyChecked: true });
+  if (currentTicket.checked_in) {
+    return res.status(200).send({
+      name: decoded.name, alreadyChecked: true, risk: currentTicket.risk, notes: currentTicket.notes,
+    });
+  }
 
-  const { error } = await serverSupabase.from('tickets').update({ checked_in: true }).match({ id: decoded.id }).single();
+  const { error } = await serverSupabase.from<Ticket>('tickets').update({ checked_in: true }).match({ id: decoded.id }).single();
 
   if (error) return res.status(500).send(error.message);
 
-  return res.status(200).send({ name: decoded.name, alreadyChecked: false });
+  return res.status(200).send({
+    name: decoded.name, alreadyChecked: false, risk: currentTicket.risk, notes: currentTicket.notes,
+  });
 }));
 
 export const config = {

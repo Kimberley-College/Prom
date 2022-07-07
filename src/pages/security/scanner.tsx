@@ -28,12 +28,16 @@ const Scanner: React.FC = () => {
       return;
     }
 
-    const { name, alreadyChecked }: { name: string, alreadyChecked: boolean } = await res.json();
+    const {
+      name, alreadyChecked, risk, notes,
+    }: { name: string, alreadyChecked: boolean, risk: number, notes: string; } = await res.json();
 
     if (alreadyChecked) {
       toast({
         title: 'Ticket already checked in',
-        description: `Name: ${name}`,
+        description: `Name: ${name}
+        Risk Level: ${risk}
+        Notes: ${notes}`,
         status: 'warning',
       });
       return;
@@ -41,7 +45,9 @@ const Scanner: React.FC = () => {
 
     toast({
       title: 'Ticket checked in',
-      description: `Name: ${name}`,
+      description: `Name: ${name}
+      Risk Level: ${risk}
+      Notes: ${notes}`,
       status: 'success',
     });
   };

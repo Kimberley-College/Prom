@@ -15,6 +15,7 @@ import type { UserWithTicket, Ticket } from 'types/user';
 import QR from 'components/UserPanel/QR';
 import { supabaseClient as supabase } from '@supabase/auth-helpers-nextjs';
 import RiskLevel from 'components/Admin/RiskLevel';
+import Notes from 'components/Admin/Notes';
 
 const ManageSpecificUser: NextPage = () => {
   const router = useRouter();
@@ -91,7 +92,7 @@ const ManageSpecificUser: NextPage = () => {
           <Heading as="h3" py={2}>Their Ticket</Heading>
           <QR jwt={managedUser?.jwt} />
           <RiskLevel user={managedUser} />
-          {/* <Notes user={managedUser} /> */}
+          <Notes user={managedUser} />
         </>
         )}
 

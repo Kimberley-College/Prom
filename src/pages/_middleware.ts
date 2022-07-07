@@ -2,9 +2,9 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export const middleware = async (req: NextRequest) => {
-  const token = req.cookies['sb-access-token'];
+  if (!req.nextUrl.pathname.startsWith('/security') && !req.nextUrl.pathname.startsWith('/admin') && !req.nextUrl.pathname.startsWith('/panel')) return NextResponse.next();
 
-  console.log(token);
+  const token = req.cookies['sb-access-token'];
 
   const user = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/auth/v1/user`, {
     headers: {
@@ -12,8 +12,6 @@ export const middleware = async (req: NextRequest) => {
       APIKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     },
   }).then((res) => res.json());
-
-  console.log(user);
 
   if (req.nextUrl.pathname.startsWith('/security')) {
     if (user?.user_metadata?.admin || user?.user_metadata?.roles.includes('admin') || user?.user_metadata?.roles.includes('security')) {
@@ -37,6 +35,6 @@ export const middleware = async (req: NextRequest) => {
   return NextResponse.redirect(url);
 };
 
-export const config = {
+export const config = { // This doesn't do anything before Next.js 12.2.0
   matcher: ['/admin/:path*', '/panel', '/security/:path*'],
 };

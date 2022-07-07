@@ -9,7 +9,7 @@ const Home: NextPage = () => (
   <BaseLayout>
     <Flex direction="column" align="center">
       <Heading as="h1" size="3xl" my={5} textAlign="center">
-        Admin Panel
+        Security Panel
       </Heading>
       <Flex gap={3} my={3}>
         <NextLink href="/security/scanner" passHref>

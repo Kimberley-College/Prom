@@ -110,7 +110,7 @@ const ManageSpecificUser: NextPage = () => {
           <QR jwt={managedUser?.jwt} />
           <RiskLevel user={managedUser} />
           <Notes user={managedUser} />
-            <Button mt={3} onClick={checkIn}>Check-in</Button>
+          <Button mt={3} onClick={checkIn}>Check-in</Button>
         </>
         )}
 

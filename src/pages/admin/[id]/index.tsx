@@ -77,6 +77,23 @@ const ManageSpecificUser: NextPage = () => {
     getUser();
   };
 
+  const checkIn = async () => {
+    const { error, data: newTicket } = await supabase.from<Ticket>('tickets').update({ checked_in: true }).match({ id: managedUser.ticketId }).single();
+    if (error) {
+      toast({
+        title: 'Failed to check in',
+        status: 'error',
+      });
+      return;
+    }
+    toast({
+      title: 'Checked in',
+      description: `New check in status: ${newTicket.checked_in}`,
+      status: 'success',
+    });
+    getUser();
+  };
+
   if (errorCode) return <Error statusCode={errorCode} />;
 
   return (
@@ -93,6 +110,7 @@ const ManageSpecificUser: NextPage = () => {
           <QR jwt={managedUser?.jwt} />
           <RiskLevel user={managedUser} />
           <Notes user={managedUser} />
+            <Button mt={3} onClick={checkIn}>Check-in</Button>
         </>
         )}
 

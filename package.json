@@ -34,7 +34,7 @@
     "@stripe/terminal-js": "0.10.0",
     "@supabase/auth-helpers-nextjs": "^0.2.2",
     "@supabase/auth-helpers-react": "^0.2.2",
-    "@supabase/supabase-js": "1.35.3",
+    "@supabase/supabase-js": "1.35.7",
     "async-jsonwebtoken": "1.0.1",
     "formik": "^2.2.9",
     "framer-motion": "6.3.3",

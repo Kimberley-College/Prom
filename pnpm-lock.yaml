@@ -19,7 +19,7 @@ specifiers:
   '@stripe/terminal-js': 0.10.0
   '@supabase/auth-helpers-nextjs': ^0.2.2
   '@supabase/auth-helpers-react': ^0.2.2
-  '@supabase/supabase-js': 1.35.3
+  '@supabase/supabase-js': 1.35.7
   '@types/micro': 7.3.7
   '@types/micro-cors': 0.1.2
   '@types/node': 17.0.18
@@ -73,7 +73,7 @@ dependencies:
   '@stripe/terminal-js': 0.10.0
   '@supabase/auth-helpers-nextjs': 0.2.2
   '@supabase/auth-helpers-react': 0.2.2
-  '@supabase/supabase-js': 1.35.3
+  '@supabase/supabase-js': 1.35.7
   async-jsonwebtoken: 1.0.1
   formik: 2.2.9_react@18.2.0
   framer-motion: 6.3.3_react-dom@18.2.0+react@18.2.0
@@ -109,7 +109,7 @@ devDependencies:
   eslint: 8.15.0
   eslint-config-airbnb: 19.0.4_0842c2b1548af77a3ea7a745353c389d
   eslint-config-airbnb-typescript: 17.0.0_af41bc5687677b553c5d813b26738aa9
-  eslint-plugin-import: 2.26.0_eslint@8.15.0
+  eslint-plugin-import: 2.26.0_453213c5e82763d78faed6f8e3c894a5
   eslint-plugin-jsx-a11y: 6.5.1_eslint@8.15.0
   eslint-plugin-react: 7.29.4_eslint@8.15.0
   eslint-plugin-react-hooks: 4.4.0_eslint@8.15.0
@@ -2735,6 +2735,9 @@ packages:
     dependencies:
       stripe: 8.222.0
       ws: 6.2.2
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
     dev: false
 
   /@supabase/auth-helpers-nextjs/0.2.2:
@@ -2764,8 +2767,8 @@ packages:
       - encoding
     dev: false
 
-  /@supabase/gotrue-js/1.22.19:
-    resolution: {integrity: sha512-IBkbV852iyd8AzeeJa8AgE5rGrOS54MR+N6bagQQWmDC1MdGbpRovK8uuFIkmtoRQpNvbnsl5HRSfskgqmsS+A==}
+  /@supabase/gotrue-js/1.22.22:
+    resolution: {integrity: sha512-exbCopLo4tLawKZR25wEdipm+IRVujuqFRR4h2wiXd11YA+N8rfgg/4S4L6BTFHmzV+KMjy0kDF3yMbsjIR/xA==}
     dependencies:
       cross-fetch: 3.1.5
     transitivePeerDependencies:
@@ -2780,11 +2783,13 @@ packages:
       - encoding
     dev: false
 
-  /@supabase/realtime-js/1.7.2:
-    resolution: {integrity: sha512-DMUaFIKj7KszGtWTTQbhMmUzZf7UnwYqySsmY+G8HgYxvY3ZaVa+DZD0I6ofgr4OLNr0po/ODM2a4lf5m5GNBg==}
+  /@supabase/realtime-js/1.7.5:
+    resolution: {integrity: sha512-nXuoxt7NE1NTI+G8WBim1K2gkUC8YE3e9evBUG+t6xwd9Sq+sSOrjcE0qJ8/Y631BCnLzlhX6yhFYQFh1oQDOg==}
     dependencies:
       '@types/phoenix': 1.5.4
       websocket: 1.0.34
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /@supabase/storage-js/1.7.2:
@@ -2795,16 +2800,17 @@ packages:
       - encoding
     dev: false
 
-  /@supabase/supabase-js/1.35.3:
-    resolution: {integrity: sha512-uwO8OVdMFsGZNZ1xQhFz22+PSW0EWYZ5xVq+jQeGz8nhabEu+Q9Uyep/bcNzOpyPJRzbGfxSPRzgAdAxfJgFhw==}
+  /@supabase/supabase-js/1.35.7:
+    resolution: {integrity: sha512-X+qCzmj5sH0dozagbLoK7LzysBaWoivO0gsAUAPPBQkQupQWuBfaOqG18gKhlfL0wp2PL888QzhQNScp/IwUfA==}
     dependencies:
       '@supabase/functions-js': 1.3.4
-      '@supabase/gotrue-js': 1.22.19
+      '@supabase/gotrue-js': 1.22.22
       '@supabase/postgrest-js': 0.37.4
-      '@supabase/realtime-js': 1.7.2
+      '@supabase/realtime-js': 1.7.5
       '@supabase/storage-js': 1.7.2
     transitivePeerDependencies:
       - encoding
+      - supports-color
     dev: false
 
   /@surma/rollup-plugin-off-main-thread/2.2.3:
@@ -3632,11 +3638,21 @@ packages:
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
     dependencies:
       ms: 2.0.0
 
   /debug/3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
     dependencies:
       ms: 2.1.3
     dev: true
@@ -3863,7 +3879,7 @@ packages:
     dependencies:
       confusing-browser-globals: 1.0.11
       eslint: 8.15.0
-      eslint-plugin-import: 2.26.0_eslint@8.15.0
+      eslint-plugin-import: 2.26.0_453213c5e82763d78faed6f8e3c894a5
       object.assign: 4.1.2
       object.entries: 1.1.5
       semver: 6.3.0
@@ -3881,7 +3897,7 @@ packages:
       '@typescript-eslint/parser': 5.18.0_eslint@8.15.0+typescript@4.6.3
       eslint: 8.15.0
       eslint-config-airbnb-base: 15.0.0_3587bf9a15dd535ddd6f5fd34d80da85
-      eslint-plugin-import: 2.26.0_eslint@8.15.0
+      eslint-plugin-import: 2.26.0_453213c5e82763d78faed6f8e3c894a5
     dev: true
 
   /eslint-config-airbnb/19.0.4_0842c2b1548af77a3ea7a745353c389d:
@@ -3896,7 +3912,7 @@ packages:
     dependencies:
       eslint: 8.15.0
       eslint-config-airbnb-base: 15.0.0_3587bf9a15dd535ddd6f5fd34d80da85
-      eslint-plugin-import: 2.26.0_eslint@8.15.0
+      eslint-plugin-import: 2.26.0_453213c5e82763d78faed6f8e3c894a5
       eslint-plugin-jsx-a11y: 6.5.1_eslint@8.15.0
       eslint-plugin-react: 7.29.4_eslint@8.15.0
       eslint-plugin-react-hooks: 4.4.0_eslint@8.15.0
@@ -3909,29 +3925,54 @@ packages:
     dependencies:
       debug: 3.2.7
       resolve: 1.22.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
-  /eslint-module-utils/2.7.3:
+  /eslint-module-utils/2.7.3_348e6a4b49bcb6f409173fc70518c1e6:
     resolution: {integrity: sha512-088JEC7O3lDZM9xGe0RerkOMd0EjFl+Yvd1jPWIkMT5u3H9+HC34mWWPnqPrN13gieT9pBOO+Qt07Nb/6TresQ==}
     engines: {node: '>=4'}
+    peerDependencies:
+      '@typescript-eslint/parser': '*'
+      eslint-import-resolver-node: '*'
+      eslint-import-resolver-typescript: '*'
+      eslint-import-resolver-webpack: '*'
+    peerDependenciesMeta:
+      '@typescript-eslint/parser':
+        optional: true
+      eslint-import-resolver-node:
+        optional: true
+      eslint-import-resolver-typescript:
+        optional: true
+      eslint-import-resolver-webpack:
+        optional: true
     dependencies:
+      '@typescript-eslint/parser': 5.18.0_eslint@8.15.0+typescript@4.6.3
       debug: 3.2.7
+      eslint-import-resolver-node: 0.3.6
       find-up: 2.1.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
-  /eslint-plugin-import/2.26.0_eslint@8.15.0:
+  /eslint-plugin-import/2.26.0_453213c5e82763d78faed6f8e3c894a5:
     resolution: {integrity: sha512-hYfi3FXaM8WPLf4S1cikh/r4IxnO6zrhZbEGz2b660EJRbuxgpDS5gkCuYgGWg2xxh2rBuIr4Pvhve/7c31koA==}
     engines: {node: '>=4'}
     peerDependencies:
+      '@typescript-eslint/parser': '*'
       eslint: ^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8
+    peerDependenciesMeta:
+      '@typescript-eslint/parser':
+        optional: true
     dependencies:
+      '@typescript-eslint/parser': 5.18.0_eslint@8.15.0+typescript@4.6.3
       array-includes: 3.1.4
       array.prototype.flat: 1.2.5
       debug: 2.6.9
       doctrine: 2.1.0
       eslint: 8.15.0
       eslint-import-resolver-node: 0.3.6
-      eslint-module-utils: 2.7.3
+      eslint-module-utils: 2.7.3_348e6a4b49bcb6f409173fc70518c1e6
       has: 1.0.3
       is-core-module: 2.8.1
       is-glob: 4.0.3
@@ -3939,6 +3980,10 @@ packages:
       object.values: 1.1.5
       resolve: 1.22.0
       tsconfig-paths: 3.14.1
+    transitivePeerDependencies:
+      - eslint-import-resolver-typescript
+      - eslint-import-resolver-webpack
+      - supports-color
     dev: true
 
   /eslint-plugin-jsx-a11y/6.5.1_eslint@8.15.0:
@@ -5301,7 +5346,7 @@ packages:
     dev: false
 
   /ms/2.0.0:
-    resolution: {integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=}
+    resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
 
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
@@ -6550,7 +6595,6 @@ packages:
     resolution: {integrity: sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw==}
     engines: {node: '>=4.2.0'}
     hasBin: true
-    dev: false
 
   /unbox-primitive/1.0.1:
     resolution: {integrity: sha512-tZU/3NqK3dA5gpE1KtyiJUrEB0lxnGkMFHptJ7q6ewdZ8s12QrODwNbhIJStmJkd1QDXa1NRA8aF2A1zk/Ypyw==}
@@ -6786,6 +6830,8 @@ packages:
       typedarray-to-buffer: 3.1.5
       utf-8-validate: 5.0.8
       yaeti: 0.0.6
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /whatwg-url/5.0.0:
@@ -7010,6 +7056,14 @@ packages:
 
   /ws/6.2.2:
     resolution: {integrity: sha512-zmhltoSR8u1cnDsD43TX59mzoMZsLKqUweyYBAIvTngR3shc0W6aOZylZmq/7hqyVxPdi+5Ud2QInblgyE72fw==}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: ^5.0.2
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
     dependencies:
       async-limiter: 1.0.1
     dev: false

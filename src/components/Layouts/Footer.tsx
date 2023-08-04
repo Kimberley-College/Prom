@@ -6,7 +6,7 @@ import NextLink from 'next/link';
 const Footer: React.FC = () => (
   <Flex direction="row" px="5vw" py={3} alignItems="center" bgGradient="linear(to-b,gray.100,gray.300)">
     <Box w="40vw">
-      Developers/Thanks: Nick, Jamie, Dalu, John, Dustin, Roch, Adam, Josh Heng
+      Developers/Thanks: Jamie, Dalu, John, Dustin, Roch, Adam, Josh Heng, Joe Banks
     </Box>
     <Spacer />
     <Box w="10vw" color="gray.200">
